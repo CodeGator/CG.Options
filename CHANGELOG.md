@@ -7,3 +7,7 @@
 
 * I dropped support for .NET 4.61
 
+* I added the crypto stuff back in again
+
+
+

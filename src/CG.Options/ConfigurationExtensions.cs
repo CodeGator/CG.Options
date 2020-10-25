@@ -62,12 +62,16 @@ namespace Microsoft.Extensions.Configuration
                         new object[0]
                         );
 
-                    // Protect any properties for the object.
-                    configuration.EncryptProperties(
-                        obj,
-                        dataProtectionScope,
-                        entropy
-                        );
+                    // Check for missing references first ...
+                    if (null != obj)
+                    {
+                        // Protect any properties for the object.
+                        configuration.EncryptProperties(
+                            obj,
+                            dataProtectionScope,
+                            entropy
+                            );
+                    }                    
                 }
                 catch (Exception ex)
                 {
@@ -107,34 +111,38 @@ namespace Microsoft.Extensions.Configuration
                             options, new object[0]
                             ) as string;
 
-                        // Convert the unencrypted value to bytes.
-                        var unprotectedBytes = Encoding.UTF8.GetBytes(
-                            unprotectedPropertyValue
-                            );
-
-                        // Should we supply default entropy?
-                        if (null == entropy || entropy.Length == 0)
+                        // Check for empty strings first ...
+                        if (false == string.IsNullOrEmpty(unprotectedPropertyValue))
                         {
-                            entropy = new byte[] { 12, 48, 8, 20 };
+                            // Convert the unencrypted value to bytes.
+                            var unprotectedBytes = Encoding.UTF8.GetBytes(
+                                unprotectedPropertyValue
+                                );
+
+                            // Should we supply default entropy?
+                            if (null == entropy || entropy.Length == 0)
+                            {
+                                entropy = new byte[] { 12, 48, 8, 20 };
+                            }
+
+                            // Protect the bytes.
+                            var protectedBytes = ProtectedData.Protect(
+                                unprotectedBytes,
+                                entropy,
+                                dataProtectionScope
+                                );
+
+                            // Convert the bytes back to a string.
+                            var protectedPropertyValue = Convert.ToBase64String(
+                                protectedBytes
+                                );
+
+                            // Write the protected/encoded string to the original property.
+                            prop.GetSetMethod().Invoke(
+                                options,
+                                new[] { protectedPropertyValue }
+                                );
                         }
-
-                        // Protect the bytes.
-                        var protectedBytes = ProtectedData.Protect(
-                            unprotectedBytes,
-                            entropy,
-                            dataProtectionScope
-                            );
-
-                        // Convert the bytes back to a string.
-                        var protectedPropertyValue = Convert.ToBase64String(
-                            protectedBytes
-                            );
-
-                        // Write the protected/encoded string to the original property.
-                        prop.GetSetMethod().Invoke(
-                            options,
-                            new[] { protectedPropertyValue }
-                            );
                     }
                 }
                 catch (Exception ex)
@@ -200,12 +208,16 @@ namespace Microsoft.Extensions.Configuration
                         new object[0]
                         );
 
-                    // Unprotect any properties for the object.
-                    configuration.DecryptProperties(
-                        obj,
-                        dataProtectionScope,
-                        entropy
-                        );
+                    // Check for missing references first ...
+                    if (null != obj)
+                    {
+                        // Unprotect any properties for the object.
+                        configuration.DecryptProperties(
+                            obj,
+                            dataProtectionScope,
+                            entropy
+                            );
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -245,34 +257,38 @@ namespace Microsoft.Extensions.Configuration
                             options, new object[0]
                             ) as string;
 
-                        // Convert the encrypted value to bytes.
-                        var encryptedBytes = Convert.FromBase64String(
-                            encryptedPropertyValue
-                            );
-
-                        // Should we supply default entropy?
-                        if (null == entropy || entropy.Length == 0)
+                        // Check for empty strings first ...
+                        if (!string.IsNullOrEmpty(encryptedPropertyValue))
                         {
-                            entropy = new byte[] { 12, 48, 8, 20 };
+                            // Convert the encrypted value to bytes.
+                            var encryptedBytes = Convert.FromBase64String(
+                                encryptedPropertyValue
+                                );
+
+                            // Should we supply default entropy?
+                            if (null == entropy || entropy.Length == 0)
+                            {
+                                entropy = new byte[] { 12, 48, 8, 20 };
+                            }
+
+                            // Unprotect the bytes.
+                            var unprotectedBytes = ProtectedData.Unprotect(
+                                encryptedBytes,
+                                entropy,
+                                dataProtectionScope
+                                );
+
+                            // Convert the bytes back to a (non-encoded) string.
+                            var unprotectedPropertyValue = Encoding.UTF8.GetString(
+                                unprotectedBytes
+                                );
+
+                            // Write the unprotected string to the original property.
+                            prop.GetSetMethod().Invoke(
+                                options,
+                                new[] { unprotectedPropertyValue }
+                                );
                         }
-
-                        // Unprotect the bytes.
-                        var unprotectedBytes = ProtectedData.Unprotect(
-                            encryptedBytes,
-                            entropy,
-                            dataProtectionScope
-                            );
-
-                        // Convert the bytes back to a (non-encoded) string.
-                        var unprotectedPropertyValue = Encoding.UTF8.GetString(
-                            unprotectedBytes
-                            );
-
-                        // Write the unprotected string to the original property.
-                        prop.GetSetMethod().Invoke(
-                            options,
-                            new[] { unprotectedPropertyValue }
-                            );
                     }
                 }
                 catch (Exception ex)
