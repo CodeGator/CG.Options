@@ -127,9 +127,9 @@ type.</p>
   <a id="Microsoft_Extensions_Configuration_ConfigurationExtensions_DecryptProperties_" data-uid="Microsoft.Extensions.Configuration.ConfigurationExtensions.DecryptProperties*"></a>
   <h4 id="Microsoft_Extensions_Configuration_ConfigurationExtensions_DecryptProperties__1_Microsoft_Extensions_Configuration_IConfiguration___0_System_Security_Cryptography_DataProtectionScope_System_Byte___" data-uid="Microsoft.Extensions.Configuration.ConfigurationExtensions.DecryptProperties``1(Microsoft.Extensions.Configuration.IConfiguration,``0,System.Security.Cryptography.DataProtectionScope,System.Byte[])">DecryptProperties&lt;T&gt;(IConfiguration, T, DataProtectionScope, Byte[])</h4>
   <div class="markdown level1 summary"><p>This method decrypts the value of any properties on the specified
-options object that are decorated with a <a class="xref" href="CG.Options.ProtectedPropertyAttribute.html">ProtectedPropertyAttribute</a>
-attribute. The underlying configuration isn't modified, just the
-options object itself.</p>
+<code data-dev-comment-type="typeparamref" class="typeparamref">T</code> object that: (1) are decorated with a
+<a class="xref" href="CG.Options.ProtectedPropertyAttribute.html">ProtectedPropertyAttribute</a> attribute, and (2) are of
+type: string.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -208,12 +208,58 @@ default(T) otherwise.</p>
       </tr>
     </tbody>
   </table>
+  <h5 id="Microsoft_Extensions_Configuration_ConfigurationExtensions_DecryptProperties__1_Microsoft_Extensions_Configuration_IConfiguration___0_System_Security_Cryptography_DataProtectionScope_System_Byte____remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+This method only works with public properties of type string that are
+decorated with the <a class="xref" href="CG.Options.ProtectedPropertyAttribute.html">ProtectedPropertyAttribute</a> attribute. 
+</p>
+<p>
+The underlying configuration source(s) are not modified by this method. 
+Only the data in the <code data-dev-comment-type="typeparamref" class="typeparamref">T</code> object instance is modified.
+</p>
+</div>
+  <h5 id="Microsoft_Extensions_Configuration_ConfigurationExtensions_DecryptProperties__1_Microsoft_Extensions_Configuration_IConfiguration___0_System_Security_Cryptography_DataProtectionScope_System_Byte____examples">Examples</h5>
+  <p>This example demostrates a typical use of the <a class="xref" href="Microsoft.Extensions.Configuration.ConfigurationExtensions.html#Microsoft_Extensions_Configuration_ConfigurationExtensions_DecryptProperties__1_Microsoft_Extensions_Configuration_IConfiguration___0_System_Security_Cryptography_DataProtectionScope_System_Byte___">DecryptProperties&lt;T&gt;(IConfiguration, T, DataProtectionScope, Byte[])</a>
+method:</p>
+<pre><code>public void ConfigureServices(IServiceCollection services)
+{
+    var options = new MyOptions();
+    Configuration.Bind(options);
+
+    Configuration.DecryptProperties{MyOptions}(options);
+
+    // Decorated properties on MyOptions are now decrypted.
+}</code></pre>
+
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentException</span></td>
+        <td><p>This exception is thrown whenever
+one or more of the required parameters is missing or invalid.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.InvalidOperationException</span></td>
+        <td><p>This exception is thrown whenever
+the underlying cryptography operation fails, for any reason.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <a id="Microsoft_Extensions_Configuration_ConfigurationExtensions_EncryptProperties_" data-uid="Microsoft.Extensions.Configuration.ConfigurationExtensions.EncryptProperties*"></a>
   <h4 id="Microsoft_Extensions_Configuration_ConfigurationExtensions_EncryptProperties__1_Microsoft_Extensions_Configuration_IConfiguration___0_System_Security_Cryptography_DataProtectionScope_System_Byte___" data-uid="Microsoft.Extensions.Configuration.ConfigurationExtensions.EncryptProperties``1(Microsoft.Extensions.Configuration.IConfiguration,``0,System.Security.Cryptography.DataProtectionScope,System.Byte[])">EncryptProperties&lt;T&gt;(IConfiguration, T, DataProtectionScope, Byte[])</h4>
   <div class="markdown level1 summary"><p>This method encrypts the value of any properties on the specified
-options object that are decorated with a <a class="xref" href="CG.Options.ProtectedPropertyAttribute.html">ProtectedPropertyAttribute</a>
-attribute. The underlying configuration itself isn't modified, just
-the options object itself.</p>
+<code data-dev-comment-type="typeparamref" class="typeparamref">T</code> object that are: (1) decorated with a
+<a class="xref" href="CG.Options.ProtectedPropertyAttribute.html">ProtectedPropertyAttribute</a> attribute, and (2) are of
+type: string.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -287,6 +333,52 @@ operation.</p>
       <tr>
         <td><span class="parametername">T</span></td>
         <td><p>The type of associated options object.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Microsoft_Extensions_Configuration_ConfigurationExtensions_EncryptProperties__1_Microsoft_Extensions_Configuration_IConfiguration___0_System_Security_Cryptography_DataProtectionScope_System_Byte____remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+This method only works with public properties of type string that are
+decorated with the <a class="xref" href="CG.Options.ProtectedPropertyAttribute.html">ProtectedPropertyAttribute</a> attribute. 
+</p>
+<p>
+The underlying configuration source(s) are not modified by this method. 
+Only the data in the <code data-dev-comment-type="typeparamref" class="typeparamref">T</code> object instance is modified.
+</p>
+</div>
+  <h5 id="Microsoft_Extensions_Configuration_ConfigurationExtensions_EncryptProperties__1_Microsoft_Extensions_Configuration_IConfiguration___0_System_Security_Cryptography_DataProtectionScope_System_Byte____examples">Examples</h5>
+  <p>This example demostrates a typical use of the <a class="xref" href="Microsoft.Extensions.Configuration.ConfigurationExtensions.html#Microsoft_Extensions_Configuration_ConfigurationExtensions_EncryptProperties__1_Microsoft_Extensions_Configuration_IConfiguration___0_System_Security_Cryptography_DataProtectionScope_System_Byte___">EncryptProperties&lt;T&gt;(IConfiguration, T, DataProtectionScope, Byte[])</a>
+method:</p>
+<pre><code>public void ConfigureServices(IServiceCollection services)
+{
+    var options = new MyOptions();
+    Configuration.Bind(options);
+
+    Configuration.EncryptProperties{MyOptions}(options);
+
+    // Decorated properties on MyOptions are now encrypted.
+}</code></pre>
+
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentException</span></td>
+        <td><p>This exception is thrown whenever
+one or more of the required parameters is missing or invalid.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.InvalidOperationException</span></td>
+        <td><p>This exception is thrown whenever
+the underlying cryptography operation fails, for any reason.</p>
 </td>
       </tr>
     </tbody>

@@ -19,6 +19,19 @@ references:
   commentId: T:CG.Options.ProtectedPropertyAttribute
   fullName: CG.Options.ProtectedPropertyAttribute
   nameWithType: ProtectedPropertyAttribute
+- uid: CG.Options.ProtectedPropertyAttribute.Entropy
+  name: Entropy
+  href: api/CG.Options.ProtectedPropertyAttribute.html#CG_Options_ProtectedPropertyAttribute_Entropy
+  commentId: P:CG.Options.ProtectedPropertyAttribute.Entropy
+  fullName: CG.Options.ProtectedPropertyAttribute.Entropy
+  nameWithType: ProtectedPropertyAttribute.Entropy
+- uid: CG.Options.ProtectedPropertyAttribute.Entropy*
+  name: Entropy
+  href: api/CG.Options.ProtectedPropertyAttribute.html#CG_Options_ProtectedPropertyAttribute_Entropy_
+  commentId: Overload:CG.Options.ProtectedPropertyAttribute.Entropy
+  isSpec: "True"
+  fullName: CG.Options.ProtectedPropertyAttribute.Entropy
+  nameWithType: ProtectedPropertyAttribute.Entropy
 - uid: Microsoft.Extensions.Configuration
   name: Microsoft.Extensions.Configuration
   href: api/Microsoft.Extensions.Configuration.html

@@ -194,6 +194,26 @@ for chaining calls together.</p>
       </tr>
     </tbody>
   </table>
+  <h5 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_Configure__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfiguration__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+In addition to registering the <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code> object as 
+a service, this method also decrypts any properties on the <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code>
+object that are decorated with a <a class="xref" href="CG.Options.ProtectedPropertyAttribute.html">ProtectedPropertyAttribute</a>
+attribute. It also validates the <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code> object after
+the binding and decryption steps are performed. All of this means that after
+the call to <a class="xref" href="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigure__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfiguration_">TryConfigure&lt;TOptions&gt;(IServiceCollection, IConfiguration)</a>
+is over, the DI container will contain a singleton <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code>
+instance whose properties are decrypted and validated.
+</p>
+</div>
+  <h5 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_Configure__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfiguration__examples">Examples</h5>
+  <p>This example demostrates a typical use of the <a class="xref" href="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigure__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfiguration_">TryConfigure&lt;TOptions&gt;(IServiceCollection, IConfiguration)</a>
+method:</p>
+<pre><code>public void ConfigureServices(IServiceCollection services)
+{
+    services.Configure{MyOptions}(Configuration);
+}</code></pre>
+
   <h5 class="exceptions">Exceptions</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
@@ -204,9 +224,16 @@ for chaining calls together.</p>
     </thead>
     <tbody>
       <tr>
+        <td><span class="xref">System.ArgumentException</span></td>
+        <td><p>This exception is thrown whenever
+one or more of the required parameters is missing or invalid.</p>
+</td>
+      </tr>
+      <tr>
         <td><span class="xref">System.ComponentModel.DataAnnotations.ValidationException</span></td>
-        <td><p>This exception is thrown if the options
-fail validation after the binding operation.</p>
+        <td><p>This exception is thrown whenever
+the <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code> object fails to validate properly
+after the bind operation.</p>
 </td>
       </tr>
     </tbody>
@@ -289,6 +316,26 @@ for chaining calls together.</p>
       </tr>
     </tbody>
   </table>
+  <h5 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_Configure__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfiguration___0___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+In addition to registering the <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code> object as 
+a service, this method also decrypts any properties on the <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code>
+object that are decorated with a <a class="xref" href="CG.Options.ProtectedPropertyAttribute.html">ProtectedPropertyAttribute</a>
+attribute. It also validates the <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code> object after
+the binding and decryption steps are performed. All of this means that after
+the call to <a class="xref" href="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigure__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfiguration_">TryConfigure&lt;TOptions&gt;(IServiceCollection, IConfiguration)</a>
+is over, the DI container will contain a singleton <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code>
+instance whose properties are decrypted and validated.
+</p>
+</div>
+  <h5 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_Configure__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfiguration___0___examples">Examples</h5>
+  <p>This example demostrates a typical use of the <a class="xref" href="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigure__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfiguration_">TryConfigure&lt;TOptions&gt;(IServiceCollection, IConfiguration)</a>
+method:</p>
+<pre><code>public void ConfigureServices(IServiceCollection services)
+{
+    services.Configure{MyOptions}(Configuration, out var options);
+}</code></pre>
+
   <h5 class="exceptions">Exceptions</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
@@ -299,9 +346,16 @@ for chaining calls together.</p>
     </thead>
     <tbody>
       <tr>
+        <td><span class="xref">System.ArgumentException</span></td>
+        <td><p>This exception is thrown whenever
+one or more of the required parameters is missing or invalid.</p>
+</td>
+      </tr>
+      <tr>
         <td><span class="xref">System.ComponentModel.DataAnnotations.ValidationException</span></td>
-        <td><p>This exception is thrown if the options
-fail validation after the binding operation.</p>
+        <td><p>This exception is thrown whenever
+the <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code> object fails to validate properly
+after the bind operation.</p>
 </td>
       </tr>
     </tbody>
@@ -309,9 +363,7 @@ fail validation after the binding operation.</p>
   <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigure_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigure*"></a>
   <h4 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigure__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfiguration_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigure``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">TryConfigure&lt;TOptions&gt;(IServiceCollection, IConfiguration)</h4>
   <div class="markdown level1 summary"><p>This method attempts to configure the specified options as a
-singleton service with the specified service collection. The options
-are validated and if the results are not valid it returns false;
-otherwise it returns true.</p>
+singleton service.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -376,13 +428,47 @@ operation.</p>
       </tr>
     </tbody>
   </table>
+  <h5 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigure__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfiguration__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+In addition to registering the <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code> object as 
+a service, this method also decrypts any properties on the <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code>
+object that are decorated with a <a class="xref" href="CG.Options.ProtectedPropertyAttribute.html">ProtectedPropertyAttribute</a>
+attribute. It also validates the <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code> object after
+the binding and decryption steps are performed. All of this means that after
+the call to <a class="xref" href="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigure__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfiguration_">TryConfigure&lt;TOptions&gt;(IServiceCollection, IConfiguration)</a>
+is over, the DI container will contain a singleton <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code>
+instance whose properties are decrypted and validated.
+</p>
+</div>
+  <h5 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigure__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfiguration__examples">Examples</h5>
+  <p>This example demostrates a typical use of the <a class="xref" href="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigure__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfiguration_">TryConfigure&lt;TOptions&gt;(IServiceCollection, IConfiguration)</a>
+method:</p>
+<pre><code>public void ConfigureServices(IServiceCollection services)
+{
+    services.TryConfigure{MyOptions}(Configuration);
+}</code></pre>
+
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentException</span></td>
+        <td><p>This exception is thrown whenever
+one or more of the required parameters is missing or invalid.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigure_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigure*"></a>
   <h4 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigure__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfiguration___0__" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigure``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration,``0@)">TryConfigure&lt;TOptions&gt;(IServiceCollection, IConfiguration, out TOptions)</h4>
   <div class="markdown level1 summary"><p>This method attempts to configure the specified options as a
-singleton service with the specified service collection. The options
-are validated and if the results are not valid it returns false;
-otherwise it returns true. The validated options are returned in
-the <code data-dev-comment-type="paramref" class="paramref">options</code> parameter.</p>
+singleton service.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -449,6 +535,43 @@ operation.</p>
       <tr>
         <td><span class="parametername">TOptions</span></td>
         <td><p>The type of associated options.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigure__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfiguration___0___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+In addition to registering the <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code> object as 
+a service, this method also decrypts any properties on the <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code>
+object that are decorated with a <a class="xref" href="CG.Options.ProtectedPropertyAttribute.html">ProtectedPropertyAttribute</a>
+attribute. It also validates the <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code> object after
+the binding and decryption steps are performed. All of this means that after
+the call to <a class="xref" href="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigure__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfiguration_">TryConfigure&lt;TOptions&gt;(IServiceCollection, IConfiguration)</a>
+is over, the DI container will contain a singleton <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code>
+instance whose properties are decrypted and validated.
+</p>
+</div>
+  <h5 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigure__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfiguration___0___examples">Examples</h5>
+  <p>This example demostrates a typical use of the <a class="xref" href="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigure__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfiguration_">TryConfigure&lt;TOptions&gt;(IServiceCollection, IConfiguration)</a>
+method:</p>
+<pre><code>public void ConfigureServices(IServiceCollection services)
+{
+    services.TryConfigure{MyOptions}(Configuration, out var options);
+}</code></pre>
+
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentException</span></td>
+        <td><p>This exception is thrown whenever
+one or more of the required parameters is missing or invalid.</p>
 </td>
       </tr>
     </tbody>
