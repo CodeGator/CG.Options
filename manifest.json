@@ -26,11 +26,47 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/CG.Options.ProtectedPropertyAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CG.Options.ProtectedPropertyAttribute.html",
+          "hash": "W3iROoMUHQNSa9hH+HElTg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/CG.Options.yml",
       "output": {
         ".html": {
           "relative_path": "api/CG.Options.html",
-          "hash": "E2rNDmvM4z2oBcXn1zq6IA=="
+          "hash": "1R8FZeq2wz9WqYNJElsXaQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Microsoft.Extensions.Configuration.ConfigurationExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Microsoft.Extensions.Configuration.ConfigurationExtensions.html",
+          "hash": "pLj1jZBsX+VdOUnx+a6Eaw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Microsoft.Extensions.Configuration.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Microsoft.Extensions.Configuration.html",
+          "hash": "Zq/zgnHNJRLVAA8QM0GC1Q=="
         }
       },
       "is_incremental": false,
@@ -66,7 +102,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "HAfYqWdDVkupI5cBQV6hsw=="
+          "hash": "tMnRoGxRcZdZQttazbR6lQ=="
         }
       },
       "is_incremental": false,
@@ -185,7 +221,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 4,
+          "total_file_count": 7,
           "skipped_file_count": 0
         },
         "ResourceDocumentProcessor": {
