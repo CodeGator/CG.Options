@@ -42,9 +42,12 @@ namespace CG.Options.QuickStart
             // This call binds the options to the configuration, decrypts any
             //   properties marked as protected, validates the results, then
             //   registers the options as a service with the DI container.
-            services.TryConfigure<MyOptions>(cfg);
+            var result = services.TryConfigure<MyOptions>(cfg);
 
             // Let's verify that ...
+
+            // TODO : look at the 'result' variable in the debugger, verify that
+            //   it contains true.
 
             // We'll need the service provider ...
             var provider = services.BuildServiceProvider();
@@ -61,7 +64,8 @@ namespace CG.Options.QuickStart
             //   means we can't encrypt on our machine and have it decrypt on yours. You'll
             //   have to encrypt the value on your machine.]
             // (2) try removing the value for the 'B' property, in options, then verify that
-            //   an exception is thrown when the options detect the missing value.
+            //   the 'TryConfigure' method returns false - due to that missing property, which
+            //   we have decorated with the RequiredAttribute.
 
             // Also, if you aren't using dependency injection, or you otherwise need 
             //   direct access to our underling encryption/decryption extension methods ...

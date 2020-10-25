@@ -22,9 +22,9 @@ namespace Microsoft.Extensions.Configuration
 
         /// <summary>
         /// This method encrypts the value of any properties on the specified 
-        /// options object that are decorated with a <see cref="ProtectedPropertyAttribute"/> 
-        /// attribute. The underlying configuration itself isn't modified, just 
-        /// the options object itself.
+        /// <typeparamref name="T"/> object that are: (1) decorated with a 
+        /// <see cref="ProtectedPropertyAttribute"/> attribute, and (2) are of
+        /// type: string. 
         /// </summary>
         /// <typeparam name="T">The type of associated options object.</typeparam>
         /// <param name="configuration">The configuration object to use for the 
@@ -34,6 +34,35 @@ namespace Microsoft.Extensions.Configuration
         /// <param name="options">The options object to use for the operation.</param>
         /// <param name="entropy">Optional entropy bytes to use for the operation.</param>
         /// <returns>The value of the <paramref name="configuration"/></returns>
+        /// <exception cref="ArgumentException">This exception is thrown whenever
+        /// one or more of the required parameters is missing or invalid.</exception>
+        /// <exception cref="InvalidOperationException">This exception is thrown whenever
+        /// the underlying cryptography operation fails, for any reason.</exception>
+        /// <remarks>
+        /// <para>
+        /// This method only works with public properties of type string that are
+        /// decorated with the <see cref="ProtectedPropertyAttribute"/> attribute. 
+        /// </para>
+        /// <para>
+        /// The underlying configuration source(s) are not modified by this method. 
+        /// Only the data in the <typeparamref name="T"/> object instance is modified.
+        /// </para>
+        /// </remarks>
+        /// <example>
+        /// This example demostrates a typical use of the <see cref="EncryptProperties{T}(IConfiguration, T, DataProtectionScope, byte[])"/>
+        /// method:
+        /// <code>
+        /// public void ConfigureServices(IServiceCollection services)
+        /// {
+        ///     var options = new MyOptions();
+        ///     Configuration.Bind(options);
+        ///     
+        ///     Configuration.EncryptProperties{MyOptions}(options);
+        ///     
+        ///     // Decorated properties on MyOptions are now encrypted.
+        /// }
+        /// </code>
+        /// </example>
         public static IConfiguration EncryptProperties<T>(
             this IConfiguration configuration,
             T options,
@@ -100,10 +129,11 @@ namespace Microsoft.Extensions.Configuration
                     // Look for a custom attribute on the property.
                     var attr = prop.GetCustomAttributes(
                         true
-                        ).OfType<ProtectedPropertyAttribute>();
+                        ).OfType<ProtectedPropertyAttribute>()
+                         .FirstOrDefault();
 
                     // Did we find one?
-                    if (null != attr && attr.Any())
+                    if (null != attr)
                     {
                         // If we get here then we should try to protect the value
                         //   of the property.
@@ -119,10 +149,20 @@ namespace Microsoft.Extensions.Configuration
                                 unprotectedPropertyValue
                                 );
 
-                            // Should we supply default entropy?
+                            // Should we try to come up with entropy bytes?
                             if (null == entropy || entropy.Length == 0)
                             {
-                                entropy = new byte[] { 12, 48, 8, 20 };
+                                // Look for entropy on the attribute.
+                                if (attr.Entropy != null)
+                                {
+                                    // Use the specified entropy.
+                                    entropy = attr.Entropy;
+                                }
+                                else
+                                {
+                                    // Use default entropy.
+                                    entropy = new byte[] { 12, 48, 8, 20 };
+                                }
                             }
 
                             // Protect the bytes.
@@ -167,9 +207,9 @@ namespace Microsoft.Extensions.Configuration
 
         /// <summary>
         /// This method decrypts the value of any properties on the specified 
-        /// options object that are decorated with a <see cref="ProtectedPropertyAttribute"/> 
-        /// attribute. The underlying configuration isn't modified, just the 
-        /// options object itself.
+        /// <typeparamref name="T"/> object that: (1) are decorated with a 
+        /// <see cref="ProtectedPropertyAttribute"/> attribute, and (2) are of
+        /// type: string.
         /// </summary>
         /// <typeparam name="T">The type of associated options object.</typeparam>
         /// <param name="configuration">The configuration object to use for 
@@ -180,6 +220,35 @@ namespace Microsoft.Extensions.Configuration
         /// <param name="entropy">Optional entropy bytes to use for the operation.</param>
         /// <returns>A new instance of <typeparamref name="T"/> if successful; 
         /// default(T) otherwise.</returns>
+        /// <exception cref="ArgumentException">This exception is thrown whenever
+        /// one or more of the required parameters is missing or invalid.</exception>
+        /// <exception cref="InvalidOperationException">This exception is thrown whenever
+        /// the underlying cryptography operation fails, for any reason.</exception>
+        /// <remarks>
+        /// <para>
+        /// This method only works with public properties of type string that are
+        /// decorated with the <see cref="ProtectedPropertyAttribute"/> attribute. 
+        /// </para>
+        /// <para>
+        /// The underlying configuration source(s) are not modified by this method. 
+        /// Only the data in the <typeparamref name="T"/> object instance is modified.
+        /// </para>
+        /// </remarks>
+        /// <example>
+        /// This example demostrates a typical use of the <see cref="DecryptProperties{T}(IConfiguration, T, DataProtectionScope, byte[])"/>
+        /// method:
+        /// <code>
+        /// public void ConfigureServices(IServiceCollection services)
+        /// {
+        ///     var options = new MyOptions();
+        ///     Configuration.Bind(options);
+        ///     
+        ///     Configuration.DecryptProperties{MyOptions}(options);
+        ///     
+        ///     // Decorated properties on MyOptions are now decrypted.
+        /// }
+        /// </code>
+        /// </example>
         public static IConfiguration DecryptProperties<T>(
             this IConfiguration configuration,
             T options,
@@ -246,10 +315,11 @@ namespace Microsoft.Extensions.Configuration
                     // Look for a custom attribute on the property.
                     var attr = prop.GetCustomAttributes(
                         true
-                        ).OfType<ProtectedPropertyAttribute>();
+                        ).OfType<ProtectedPropertyAttribute>()
+                         .FirstOrDefault();
 
                     // Did we find one?
-                    if (null != attr && attr.Any())
+                    if (null != attr)
                     {
                         // If we get here then we should try to unprotect the value
                         //   of the property.
@@ -265,10 +335,20 @@ namespace Microsoft.Extensions.Configuration
                                 encryptedPropertyValue
                                 );
 
-                            // Should we supply default entropy?
+                            // Should we try to come up with entropy bytes?
                             if (null == entropy || entropy.Length == 0)
                             {
-                                entropy = new byte[] { 12, 48, 8, 20 };
+                                // Look for entropy on the attribute.
+                                if (attr.Entropy != null)
+                                {
+                                    // Use the specified entropy.
+                                    entropy = attr.Entropy;
+                                }
+                                else
+                                {
+                                    // Use default entropy.
+                                    entropy = new byte[] { 12, 48, 8, 20 };
+                                }
                             }
 
                             // Unprotect the bytes.

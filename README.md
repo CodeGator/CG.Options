@@ -11,6 +11,8 @@ The package defines option extensions used by other CodeGator packages.
 #### Commonly used types:
 * CG.Options.OptionsBase
 * Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions
+* Microsoft.Extensions.Configuration.ConfigurationExtensions
+* CG.Options.ProtectedPropertyAttribute
 
 
 #### What platform(s) does it support?

@@ -4,6 +4,7 @@ using CG.Validations;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Options;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace Microsoft.Extensions.DependencyInjection
@@ -22,15 +23,37 @@ namespace Microsoft.Extensions.DependencyInjection
 
         /// <summary>
         /// This method attempts to configure the specified options as a 
-        /// singleton service with the specified service collection. The options
-        /// are validated and if the results are not valid it returns false;
-        /// otherwise it returns true.
+        /// singleton service. 
         /// </summary>
         /// <typeparam name="TOptions">The type of associated options.</typeparam>
         /// <param name="serviceCollection">The service collection to use for the 
         /// operation.</param>
         /// <param name="configuration">The configuration to use for the operation.</param>
         /// <returns>True if the options were configured; false otherwise.</returns>
+        /// <exception cref="ArgumentException">This exception is thrown whenever
+        /// one or more of the required parameters is missing or invalid.</exception>
+        /// <remarks>
+        /// <para>
+        /// In addition to registering the <typeparamref name="TOptions"/> object as 
+        /// a service, this method also decrypts any properties on the <typeparamref name="TOptions"/>
+        /// object that are decorated with a <see cref="ProtectedPropertyAttribute"/>
+        /// attribute. It also validates the <typeparamref name="TOptions"/> object after
+        /// the binding and decryption steps are performed. All of this means that after
+        /// the call to <see cref="TryConfigure{TOptions}(IServiceCollection, IConfiguration)"/>
+        /// is over, the DI container will contain a singleton <typeparamref name="TOptions"/>
+        /// instance whose properties are decrypted and validated.
+        /// </para>
+        /// </remarks>
+        /// <example>
+        /// This example demostrates a typical use of the <see cref="TryConfigure{TOptions}(IServiceCollection, IConfiguration)"/>
+        /// method:
+        /// <code>
+        /// public void ConfigureServices(IServiceCollection services)
+        /// {
+        ///     services.TryConfigure{MyOptions}(Configuration);
+        /// }
+        /// </code>
+        /// </example>
         public static bool TryConfigure<TOptions>(
             this IServiceCollection serviceCollection,
             IConfiguration configuration
@@ -73,10 +96,7 @@ namespace Microsoft.Extensions.DependencyInjection
 
         /// <summary>
         /// This method attempts to configure the specified options as a 
-        /// singleton service with the specified service collection. The options
-        /// are validated and if the results are not valid it returns false;
-        /// otherwise it returns true. The validated options are returned in 
-        /// the <paramref name="options"/> parameter.
+        /// singleton service. 
         /// </summary>
         /// <typeparam name="TOptions">The type of associated options.</typeparam>
         /// <param name="serviceCollection">The service collection to use for the 
@@ -84,6 +104,30 @@ namespace Microsoft.Extensions.DependencyInjection
         /// <param name="configuration">The configuration to use for the operation.</param>
         /// <param name="options">The options that were created by the operation.</param>
         /// <returns>True if the options were configured; false otherwise.</returns>
+        /// <exception cref="ArgumentException">This exception is thrown whenever
+        /// one or more of the required parameters is missing or invalid.</exception>
+        /// <remarks>
+        /// <para>
+        /// In addition to registering the <typeparamref name="TOptions"/> object as 
+        /// a service, this method also decrypts any properties on the <typeparamref name="TOptions"/>
+        /// object that are decorated with a <see cref="ProtectedPropertyAttribute"/>
+        /// attribute. It also validates the <typeparamref name="TOptions"/> object after
+        /// the binding and decryption steps are performed. All of this means that after
+        /// the call to <see cref="TryConfigure{TOptions}(IServiceCollection, IConfiguration)"/>
+        /// is over, the DI container will contain a singleton <typeparamref name="TOptions"/>
+        /// instance whose properties are decrypted and validated.
+        /// </para>
+        /// </remarks>
+        /// <example>
+        /// This example demostrates a typical use of the <see cref="TryConfigure{TOptions}(IServiceCollection, IConfiguration)"/>
+        /// method:
+        /// <code>
+        /// public void ConfigureServices(IServiceCollection services)
+        /// {
+        ///     services.TryConfigure{MyOptions}(Configuration, out var options);
+        /// }
+        /// </code>
+        /// </example>
         public static bool TryConfigure<TOptions>(
             this IServiceCollection serviceCollection,
             IConfiguration configuration,
@@ -136,8 +180,33 @@ namespace Microsoft.Extensions.DependencyInjection
         /// <param name="configuration">The configuration to use for the operation.</param>
         /// <returns>The value of the <paramref name="serviceCollection"/> parameter,
         /// for chaining calls together.</returns>
-        /// <exception cref="ValidationException">This exception is thrown if the options
-        /// fail validation after the binding operation.</exception>
+        /// <exception cref="ArgumentException">This exception is thrown whenever
+        /// one or more of the required parameters is missing or invalid.</exception>
+        /// <exception cref="ValidationException">This exception is thrown whenever
+        /// the <typeparamref name="TOptions"/> object fails to validate properly
+        /// after the bind operation.</exception>
+        /// <remarks>
+        /// <para>
+        /// In addition to registering the <typeparamref name="TOptions"/> object as 
+        /// a service, this method also decrypts any properties on the <typeparamref name="TOptions"/>
+        /// object that are decorated with a <see cref="ProtectedPropertyAttribute"/>
+        /// attribute. It also validates the <typeparamref name="TOptions"/> object after
+        /// the binding and decryption steps are performed. All of this means that after
+        /// the call to <see cref="TryConfigure{TOptions}(IServiceCollection, IConfiguration)"/>
+        /// is over, the DI container will contain a singleton <typeparamref name="TOptions"/>
+        /// instance whose properties are decrypted and validated.
+        /// </para>
+        /// </remarks>
+        /// <example>
+        /// This example demostrates a typical use of the <see cref="TryConfigure{TOptions}(IServiceCollection, IConfiguration)"/>
+        /// method:
+        /// <code>
+        /// public void ConfigureServices(IServiceCollection services)
+        /// {
+        ///     services.Configure{MyOptions}(Configuration);
+        /// }
+        /// </code>
+        /// </example>
         public static IServiceCollection Configure<TOptions>(
             this IServiceCollection serviceCollection,
             IConfiguration configuration
@@ -184,8 +253,33 @@ namespace Microsoft.Extensions.DependencyInjection
         /// <param name="options">The bound and validated options instance.</param>
         /// <returns>The value of the <paramref name="serviceCollection"/> parameter,
         /// for chaining calls together.</returns>
-        /// <exception cref="ValidationException">This exception is thrown if the options
-        /// fail validation after the binding operation.</exception>
+        /// <exception cref="ArgumentException">This exception is thrown whenever
+        /// one or more of the required parameters is missing or invalid.</exception>
+        /// <exception cref="ValidationException">This exception is thrown whenever
+        /// the <typeparamref name="TOptions"/> object fails to validate properly
+        /// after the bind operation.</exception>
+        /// <remarks>
+        /// <para>
+        /// In addition to registering the <typeparamref name="TOptions"/> object as 
+        /// a service, this method also decrypts any properties on the <typeparamref name="TOptions"/>
+        /// object that are decorated with a <see cref="ProtectedPropertyAttribute"/>
+        /// attribute. It also validates the <typeparamref name="TOptions"/> object after
+        /// the binding and decryption steps are performed. All of this means that after
+        /// the call to <see cref="TryConfigure{TOptions}(IServiceCollection, IConfiguration)"/>
+        /// is over, the DI container will contain a singleton <typeparamref name="TOptions"/>
+        /// instance whose properties are decrypted and validated.
+        /// </para>
+        /// </remarks>
+        /// <example>
+        /// This example demostrates a typical use of the <see cref="TryConfigure{TOptions}(IServiceCollection, IConfiguration)"/>
+        /// method:
+        /// <code>
+        /// public void ConfigureServices(IServiceCollection services)
+        /// {
+        ///     services.Configure{MyOptions}(Configuration, out var options);
+        /// }
+        /// </code>
+        /// </example>
         public static IServiceCollection Configure<TOptions>(
             this IServiceCollection serviceCollection,
             IConfiguration configuration,
