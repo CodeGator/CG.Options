@@ -46,6 +46,9 @@ namespace Microsoft.Extensions.DependencyInjection
             // Bind the options to the configuration.
             configuration.Bind(options);
 
+            // Decrypt any protected properties.
+            configuration.DecryptProperties<TOptions>(options);
+
             // Are the options verifiable?
             if (options is OptionsBase)
             {
@@ -97,6 +100,9 @@ namespace Microsoft.Extensions.DependencyInjection
             // Bind the options to the configuration.
             configuration.Bind(options);
 
+            // Decrypt any protected properties.
+            configuration.DecryptProperties<TOptions>(options);
+
             // Are the options verifiable?
             if (options is OptionsBase)
             {
@@ -147,6 +153,9 @@ namespace Microsoft.Extensions.DependencyInjection
             // Bind the options to the configuration.
             configuration.Bind(options);
 
+            // Decrypt any protected properties.
+            configuration.DecryptProperties<TOptions>(options);
+
             // Verify the result - if possible.
             (options as OptionsBase)?.ThrowIfInvalid();
 
@@ -192,6 +201,9 @@ namespace Microsoft.Extensions.DependencyInjection
 
             // Bind the options to the configuration.
             configuration.Bind(options);
+
+            // Decrypt any protected properties.
+            configuration.DecryptProperties<TOptions>(options);
 
             // Verify the result - if possible.
             (options as OptionsBase)?.ThrowIfInvalid();
