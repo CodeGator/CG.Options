@@ -44,6 +44,15 @@ references:
   commentId: T:Microsoft.Extensions.Configuration.ConfigurationExtensions
   fullName: Microsoft.Extensions.Configuration.ConfigurationExtensions
   nameWithType: ConfigurationExtensions
+- uid: Microsoft.Extensions.Configuration.ConfigurationExtensions.DecryptProperties(Microsoft.Extensions.Configuration.IConfiguration,System.Object,System.Security.Cryptography.DataProtectionScope,System.Byte[])
+  name: DecryptProperties(IConfiguration, Object, DataProtectionScope, Byte[])
+  href: api/Microsoft.Extensions.Configuration.ConfigurationExtensions.html#Microsoft_Extensions_Configuration_ConfigurationExtensions_DecryptProperties_Microsoft_Extensions_Configuration_IConfiguration_System_Object_System_Security_Cryptography_DataProtectionScope_System_Byte___
+  commentId: M:Microsoft.Extensions.Configuration.ConfigurationExtensions.DecryptProperties(Microsoft.Extensions.Configuration.IConfiguration,System.Object,System.Security.Cryptography.DataProtectionScope,System.Byte[])
+  name.vb: DecryptProperties(IConfiguration, Object, DataProtectionScope, Byte())
+  fullName: Microsoft.Extensions.Configuration.ConfigurationExtensions.DecryptProperties(Microsoft.Extensions.Configuration.IConfiguration, System.Object, System.Security.Cryptography.DataProtectionScope, System.Byte[])
+  fullName.vb: Microsoft.Extensions.Configuration.ConfigurationExtensions.DecryptProperties(Microsoft.Extensions.Configuration.IConfiguration, System.Object, System.Security.Cryptography.DataProtectionScope, System.Byte())
+  nameWithType: ConfigurationExtensions.DecryptProperties(IConfiguration, Object, DataProtectionScope, Byte[])
+  nameWithType.vb: ConfigurationExtensions.DecryptProperties(IConfiguration, Object, DataProtectionScope, Byte())
 - uid: Microsoft.Extensions.Configuration.ConfigurationExtensions.DecryptProperties*
   name: DecryptProperties
   href: api/Microsoft.Extensions.Configuration.ConfigurationExtensions.html#Microsoft_Extensions_Configuration_ConfigurationExtensions_DecryptProperties_
@@ -60,6 +69,15 @@ references:
   fullName.vb: Microsoft.Extensions.Configuration.ConfigurationExtensions.DecryptProperties(Of T)(Microsoft.Extensions.Configuration.IConfiguration, T, System.Security.Cryptography.DataProtectionScope, System.Byte())
   nameWithType: ConfigurationExtensions.DecryptProperties<T>(IConfiguration, T, DataProtectionScope, Byte[])
   nameWithType.vb: ConfigurationExtensions.DecryptProperties(Of T)(IConfiguration, T, DataProtectionScope, Byte())
+- uid: Microsoft.Extensions.Configuration.ConfigurationExtensions.EncryptProperties(Microsoft.Extensions.Configuration.IConfiguration,System.Object,System.Security.Cryptography.DataProtectionScope,System.Byte[])
+  name: EncryptProperties(IConfiguration, Object, DataProtectionScope, Byte[])
+  href: api/Microsoft.Extensions.Configuration.ConfigurationExtensions.html#Microsoft_Extensions_Configuration_ConfigurationExtensions_EncryptProperties_Microsoft_Extensions_Configuration_IConfiguration_System_Object_System_Security_Cryptography_DataProtectionScope_System_Byte___
+  commentId: M:Microsoft.Extensions.Configuration.ConfigurationExtensions.EncryptProperties(Microsoft.Extensions.Configuration.IConfiguration,System.Object,System.Security.Cryptography.DataProtectionScope,System.Byte[])
+  name.vb: EncryptProperties(IConfiguration, Object, DataProtectionScope, Byte())
+  fullName: Microsoft.Extensions.Configuration.ConfigurationExtensions.EncryptProperties(Microsoft.Extensions.Configuration.IConfiguration, System.Object, System.Security.Cryptography.DataProtectionScope, System.Byte[])
+  fullName.vb: Microsoft.Extensions.Configuration.ConfigurationExtensions.EncryptProperties(Microsoft.Extensions.Configuration.IConfiguration, System.Object, System.Security.Cryptography.DataProtectionScope, System.Byte())
+  nameWithType: ConfigurationExtensions.EncryptProperties(IConfiguration, Object, DataProtectionScope, Byte[])
+  nameWithType.vb: ConfigurationExtensions.EncryptProperties(IConfiguration, Object, DataProtectionScope, Byte())
 - uid: Microsoft.Extensions.Configuration.ConfigurationExtensions.EncryptProperties*
   name: EncryptProperties
   href: api/Microsoft.Extensions.Configuration.ConfigurationExtensions.html#Microsoft_Extensions_Configuration_ConfigurationExtensions_EncryptProperties_
