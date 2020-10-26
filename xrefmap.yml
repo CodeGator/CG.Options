@@ -13,6 +13,43 @@ references:
   commentId: T:CG.Options.OptionsBase
   fullName: CG.Options.OptionsBase
   nameWithType: OptionsBase
+- uid: CG.Options.OptionsException
+  name: OptionsException
+  href: api/CG.Options.OptionsException.html
+  commentId: T:CG.Options.OptionsException
+  fullName: CG.Options.OptionsException
+  nameWithType: OptionsException
+- uid: CG.Options.OptionsException.#ctor
+  name: OptionsException()
+  href: api/CG.Options.OptionsException.html#CG_Options_OptionsException__ctor
+  commentId: M:CG.Options.OptionsException.#ctor
+  fullName: CG.Options.OptionsException.OptionsException()
+  nameWithType: OptionsException.OptionsException()
+- uid: CG.Options.OptionsException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  name: OptionsException(SerializationInfo, StreamingContext)
+  href: api/CG.Options.OptionsException.html#CG_Options_OptionsException__ctor_System_Runtime_Serialization_SerializationInfo_System_Runtime_Serialization_StreamingContext_
+  commentId: M:CG.Options.OptionsException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  fullName: CG.Options.OptionsException.OptionsException(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)
+  nameWithType: OptionsException.OptionsException(SerializationInfo, StreamingContext)
+- uid: CG.Options.OptionsException.#ctor(System.String)
+  name: OptionsException(String)
+  href: api/CG.Options.OptionsException.html#CG_Options_OptionsException__ctor_System_String_
+  commentId: M:CG.Options.OptionsException.#ctor(System.String)
+  fullName: CG.Options.OptionsException.OptionsException(System.String)
+  nameWithType: OptionsException.OptionsException(String)
+- uid: CG.Options.OptionsException.#ctor(System.String,System.Exception)
+  name: OptionsException(String, Exception)
+  href: api/CG.Options.OptionsException.html#CG_Options_OptionsException__ctor_System_String_System_Exception_
+  commentId: M:CG.Options.OptionsException.#ctor(System.String,System.Exception)
+  fullName: CG.Options.OptionsException.OptionsException(System.String, System.Exception)
+  nameWithType: OptionsException.OptionsException(String, Exception)
+- uid: CG.Options.OptionsException.#ctor*
+  name: OptionsException
+  href: api/CG.Options.OptionsException.html#CG_Options_OptionsException__ctor_
+  commentId: Overload:CG.Options.OptionsException.#ctor
+  isSpec: "True"
+  fullName: CG.Options.OptionsException.OptionsException
+  nameWithType: OptionsException.OptionsException
 - uid: CG.Options.ProtectedPropertyAttribute
   name: ProtectedPropertyAttribute
   href: api/CG.Options.ProtectedPropertyAttribute.html
@@ -60,15 +97,6 @@ references:
   isSpec: "True"
   fullName: Microsoft.Extensions.Configuration.ConfigurationExtensions.DecryptProperties
   nameWithType: ConfigurationExtensions.DecryptProperties
-- uid: Microsoft.Extensions.Configuration.ConfigurationExtensions.DecryptProperties``1(Microsoft.Extensions.Configuration.IConfiguration,``0,System.Security.Cryptography.DataProtectionScope,System.Byte[])
-  name: DecryptProperties<T>(IConfiguration, T, DataProtectionScope, Byte[])
-  href: api/Microsoft.Extensions.Configuration.ConfigurationExtensions.html#Microsoft_Extensions_Configuration_ConfigurationExtensions_DecryptProperties__1_Microsoft_Extensions_Configuration_IConfiguration___0_System_Security_Cryptography_DataProtectionScope_System_Byte___
-  commentId: M:Microsoft.Extensions.Configuration.ConfigurationExtensions.DecryptProperties``1(Microsoft.Extensions.Configuration.IConfiguration,``0,System.Security.Cryptography.DataProtectionScope,System.Byte[])
-  name.vb: DecryptProperties(Of T)(IConfiguration, T, DataProtectionScope, Byte())
-  fullName: Microsoft.Extensions.Configuration.ConfigurationExtensions.DecryptProperties<T>(Microsoft.Extensions.Configuration.IConfiguration, T, System.Security.Cryptography.DataProtectionScope, System.Byte[])
-  fullName.vb: Microsoft.Extensions.Configuration.ConfigurationExtensions.DecryptProperties(Of T)(Microsoft.Extensions.Configuration.IConfiguration, T, System.Security.Cryptography.DataProtectionScope, System.Byte())
-  nameWithType: ConfigurationExtensions.DecryptProperties<T>(IConfiguration, T, DataProtectionScope, Byte[])
-  nameWithType.vb: ConfigurationExtensions.DecryptProperties(Of T)(IConfiguration, T, DataProtectionScope, Byte())
 - uid: Microsoft.Extensions.Configuration.ConfigurationExtensions.EncryptProperties(Microsoft.Extensions.Configuration.IConfiguration,System.Object,System.Security.Cryptography.DataProtectionScope,System.Byte[])
   name: EncryptProperties(IConfiguration, Object, DataProtectionScope, Byte[])
   href: api/Microsoft.Extensions.Configuration.ConfigurationExtensions.html#Microsoft_Extensions_Configuration_ConfigurationExtensions_EncryptProperties_Microsoft_Extensions_Configuration_IConfiguration_System_Object_System_Security_Cryptography_DataProtectionScope_System_Byte___
@@ -85,15 +113,6 @@ references:
   isSpec: "True"
   fullName: Microsoft.Extensions.Configuration.ConfigurationExtensions.EncryptProperties
   nameWithType: ConfigurationExtensions.EncryptProperties
-- uid: Microsoft.Extensions.Configuration.ConfigurationExtensions.EncryptProperties``1(Microsoft.Extensions.Configuration.IConfiguration,``0,System.Security.Cryptography.DataProtectionScope,System.Byte[])
-  name: EncryptProperties<T>(IConfiguration, T, DataProtectionScope, Byte[])
-  href: api/Microsoft.Extensions.Configuration.ConfigurationExtensions.html#Microsoft_Extensions_Configuration_ConfigurationExtensions_EncryptProperties__1_Microsoft_Extensions_Configuration_IConfiguration___0_System_Security_Cryptography_DataProtectionScope_System_Byte___
-  commentId: M:Microsoft.Extensions.Configuration.ConfigurationExtensions.EncryptProperties``1(Microsoft.Extensions.Configuration.IConfiguration,``0,System.Security.Cryptography.DataProtectionScope,System.Byte[])
-  name.vb: EncryptProperties(Of T)(IConfiguration, T, DataProtectionScope, Byte())
-  fullName: Microsoft.Extensions.Configuration.ConfigurationExtensions.EncryptProperties<T>(Microsoft.Extensions.Configuration.IConfiguration, T, System.Security.Cryptography.DataProtectionScope, System.Byte[])
-  fullName.vb: Microsoft.Extensions.Configuration.ConfigurationExtensions.EncryptProperties(Of T)(Microsoft.Extensions.Configuration.IConfiguration, T, System.Security.Cryptography.DataProtectionScope, System.Byte())
-  nameWithType: ConfigurationExtensions.EncryptProperties<T>(IConfiguration, T, DataProtectionScope, Byte[])
-  nameWithType.vb: ConfigurationExtensions.EncryptProperties(Of T)(IConfiguration, T, DataProtectionScope, Byte())
 - uid: Microsoft.Extensions.DependencyInjection
   name: Microsoft.Extensions.DependencyInjection
   href: api/Microsoft.Extensions.DependencyInjection.html
@@ -106,68 +125,53 @@ references:
   commentId: T:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions
   fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions
   nameWithType: ServiceCollectionExtensions
-- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.Configure*
-  name: Configure
-  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_Configure_
-  commentId: Overload:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.Configure
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.ConfigureOptions*
+  name: ConfigureOptions
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_ConfigureOptions_
+  commentId: Overload:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.ConfigureOptions
   isSpec: "True"
-  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.Configure
-  nameWithType: ServiceCollectionExtensions.Configure
-- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.Configure``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)
-  name: Configure<TOptions>(IServiceCollection, IConfiguration)
-  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_Configure__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfiguration_
-  commentId: M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.Configure``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)
-  name.vb: Configure(Of TOptions)(IServiceCollection, IConfiguration)
-  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.Configure<TOptions>(Microsoft.Extensions.DependencyInjection.IServiceCollection, Microsoft.Extensions.Configuration.IConfiguration)
-  fullName.vb: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.Configure(Of TOptions)(Microsoft.Extensions.DependencyInjection.IServiceCollection, Microsoft.Extensions.Configuration.IConfiguration)
-  nameWithType: ServiceCollectionExtensions.Configure<TOptions>(IServiceCollection, IConfiguration)
-  nameWithType.vb: ServiceCollectionExtensions.Configure(Of TOptions)(IServiceCollection, IConfiguration)
-- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.Configure``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration,``0@)
-  name: Configure<TOptions>(IServiceCollection, IConfiguration, out TOptions)
-  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_Configure__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfiguration___0__
-  commentId: M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.Configure``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration,``0@)
-  name.vb: Configure(Of TOptions)(IServiceCollection, IConfiguration, ByRef TOptions)
-  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.Configure<TOptions>(Microsoft.Extensions.DependencyInjection.IServiceCollection, Microsoft.Extensions.Configuration.IConfiguration, out TOptions)
-  fullName.vb: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.Configure(Of TOptions)(Microsoft.Extensions.DependencyInjection.IServiceCollection, Microsoft.Extensions.Configuration.IConfiguration, ByRef TOptions)
-  nameWithType: ServiceCollectionExtensions.Configure<TOptions>(IServiceCollection, IConfiguration, out TOptions)
-  nameWithType.vb: ServiceCollectionExtensions.Configure(Of TOptions)(IServiceCollection, IConfiguration, ByRef TOptions)
-- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigure(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Type,Microsoft.Extensions.Configuration.IConfiguration)
-  name: TryConfigure(IServiceCollection, Type, IConfiguration)
-  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigure_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Type_Microsoft_Extensions_Configuration_IConfiguration_
-  commentId: M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigure(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Type,Microsoft.Extensions.Configuration.IConfiguration)
-  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigure(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Type, Microsoft.Extensions.Configuration.IConfiguration)
-  nameWithType: ServiceCollectionExtensions.TryConfigure(IServiceCollection, Type, IConfiguration)
-- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigure(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Type,Microsoft.Extensions.Configuration.IConfiguration,System.Object@)
-  name: TryConfigure(IServiceCollection, Type, IConfiguration, out Object)
-  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigure_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Type_Microsoft_Extensions_Configuration_IConfiguration_System_Object__
-  commentId: M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigure(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Type,Microsoft.Extensions.Configuration.IConfiguration,System.Object@)
-  name.vb: TryConfigure(IServiceCollection, Type, IConfiguration, ByRef Object)
-  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigure(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Type, Microsoft.Extensions.Configuration.IConfiguration, out System.Object)
-  fullName.vb: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigure(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Type, Microsoft.Extensions.Configuration.IConfiguration, ByRef System.Object)
-  nameWithType: ServiceCollectionExtensions.TryConfigure(IServiceCollection, Type, IConfiguration, out Object)
-  nameWithType.vb: ServiceCollectionExtensions.TryConfigure(IServiceCollection, Type, IConfiguration, ByRef Object)
-- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigure*
-  name: TryConfigure
-  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigure_
-  commentId: Overload:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigure
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.ConfigureOptions
+  nameWithType: ServiceCollectionExtensions.ConfigureOptions
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.ConfigureOptions``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)
+  name: ConfigureOptions<TOptions>(IServiceCollection, IConfiguration)
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_ConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfiguration_
+  commentId: M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.ConfigureOptions``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)
+  name.vb: ConfigureOptions(Of TOptions)(IServiceCollection, IConfiguration)
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.ConfigureOptions<TOptions>(Microsoft.Extensions.DependencyInjection.IServiceCollection, Microsoft.Extensions.Configuration.IConfiguration)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.ConfigureOptions(Of TOptions)(Microsoft.Extensions.DependencyInjection.IServiceCollection, Microsoft.Extensions.Configuration.IConfiguration)
+  nameWithType: ServiceCollectionExtensions.ConfigureOptions<TOptions>(IServiceCollection, IConfiguration)
+  nameWithType.vb: ServiceCollectionExtensions.ConfigureOptions(Of TOptions)(IServiceCollection, IConfiguration)
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.ConfigureOptions``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration,``0@)
+  name: ConfigureOptions<TOptions>(IServiceCollection, IConfiguration, out TOptions)
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_ConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfiguration___0__
+  commentId: M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.ConfigureOptions``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration,``0@)
+  name.vb: ConfigureOptions(Of TOptions)(IServiceCollection, IConfiguration, ByRef TOptions)
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.ConfigureOptions<TOptions>(Microsoft.Extensions.DependencyInjection.IServiceCollection, Microsoft.Extensions.Configuration.IConfiguration, out TOptions)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.ConfigureOptions(Of TOptions)(Microsoft.Extensions.DependencyInjection.IServiceCollection, Microsoft.Extensions.Configuration.IConfiguration, ByRef TOptions)
+  nameWithType: ServiceCollectionExtensions.ConfigureOptions<TOptions>(IServiceCollection, IConfiguration, out TOptions)
+  nameWithType.vb: ServiceCollectionExtensions.ConfigureOptions(Of TOptions)(IServiceCollection, IConfiguration, ByRef TOptions)
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigureOptions*
+  name: TryConfigureOptions
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigureOptions_
+  commentId: Overload:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigureOptions
   isSpec: "True"
-  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigure
-  nameWithType: ServiceCollectionExtensions.TryConfigure
-- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigure``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)
-  name: TryConfigure<TOptions>(IServiceCollection, IConfiguration)
-  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigure__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfiguration_
-  commentId: M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigure``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)
-  name.vb: TryConfigure(Of TOptions)(IServiceCollection, IConfiguration)
-  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigure<TOptions>(Microsoft.Extensions.DependencyInjection.IServiceCollection, Microsoft.Extensions.Configuration.IConfiguration)
-  fullName.vb: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigure(Of TOptions)(Microsoft.Extensions.DependencyInjection.IServiceCollection, Microsoft.Extensions.Configuration.IConfiguration)
-  nameWithType: ServiceCollectionExtensions.TryConfigure<TOptions>(IServiceCollection, IConfiguration)
-  nameWithType.vb: ServiceCollectionExtensions.TryConfigure(Of TOptions)(IServiceCollection, IConfiguration)
-- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigure``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration,``0@)
-  name: TryConfigure<TOptions>(IServiceCollection, IConfiguration, out TOptions)
-  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigure__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfiguration___0__
-  commentId: M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigure``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration,``0@)
-  name.vb: TryConfigure(Of TOptions)(IServiceCollection, IConfiguration, ByRef TOptions)
-  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigure<TOptions>(Microsoft.Extensions.DependencyInjection.IServiceCollection, Microsoft.Extensions.Configuration.IConfiguration, out TOptions)
-  fullName.vb: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigure(Of TOptions)(Microsoft.Extensions.DependencyInjection.IServiceCollection, Microsoft.Extensions.Configuration.IConfiguration, ByRef TOptions)
-  nameWithType: ServiceCollectionExtensions.TryConfigure<TOptions>(IServiceCollection, IConfiguration, out TOptions)
-  nameWithType.vb: ServiceCollectionExtensions.TryConfigure(Of TOptions)(IServiceCollection, IConfiguration, ByRef TOptions)
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigureOptions
+  nameWithType: ServiceCollectionExtensions.TryConfigureOptions
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigureOptions``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)
+  name: TryConfigureOptions<TOptions>(IServiceCollection, IConfiguration)
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfiguration_
+  commentId: M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigureOptions``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)
+  name.vb: TryConfigureOptions(Of TOptions)(IServiceCollection, IConfiguration)
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigureOptions<TOptions>(Microsoft.Extensions.DependencyInjection.IServiceCollection, Microsoft.Extensions.Configuration.IConfiguration)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigureOptions(Of TOptions)(Microsoft.Extensions.DependencyInjection.IServiceCollection, Microsoft.Extensions.Configuration.IConfiguration)
+  nameWithType: ServiceCollectionExtensions.TryConfigureOptions<TOptions>(IServiceCollection, IConfiguration)
+  nameWithType.vb: ServiceCollectionExtensions.TryConfigureOptions(Of TOptions)(IServiceCollection, IConfiguration)
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigureOptions``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration,``0@)
+  name: TryConfigureOptions<TOptions>(IServiceCollection, IConfiguration, out TOptions)
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfiguration___0__
+  commentId: M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigureOptions``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration,``0@)
+  name.vb: TryConfigureOptions(Of TOptions)(IServiceCollection, IConfiguration, ByRef TOptions)
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigureOptions<TOptions>(Microsoft.Extensions.DependencyInjection.IServiceCollection, Microsoft.Extensions.Configuration.IConfiguration, out TOptions)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigureOptions(Of TOptions)(Microsoft.Extensions.DependencyInjection.IServiceCollection, Microsoft.Extensions.Configuration.IConfiguration, ByRef TOptions)
+  nameWithType: ServiceCollectionExtensions.TryConfigureOptions<TOptions>(IServiceCollection, IConfiguration, out TOptions)
+  nameWithType.vb: ServiceCollectionExtensions.TryConfigureOptions(Of TOptions)(IServiceCollection, IConfiguration, ByRef TOptions)
