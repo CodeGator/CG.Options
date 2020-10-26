@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics;
 
 namespace CG.Options.QuickStart
 {
@@ -42,7 +43,7 @@ namespace CG.Options.QuickStart
             // This call binds the options to the configuration, decrypts any
             //   properties marked as protected, validates the results, then
             //   registers the options as a service with the DI container.
-            var result = services.TryConfigure<MyOptions>(cfg);
+            var result = services.TryConfigureOptions<MyOptions>(cfg);
 
             // Let's verify that ...
 
@@ -78,14 +79,14 @@ namespace CG.Options.QuickStart
             //   the encrypted data from appSettings.json.
 
             // Here is how to decrypt the options manually.
-            cfg.DecryptProperties<MyOptions>(options);
+            cfg.DecryptProperties(options);
 
             // TODO : look at 'options' in the debugger, verify that the variable now
             //   contains (now unencrypted) data from appSettings.json.
 
             // Note, there is also this option for manually encrypting the options ...
             options.A = "this is a secret";
-            cfg.EncryptProperties<MyOptions>(options);
+            cfg.EncryptProperties(options);
 
             // TODO : look at 'options' in the debugger, verify that the variable now
             //   contains an encrypted string for the 'A' property.
