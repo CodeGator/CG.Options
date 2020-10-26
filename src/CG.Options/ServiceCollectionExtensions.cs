@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Options;
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 
 namespace Microsoft.Extensions.DependencyInjection
 {
@@ -63,6 +64,13 @@ namespace Microsoft.Extensions.DependencyInjection
             Guard.Instance().ThrowIfNull(serviceCollection, nameof(serviceCollection))
                 .ThrowIfNull(configuration, nameof(configuration));
 
+            // Is the configuration missing or empty?
+            if (false == configuration.GetChildren().Any())
+            {
+                // Return the results.
+                return false;
+            }
+
             // Create the options.
             var options = new TOptions();
 
@@ -75,21 +83,21 @@ namespace Microsoft.Extensions.DependencyInjection
             // Are the options verifiable?
             if (options is OptionsBase)
             {
-                // Are the options valid?
-                if ((options as OptionsBase).IsValid())
+                // Are the options not valid?
+                if (false == (options as OptionsBase).IsValid())
                 {
-                    // Add the options to the DI container.
-                    serviceCollection.TryAddSingleton<IOptions<TOptions>>(
-                        new OptionsWrapper<TOptions>(options)
-                        );
-
                     // Return the results.
-                    return true;
+                    return false;
                 }
             }
 
+            // Add the options to the DI container.
+            serviceCollection.TryAddSingleton<IOptions<TOptions>>(
+                new OptionsWrapper<TOptions>(options)
+                );
+
             // Return the results.
-            return false;
+            return true;
         }
 
         // *******************************************************************
@@ -138,6 +146,16 @@ namespace Microsoft.Extensions.DependencyInjection
             Guard.Instance().ThrowIfNull(serviceCollection, nameof(serviceCollection))
                 .ThrowIfNull(configuration, nameof(configuration));
 
+            // Make the compiler happy.
+            options = null;
+
+            // Is the configuration missing or empty?
+            if (false == configuration.GetChildren().Any())
+            {
+                // Return the results.
+                return false;
+            }
+
             // Create the options.
             options = new TOptions();
 
@@ -150,21 +168,21 @@ namespace Microsoft.Extensions.DependencyInjection
             // Are the options verifiable?
             if (options is OptionsBase)
             {
-                // Are the options valid?
-                if ((options as OptionsBase).IsValid())
+                // Are the options not valid?
+                if (false == (options as OptionsBase).IsValid())
                 {
-                    // Add the options to the DI container.
-                    serviceCollection.TryAddSingleton<IOptions<TOptions>>(
-                        new OptionsWrapper<TOptions>(options)
-                        );
-
                     // Return the results.
-                    return true;
+                    return false;
                 }
             }
 
+            // Add the options to the DI container.
+            serviceCollection.TryAddSingleton<IOptions<TOptions>>(
+                new OptionsWrapper<TOptions>(options)
+                );
+
             // Return the results.
-            return false;
+            return true;
         }
 
         // *******************************************************************
