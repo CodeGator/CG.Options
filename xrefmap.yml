@@ -131,6 +131,21 @@ references:
   fullName.vb: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.Configure(Of TOptions)(Microsoft.Extensions.DependencyInjection.IServiceCollection, Microsoft.Extensions.Configuration.IConfiguration, ByRef TOptions)
   nameWithType: ServiceCollectionExtensions.Configure<TOptions>(IServiceCollection, IConfiguration, out TOptions)
   nameWithType.vb: ServiceCollectionExtensions.Configure(Of TOptions)(IServiceCollection, IConfiguration, ByRef TOptions)
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigure(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Type,Microsoft.Extensions.Configuration.IConfiguration)
+  name: TryConfigure(IServiceCollection, Type, IConfiguration)
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigure_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Type_Microsoft_Extensions_Configuration_IConfiguration_
+  commentId: M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigure(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Type,Microsoft.Extensions.Configuration.IConfiguration)
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigure(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Type, Microsoft.Extensions.Configuration.IConfiguration)
+  nameWithType: ServiceCollectionExtensions.TryConfigure(IServiceCollection, Type, IConfiguration)
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigure(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Type,Microsoft.Extensions.Configuration.IConfiguration,System.Object@)
+  name: TryConfigure(IServiceCollection, Type, IConfiguration, out Object)
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigure_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Type_Microsoft_Extensions_Configuration_IConfiguration_System_Object__
+  commentId: M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigure(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Type,Microsoft.Extensions.Configuration.IConfiguration,System.Object@)
+  name.vb: TryConfigure(IServiceCollection, Type, IConfiguration, ByRef Object)
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigure(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Type, Microsoft.Extensions.Configuration.IConfiguration, out System.Object)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigure(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Type, Microsoft.Extensions.Configuration.IConfiguration, ByRef System.Object)
+  nameWithType: ServiceCollectionExtensions.TryConfigure(IServiceCollection, Type, IConfiguration, out Object)
+  nameWithType.vb: ServiceCollectionExtensions.TryConfigure(IServiceCollection, Type, IConfiguration, ByRef Object)
 - uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigure*
   name: TryConfigure
   href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigure_
