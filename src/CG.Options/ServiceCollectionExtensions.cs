@@ -1,5 +1,6 @@
 ﻿using CG.DataAnnotations;
 using CG.Options;
+using CG.Options.Properties;
 using CG.Validations;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection.Extensions;
@@ -204,6 +205,8 @@ namespace Microsoft.Extensions.DependencyInjection
         /// <exception cref="ValidationException">This exception is thrown whenever
         /// the <typeparamref name="TOptions"/> object fails to validate properly
         /// after the bind operation.</exception>
+        /// <exception cref="OptionsException">This exception is thrown whenever the method
+        /// encounters a configuration with no settings.</exception>
         /// <remarks>
         /// <para>
         /// In addition to registering the <typeparamref name="TOptions"/> object as 
@@ -237,6 +240,15 @@ namespace Microsoft.Extensions.DependencyInjection
 
             // Create the options.
             var options = new TOptions();
+
+            // Is the configuration missing or empty?
+            if (false == configuration.GetChildren().Any())
+            {
+                // Panic!
+                throw new OptionsException(
+                    message: Resources.ServiceCollectionExtensions_NoSettingsFound
+                    );
+            }
 
             // Bind the options to the configuration.
             configuration.Bind(options);
@@ -277,6 +289,8 @@ namespace Microsoft.Extensions.DependencyInjection
         /// <exception cref="ValidationException">This exception is thrown whenever
         /// the <typeparamref name="TOptions"/> object fails to validate properly
         /// after the bind operation.</exception>
+        /// <exception cref="OptionsException">This exception is thrown whenever the method
+        /// encounters a configuration with no settings.</exception>
         /// <remarks>
         /// <para>
         /// In addition to registering the <typeparamref name="TOptions"/> object as 
@@ -308,6 +322,18 @@ namespace Microsoft.Extensions.DependencyInjection
             // Validate the parameters before attempting to use them.
             Guard.Instance().ThrowIfNull(serviceCollection, nameof(serviceCollection))
                 .ThrowIfNull(configuration, nameof(configuration));
+
+            // Make the compiler happy.
+            options = null;
+
+            // Is the configuration missing or empty?
+            if (false == configuration.GetChildren().Any())
+            {
+                // Panic!
+                throw new OptionsException(
+                    message: Resources.ServiceCollectionExtensions_NoSettingsFound
+                    );
+            }
 
             // Create the options.
             options = new TOptions();

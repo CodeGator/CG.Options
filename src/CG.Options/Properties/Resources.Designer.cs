@@ -77,5 +77,14 @@ namespace CG.Options.Properties {
                 return ResourceManager.GetString("ConfigurationExtensions_EncryptProperties", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No settings found to configure the options with! .
+        /// </summary>
+        internal static string ServiceCollectionExtensions_NoSettingsFound {
+            get {
+                return ResourceManager.GetString("ServiceCollectionExtensions_NoSettingsFound", resourceCulture);
+            }
+        }
     }
 }
