@@ -132,6 +132,15 @@ references:
   isSpec: "True"
   fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.ConfigureOptions
   nameWithType: ServiceCollectionExtensions.ConfigureOptions
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.ConfigureOptions``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,``0)
+  name: ConfigureOptions<TOptions>(IServiceCollection, TOptions)
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_ConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection___0_
+  commentId: M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.ConfigureOptions``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,``0)
+  name.vb: ConfigureOptions(Of TOptions)(IServiceCollection, TOptions)
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.ConfigureOptions<TOptions>(Microsoft.Extensions.DependencyInjection.IServiceCollection, TOptions)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.ConfigureOptions(Of TOptions)(Microsoft.Extensions.DependencyInjection.IServiceCollection, TOptions)
+  nameWithType: ServiceCollectionExtensions.ConfigureOptions<TOptions>(IServiceCollection, TOptions)
+  nameWithType.vb: ServiceCollectionExtensions.ConfigureOptions(Of TOptions)(IServiceCollection, TOptions)
 - uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.ConfigureOptions``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)
   name: ConfigureOptions<TOptions>(IServiceCollection, IConfiguration)
   href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_ConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfiguration_
@@ -157,6 +166,15 @@ references:
   isSpec: "True"
   fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigureOptions
   nameWithType: ServiceCollectionExtensions.TryConfigureOptions
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigureOptions``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,``0)
+  name: TryConfigureOptions<TOptions>(IServiceCollection, TOptions)
+  href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection___0_
+  commentId: M:Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigureOptions``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,``0)
+  name.vb: TryConfigureOptions(Of TOptions)(IServiceCollection, TOptions)
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigureOptions<TOptions>(Microsoft.Extensions.DependencyInjection.IServiceCollection, TOptions)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigureOptions(Of TOptions)(Microsoft.Extensions.DependencyInjection.IServiceCollection, TOptions)
+  nameWithType: ServiceCollectionExtensions.TryConfigureOptions<TOptions>(IServiceCollection, TOptions)
+  nameWithType.vb: ServiceCollectionExtensions.TryConfigureOptions(Of TOptions)(IServiceCollection, TOptions)
 - uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigureOptions``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)
   name: TryConfigureOptions<TOptions>(IServiceCollection, IConfiguration)
   href: api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfiguration_
