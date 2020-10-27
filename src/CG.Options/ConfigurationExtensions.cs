@@ -23,13 +23,13 @@ namespace Microsoft.Extensions.Configuration
         /// <summary>
         /// This method encrypts the value of any properties on the specified 
         /// properties object that are: (1) decorated with a <see cref="ProtectedPropertyAttribute"/> 
-        /// attribute, and (2) are of type: string. 
+        /// attribute, (2) are of type: string, and (3) have a value in them. 
         /// </summary>
         /// <param name="configuration">The configuration object to use for the 
         /// operation.</param>
-        /// <param name="dataProtectionScope">The data protection scope for the 
-        /// operation.</param>
         /// <param name="options">The options object to use for the operation.</param>
+        /// <param name="dataProtectionScope">Optional data protection scope for the 
+        /// operation.</param>
         /// <param name="entropy">Optional entropy bytes to use for the operation.</param>
         /// <returns>The value of the <paramref name="configuration"/></returns>
         /// <exception cref="ArgumentException">This exception is thrown whenever
@@ -47,7 +47,7 @@ namespace Microsoft.Extensions.Configuration
         /// </para>
         /// </remarks>
         /// <example>
-        /// This example demostrates a typical use of the <see cref="EncryptProperties(IConfiguration, object, DataProtectionScope, byte[])"/>
+        /// This example demostrates a typical use of the <see cref="EncryptProperties(IConfiguration, object, DataProtectionScope?, byte[])"/>
         /// method:
         /// <code>
         /// public void ConfigureServices(IServiceCollection services)
@@ -64,7 +64,7 @@ namespace Microsoft.Extensions.Configuration
         public static IConfiguration EncryptProperties(
             this IConfiguration configuration,
             object options,
-            DataProtectionScope dataProtectionScope = DataProtectionScope.LocalMachine,
+            DataProtectionScope? dataProtectionScope = null,
             byte[] entropy = null
             ) 
         {
@@ -161,7 +161,23 @@ namespace Microsoft.Extensions.Configuration
                                 else
                                 {
                                     // Use default entropy.
-                                    entropy = new byte[] { 12, 48, 8, 20 };
+                                    entropy = new byte[] { 4, 8, 15, 16, 23, 42 };  // Don't tell Hugo!!
+                                }
+                            }
+
+                            // Should we come up with default data protection scope?
+                            if (null == dataProtectionScope)
+                            {
+                                // Look for scope on the attribute.
+                                if (null != attr.Scope)
+                                {
+                                    // Use the specified scope.
+                                    dataProtectionScope = attr.Scope;
+                                }
+                                else
+                                {
+                                    // Use default scope.
+                                    dataProtectionScope = DataProtectionScope.LocalMachine;
                                 }
                             }
 
@@ -169,7 +185,7 @@ namespace Microsoft.Extensions.Configuration
                             var protectedBytes = ProtectedData.Protect(
                                 unprotectedBytes,
                                 entropy,
-                                dataProtectionScope
+                                dataProtectionScope.Value
                                 );
 
                             // Convert the bytes back to a string.
@@ -207,13 +223,13 @@ namespace Microsoft.Extensions.Configuration
         /// <summary>
         /// This method decrypts the value of any properties on the specified 
         /// options object that: (1) are decorated with a see cref="ProtectedPropertyAttribute"/> 
-        /// attribute, and (2) are of type: string.
+        /// attribute, (2) are of type: string, and (3) have a value in them.
         /// </summary>
         /// <typeparam name="T">The type of associated options object.</typeparam>
         /// <param name="configuration">The configuration object to use for 
         /// the operation.</param>
         /// <param name="options">The options object to use for the operation.</param>
-        /// <param name="dataProtectionScope">The data protection scope for the 
+        /// <param name="dataProtectionScope">Optional data protection scope for the 
         /// operation.</param>
         /// <param name="entropy">Optional entropy bytes to use for the operation.</param>
         /// <returns>A new instance of <typeparamref name="T"/> if successful; 
@@ -233,7 +249,7 @@ namespace Microsoft.Extensions.Configuration
         /// </para>
         /// </remarks>
         /// <example>
-        /// This example demostrates a typical use of the <see cref="DecryptProperties(IConfiguration, object, DataProtectionScope, byte[])"/>
+        /// This example demostrates a typical use of the <see cref="DecryptProperties(IConfiguration, object, DataProtectionScope?, byte[])"/>
         /// method:
         /// <code>
         /// public void ConfigureServices(IServiceCollection services)
@@ -250,7 +266,7 @@ namespace Microsoft.Extensions.Configuration
         public static IConfiguration DecryptProperties(
             this IConfiguration configuration,
             object options,
-            DataProtectionScope dataProtectionScope = DataProtectionScope.LocalMachine,
+            DataProtectionScope? dataProtectionScope = null,
             byte[] entropy = null
             )
         {
@@ -334,10 +350,10 @@ namespace Microsoft.Extensions.Configuration
                                 );
 
                             // Should we try to come up with entropy bytes?
-                            if (null == entropy || entropy.Length == 0)
+                            if (null == entropy || 0 == entropy.Length)
                             {
                                 // Look for entropy on the attribute.
-                                if (attr.Entropy != null)
+                                if (null != attr.Entropy)
                                 {
                                     // Use the specified entropy.
                                     entropy = attr.Entropy;
@@ -349,11 +365,27 @@ namespace Microsoft.Extensions.Configuration
                                 }
                             }
 
+                            // Should we come up with default data protection scope?
+                            if (null == dataProtectionScope)
+                            {
+                                // Look for scope on the attribute.
+                                if (null != attr.Scope)
+                                {
+                                    // Use the specified scope.
+                                    dataProtectionScope = attr.Scope;
+                                }
+                                else
+                                {
+                                    // Use default scope.
+                                    dataProtectionScope = DataProtectionScope.LocalMachine;
+                                }
+                            }
+
                             // Unprotect the bytes.
                             var unprotectedBytes = ProtectedData.Unprotect(
                                 encryptedBytes,
                                 entropy,
-                                dataProtectionScope
+                                dataProtectionScope.Value
                                 );
 
                             // Convert the bytes back to a (non-encoded) string.

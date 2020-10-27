@@ -1,9 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
-using System;
 using System.ComponentModel.DataAnnotations;
-using System.Diagnostics;
 
 namespace CG.Options.QuickStart
 {
