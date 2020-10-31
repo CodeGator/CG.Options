@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class ConfigurationExtensions
    ">
-    <meta name="generator" content="docfx 2.56.2.0">
+    <meta name="generator" content="docfx 2.56.4.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -61,11 +61,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -125,15 +125,15 @@ type.</p>
   <h3 id="methods">Methods
   </h3>
   <a id="Microsoft_Extensions_Configuration_ConfigurationExtensions_DecryptProperties_" data-uid="Microsoft.Extensions.Configuration.ConfigurationExtensions.DecryptProperties*"></a>
-  <h4 id="Microsoft_Extensions_Configuration_ConfigurationExtensions_DecryptProperties_Microsoft_Extensions_Configuration_IConfiguration_System_Object_System_Security_Cryptography_DataProtectionScope_System_Byte___" data-uid="Microsoft.Extensions.Configuration.ConfigurationExtensions.DecryptProperties(Microsoft.Extensions.Configuration.IConfiguration,System.Object,System.Security.Cryptography.DataProtectionScope,System.Byte[])">DecryptProperties(IConfiguration, Object, DataProtectionScope, Byte[])</h4>
+  <h4 id="Microsoft_Extensions_Configuration_ConfigurationExtensions_DecryptProperties_Microsoft_Extensions_Configuration_IConfiguration_System_Object_System_Nullable_System_Security_Cryptography_DataProtectionScope__System_Byte___" data-uid="Microsoft.Extensions.Configuration.ConfigurationExtensions.DecryptProperties(Microsoft.Extensions.Configuration.IConfiguration,System.Object,System.Nullable{System.Security.Cryptography.DataProtectionScope},System.Byte[])">DecryptProperties(IConfiguration, Object, Nullable&lt;DataProtectionScope&gt;, Byte[])</h4>
   <div class="markdown level1 summary"><p>This method decrypts the value of any properties on the specified
 options object that: (1) are decorated with a see cref=&quot;ProtectedPropertyAttribute&quot;/&gt;
-attribute, and (2) are of type: string.</p>
+attribute, (2) are of type: string, and (3) have a value in them.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IConfiguration DecryptProperties(this IConfiguration configuration, object options, DataProtectionScope dataProtectionScope = DataProtectionScope.LocalMachine, byte[] entropy = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public static IConfiguration DecryptProperties(this IConfiguration configuration, object options, DataProtectionScope? dataProtectionScope = default(DataProtectionScope? ), byte[] entropy = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -159,9 +159,9 @@ the operation.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Security.Cryptography.DataProtectionScope</span></td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Security.Cryptography.DataProtectionScope</span>&gt;</td>
         <td><span class="parametername">dataProtectionScope</span></td>
-        <td><p>The data protection scope for the
+        <td><p>Optional data protection scope for the
 operation.</p>
 </td>
       </tr>
@@ -190,7 +190,7 @@ default(T) otherwise.</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="Microsoft_Extensions_Configuration_ConfigurationExtensions_DecryptProperties_Microsoft_Extensions_Configuration_IConfiguration_System_Object_System_Security_Cryptography_DataProtectionScope_System_Byte____remarks">Remarks</h5>
+  <h5 id="Microsoft_Extensions_Configuration_ConfigurationExtensions_DecryptProperties_Microsoft_Extensions_Configuration_IConfiguration_System_Object_System_Nullable_System_Security_Cryptography_DataProtectionScope__System_Byte____remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>
 This method only works with public properties of type string that are
 decorated with the <a class="xref" href="CG.Options.ProtectedPropertyAttribute.html">ProtectedPropertyAttribute</a> attribute. 
@@ -200,8 +200,8 @@ The underlying configuration source(s) are not modified by this method.
 Only the data in the options instance is modified.
 </p>
 </div>
-  <h5 id="Microsoft_Extensions_Configuration_ConfigurationExtensions_DecryptProperties_Microsoft_Extensions_Configuration_IConfiguration_System_Object_System_Security_Cryptography_DataProtectionScope_System_Byte____examples">Examples</h5>
-  <p>This example demostrates a typical use of the <a class="xref" href="Microsoft.Extensions.Configuration.ConfigurationExtensions.html#Microsoft_Extensions_Configuration_ConfigurationExtensions_DecryptProperties_Microsoft_Extensions_Configuration_IConfiguration_System_Object_System_Security_Cryptography_DataProtectionScope_System_Byte___">DecryptProperties(IConfiguration, Object, DataProtectionScope, Byte[])</a>
+  <h5 id="Microsoft_Extensions_Configuration_ConfigurationExtensions_DecryptProperties_Microsoft_Extensions_Configuration_IConfiguration_System_Object_System_Nullable_System_Security_Cryptography_DataProtectionScope__System_Byte____examples">Examples</h5>
+  <p>This example demostrates a typical use of the <a class="xref" href="Microsoft.Extensions.Configuration.ConfigurationExtensions.html#Microsoft_Extensions_Configuration_ConfigurationExtensions_DecryptProperties_Microsoft_Extensions_Configuration_IConfiguration_System_Object_System_Nullable_System_Security_Cryptography_DataProtectionScope__System_Byte___">DecryptProperties(IConfiguration, Object, Nullable&lt;DataProtectionScope&gt;, Byte[])</a>
 method:</p>
 <pre><code>public void ConfigureServices(IServiceCollection services)
 {
@@ -237,15 +237,15 @@ the underlying cryptography operation fails, for any reason.</p>
     </tbody>
   </table>
   <a id="Microsoft_Extensions_Configuration_ConfigurationExtensions_EncryptProperties_" data-uid="Microsoft.Extensions.Configuration.ConfigurationExtensions.EncryptProperties*"></a>
-  <h4 id="Microsoft_Extensions_Configuration_ConfigurationExtensions_EncryptProperties_Microsoft_Extensions_Configuration_IConfiguration_System_Object_System_Security_Cryptography_DataProtectionScope_System_Byte___" data-uid="Microsoft.Extensions.Configuration.ConfigurationExtensions.EncryptProperties(Microsoft.Extensions.Configuration.IConfiguration,System.Object,System.Security.Cryptography.DataProtectionScope,System.Byte[])">EncryptProperties(IConfiguration, Object, DataProtectionScope, Byte[])</h4>
+  <h4 id="Microsoft_Extensions_Configuration_ConfigurationExtensions_EncryptProperties_Microsoft_Extensions_Configuration_IConfiguration_System_Object_System_Nullable_System_Security_Cryptography_DataProtectionScope__System_Byte___" data-uid="Microsoft.Extensions.Configuration.ConfigurationExtensions.EncryptProperties(Microsoft.Extensions.Configuration.IConfiguration,System.Object,System.Nullable{System.Security.Cryptography.DataProtectionScope},System.Byte[])">EncryptProperties(IConfiguration, Object, Nullable&lt;DataProtectionScope&gt;, Byte[])</h4>
   <div class="markdown level1 summary"><p>This method encrypts the value of any properties on the specified
 properties object that are: (1) decorated with a <a class="xref" href="CG.Options.ProtectedPropertyAttribute.html">ProtectedPropertyAttribute</a>
-attribute, and (2) are of type: string.</p>
+attribute, (2) are of type: string, and (3) have a value in them.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IConfiguration EncryptProperties(this IConfiguration configuration, object options, DataProtectionScope dataProtectionScope = DataProtectionScope.LocalMachine, byte[] entropy = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public static IConfiguration EncryptProperties(this IConfiguration configuration, object options, DataProtectionScope? dataProtectionScope = default(DataProtectionScope? ), byte[] entropy = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -271,9 +271,9 @@ operation.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Security.Cryptography.DataProtectionScope</span></td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Security.Cryptography.DataProtectionScope</span>&gt;</td>
         <td><span class="parametername">dataProtectionScope</span></td>
-        <td><p>The data protection scope for the
+        <td><p>Optional data protection scope for the
 operation.</p>
 </td>
       </tr>
@@ -301,7 +301,7 @@ operation.</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="Microsoft_Extensions_Configuration_ConfigurationExtensions_EncryptProperties_Microsoft_Extensions_Configuration_IConfiguration_System_Object_System_Security_Cryptography_DataProtectionScope_System_Byte____remarks">Remarks</h5>
+  <h5 id="Microsoft_Extensions_Configuration_ConfigurationExtensions_EncryptProperties_Microsoft_Extensions_Configuration_IConfiguration_System_Object_System_Nullable_System_Security_Cryptography_DataProtectionScope__System_Byte____remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>
 This method only works with public properties of type string that are
 decorated with the <a class="xref" href="CG.Options.ProtectedPropertyAttribute.html">ProtectedPropertyAttribute</a> attribute. 
@@ -311,8 +311,8 @@ The underlying configuration source(s) are not modified by this method.
 Only the data in the option instance is modified.
 </p>
 </div>
-  <h5 id="Microsoft_Extensions_Configuration_ConfigurationExtensions_EncryptProperties_Microsoft_Extensions_Configuration_IConfiguration_System_Object_System_Security_Cryptography_DataProtectionScope_System_Byte____examples">Examples</h5>
-  <p>This example demostrates a typical use of the <a class="xref" href="Microsoft.Extensions.Configuration.ConfigurationExtensions.html#Microsoft_Extensions_Configuration_ConfigurationExtensions_EncryptProperties_Microsoft_Extensions_Configuration_IConfiguration_System_Object_System_Security_Cryptography_DataProtectionScope_System_Byte___">EncryptProperties(IConfiguration, Object, DataProtectionScope, Byte[])</a>
+  <h5 id="Microsoft_Extensions_Configuration_ConfigurationExtensions_EncryptProperties_Microsoft_Extensions_Configuration_IConfiguration_System_Object_System_Nullable_System_Security_Cryptography_DataProtectionScope__System_Byte____examples">Examples</h5>
+  <p>This example demostrates a typical use of the <a class="xref" href="Microsoft.Extensions.Configuration.ConfigurationExtensions.html#Microsoft_Extensions_Configuration_ConfigurationExtensions_EncryptProperties_Microsoft_Extensions_Configuration_IConfiguration_System_Object_System_Nullable_System_Security_Cryptography_DataProtectionScope__System_Byte___">EncryptProperties(IConfiguration, Object, Nullable&lt;DataProtectionScope&gt;, Byte[])</a>
 method:</p>
 <pre><code>public void ConfigureServices(IServiceCollection services)
 {
@@ -353,7 +353,8 @@ the underlying cryptography operation fails, for any reason.</p>
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>
