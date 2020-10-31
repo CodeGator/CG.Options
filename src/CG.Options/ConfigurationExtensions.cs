@@ -361,7 +361,7 @@ namespace Microsoft.Extensions.Configuration
                                 else
                                 {
                                     // Use default entropy.
-                                    entropy = new byte[] { 12, 48, 8, 20 };
+                                    entropy = new byte[] { 4, 8, 15, 16, 23, 42 }; // Don't tell Hugo!
                                 }
                             }
 
