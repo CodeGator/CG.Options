@@ -61,7 +61,7 @@ namespace CG.Options.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Attempting to unprotect data for property: {0} on object of type: {1}. It&apos;s likely the data for this property was not encrypted or was corrupted at some point..
+        ///   Looks up a localized string similar to Attempting to unprotect data for property: &apos;{0}&apos; on object of type: &apos;{1}&apos;. It&apos;s likely the data for this property was either not encrypted or was corrupted at some point..
         /// </summary>
         internal static string ConfigurationExtensions_DecryptProperties {
             get {
@@ -70,20 +70,11 @@ namespace CG.Options.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Attempting to protect data for property: {prop.Name} on object of type: {0}. It&apos;s likely the data for this property was already encrypted or was corrupted at some point..
+        ///   Looks up a localized string similar to Attempting to protect data for property: &apos;{0}&apos; on object of type: &apos;{1}&apos;. It&apos;s likely the data for this property was either already encrypted or was corrupted at some point..
         /// </summary>
         internal static string ConfigurationExtensions_EncryptProperties {
             get {
                 return ResourceManager.GetString("ConfigurationExtensions_EncryptProperties", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to No settings found to configure the options with! .
-        /// </summary>
-        internal static string ServiceCollectionExtensions_NoSettingsFound {
-            get {
-                return ResourceManager.GetString("ServiceCollectionExtensions_NoSettingsFound", resourceCulture);
             }
         }
     }
