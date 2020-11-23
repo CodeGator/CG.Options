@@ -14,6 +14,9 @@ Platforms supported:
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/CodeGator/CG.Options</RepositoryUrl>
     <PackageTags>IOptions, options, CG.Options, CodeGator</PackageTags>
+    <Authors>Martin Cook</Authors>
+    <Company>CodeGator</Company>
+    <PackageIcon>packageDefaultIcon-50x50.png</PackageIcon>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -22,14 +25,14 @@ Platforms supported:
 
   <ItemGroup>
     <PackageReference Include="CG.DataAnnotations" Version="2020.1.23" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="3.1.9" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.9" />
-    <PackageReference Include="Microsoft.Extensions.Options" Version="3.1.9" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="5.0.0" />
     <PackageReference Include="Nerdbank.GitVersioning" Version="3.3.37">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="System.Security.Cryptography.ProtectedData" Version="4.7.0" />
+    <PackageReference Include="System.Security.Cryptography.ProtectedData" Version="5.0.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -45,6 +48,13 @@ Platforms supported:
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\packageDefaultIcon-50x50.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
