@@ -1,6 +1,5 @@
 ﻿using CG.DataAnnotations;
 using CG.Options;
-using CG.Options.Properties;
 using CG.Validations;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection.Extensions;
