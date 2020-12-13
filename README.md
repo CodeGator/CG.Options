@@ -4,6 +4,7 @@
 [![Github docs](https://img.shields.io/static/v1?label=Documentation&message=online&color=blue)](https://codegator.github.io/CG.Options/index.html)
 [![NuGet downloads](https://img.shields.io/nuget/dt/CG.Options.svg?style=flat)](https://nuget.org/packages/CG.Options)
 ![Azure DevOps coverage](https://img.shields.io/azure-devops/coverage/codegator/CG.Options/21)
+[![Github discussion](https://img.shields.io/badge/Discussion-online-blue)](https://github.com/CodeGator/CG.Options/discussions)
 
 #### What does it do?
 The package defines option extensions used by other CodeGator packages. 
