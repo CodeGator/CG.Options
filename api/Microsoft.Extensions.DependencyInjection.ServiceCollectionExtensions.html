@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class ServiceCollectionExtensions
    ">
-    <meta name="generator" content="docfx 2.56.6.0">
+    <meta name="generator" content="docfx 2.57.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -194,21 +194,6 @@ for chaining calls together.</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_ConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection___0__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>
-</p>
-</div>
-  <h5 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_ConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection___0__examples">Examples</h5>
-  <p>This example demostrates a typical use of the <a class="xref" href="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_ConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection___0_">ConfigureOptions&lt;TOptions&gt;(IServiceCollection, TOptions)</a>
-method:</p>
-<pre><code>public void ConfigureServices(IServiceCollection services)
-{
-    var myOptions = new MyOptions();
-    // TODO : configure the options manually here ...
-
-    services.ConfigureOptions(myOptions);
-}</code></pre>
-
   <h5 class="exceptions">Exceptions</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
@@ -234,7 +219,7 @@ after the bind operation.</p>
     </tbody>
   </table>
   <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_ConfigureOptions_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.ConfigureOptions*"></a>
-  <h4 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_ConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfiguration_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.ConfigureOptions``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">ConfigureOptions&lt;TOptions&gt;(IServiceCollection, IConfiguration)</h4>
+  <h4 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_ConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_AspNetCore_DataProtection_IDataProtector_Microsoft_Extensions_Configuration_IConfiguration_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.ConfigureOptions``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.AspNetCore.DataProtection.IDataProtector,Microsoft.Extensions.Configuration.IConfiguration)">ConfigureOptions&lt;TOptions&gt;(IServiceCollection, IDataProtector, IConfiguration)</h4>
   <div class="markdown level1 summary"><p>This method attempts to configure the specified options as a
 singleton service with the specified service collection. The options
 are validated and if the results are not valid it throws an exception.</p>
@@ -242,7 +227,7 @@ are validated and if the results are not valid it throws an exception.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IServiceCollection ConfigureOptions&lt;TOptions&gt;(this IServiceCollection serviceCollection, IConfiguration configuration)
+    <pre><code class="lang-csharp hljs">public static IServiceCollection ConfigureOptions&lt;TOptions&gt;(this IServiceCollection serviceCollection, IDataProtector dataProtector, IConfiguration configuration)
     where TOptions : class, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -260,6 +245,12 @@ are validated and if the results are not valid it throws an exception.</p>
         <td><span class="parametername">serviceCollection</span></td>
         <td><p>The service collection to use for the
 operation.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.DataProtection.IDataProtector</span></td>
+        <td><span class="parametername">dataProtector</span></td>
+        <td><p>The data protector to use for the operation.</p>
 </td>
       </tr>
       <tr>
@@ -303,27 +294,6 @@ for chaining calls together.</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_ConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfiguration__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>
-In addition to registering the <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code> object as 
-a service, this method also reads the option properties from the configuration,
-then decrypts any properties on the <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code> object that 
-are decorated with a <a class="xref" href="CG.Options.ProtectedPropertyAttribute.html">ProtectedPropertyAttribute</a> attribute. It also 
-validates the <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code> object after the binding and decryption 
-steps are performed. All of this means that after the call to 
-<a class="xref" href="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_ConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfiguration_">ConfigureOptions&lt;TOptions&gt;(IServiceCollection, IConfiguration)</a>
-is over, the DI container will contain a singleton <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code>
-instance whose properties are decrypted and validated.
-</p>
-</div>
-  <h5 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_ConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfiguration__examples">Examples</h5>
-  <p>This example demostrates a typical use of the <a class="xref" href="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_ConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfiguration_">ConfigureOptions&lt;TOptions&gt;(IServiceCollection, IConfiguration)</a>
-method:</p>
-<pre><code>public void ConfigureServices(IServiceCollection services)
-{
-    services.ConfigureOptions{MyOptions}(Configuration);
-}</code></pre>
-
   <h5 class="exceptions">Exceptions</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
@@ -355,7 +325,7 @@ encounters a configuration with no settings.</p>
     </tbody>
   </table>
   <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_ConfigureOptions_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.ConfigureOptions*"></a>
-  <h4 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_ConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfiguration___0__" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.ConfigureOptions``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration,``0@)">ConfigureOptions&lt;TOptions&gt;(IServiceCollection, IConfiguration, out TOptions)</h4>
+  <h4 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_ConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_AspNetCore_DataProtection_IDataProtector_Microsoft_Extensions_Configuration_IConfiguration___0__" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.ConfigureOptions``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.AspNetCore.DataProtection.IDataProtector,Microsoft.Extensions.Configuration.IConfiguration,``0@)">ConfigureOptions&lt;TOptions&gt;(IServiceCollection, IDataProtector, IConfiguration, out TOptions)</h4>
   <div class="markdown level1 summary"><p>This method attempts to configure the specified options as a
 singleton service with the specified service collection. The options
 are validated and if the results are not valid it throws an exception.
@@ -365,7 +335,7 @@ parameter.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IServiceCollection ConfigureOptions&lt;TOptions&gt;(this IServiceCollection serviceCollection, IConfiguration configuration, out TOptions options)
+    <pre><code class="lang-csharp hljs">public static IServiceCollection ConfigureOptions&lt;TOptions&gt;(this IServiceCollection serviceCollection, IDataProtector dataProtector, IConfiguration configuration, out TOptions options)
     where TOptions : class, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -383,6 +353,12 @@ parameter.</p>
         <td><span class="parametername">serviceCollection</span></td>
         <td><p>The service collection to use for the
 operation.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.DataProtection.IDataProtector</span></td>
+        <td><span class="parametername">dataProtector</span></td>
+        <td><p>The data protector to use for the operation.</p>
 </td>
       </tr>
       <tr>
@@ -432,27 +408,6 @@ for chaining calls together.</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_ConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfiguration___0___remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>
-In addition to registering the <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code> object as 
-a service, this method also reads the option properties from the configuration,
-then decrypts any properties on the <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code> object that 
-are decorated with a <a class="xref" href="CG.Options.ProtectedPropertyAttribute.html">ProtectedPropertyAttribute</a>/ attribute. It also 
-validates the <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code> object after/ the binding and decryption 
-steps are performed. All of this means that after the call to 
-<a class="xref" href="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_ConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfiguration_">ConfigureOptions&lt;TOptions&gt;(IServiceCollection, IConfiguration)</a>
-is over, the DI container will contain a singleton <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code>
-instance whose properties are decrypted and validated.
-</p>
-</div>
-  <h5 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_ConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfiguration___0___examples">Examples</h5>
-  <p>This example demostrates a typical use of the <a class="xref" href="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_ConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfiguration_">ConfigureOptions&lt;TOptions&gt;(IServiceCollection, IConfiguration)</a>
-method:</p>
-<pre><code>public void ConfigureServices(IServiceCollection services)
-{
-    services.ConfigureOptions{MyOptions}(Configuration, out var options);
-}</code></pre>
-
   <h5 class="exceptions">Exceptions</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
@@ -551,24 +506,6 @@ operation.</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection___0__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>
-This method assumes the caller has configured the incoming properties 
-object. It then validates the results and registers the object as a 
-singleton service with the DI container.
-</p>
-</div>
-  <h5 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection___0__examples">Examples</h5>
-  <p>This example demostrates a typical use of the <a class="xref" href="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection___0_">TryConfigureOptions&lt;TOptions&gt;(IServiceCollection, TOptions)</a>
-method:</p>
-<pre><code>public void ConfigureServices(IServiceCollection services)
-{
-    var myOptions = new MyOptions();
-    // TODO : set the option properties manually here ...
-
-    services.TryConfigureOptions(myOptions);
-}</code></pre>
-
   <h5 class="exceptions">Exceptions</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
@@ -587,14 +524,14 @@ one or more of the required parameters is missing or invalid.</p>
     </tbody>
   </table>
   <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigureOptions_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigureOptions*"></a>
-  <h4 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfiguration_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigureOptions``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">TryConfigureOptions&lt;TOptions&gt;(IServiceCollection, IConfiguration)</h4>
+  <h4 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_AspNetCore_DataProtection_IDataProtector_Microsoft_Extensions_Configuration_IConfiguration_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigureOptions``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.AspNetCore.DataProtection.IDataProtector,Microsoft.Extensions.Configuration.IConfiguration)">TryConfigureOptions&lt;TOptions&gt;(IServiceCollection, IDataProtector, IConfiguration)</h4>
   <div class="markdown level1 summary"><p>This method attempts to configure the specified options as a
 singleton service.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static bool TryConfigureOptions&lt;TOptions&gt;(this IServiceCollection serviceCollection, IConfiguration configuration)
+    <pre><code class="lang-csharp hljs">public static bool TryConfigureOptions&lt;TOptions&gt;(this IServiceCollection serviceCollection, IDataProtector dataProtector, IConfiguration configuration)
     where TOptions : class, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -612,6 +549,12 @@ singleton service.</p>
         <td><span class="parametername">serviceCollection</span></td>
         <td><p>The service collection to use for the
 operation.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.DataProtection.IDataProtector</span></td>
+        <td><span class="parametername">dataProtector</span></td>
+        <td><p>The data protector to use for the operation.</p>
 </td>
       </tr>
       <tr>
@@ -654,27 +597,6 @@ operation.</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfiguration__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>
-In addition to registering the <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code> object as 
-a service, this method also reads the option properties from the configuration,
-then decrypts any properties on the <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code> object that 
-are decorated with a <a class="xref" href="CG.Options.ProtectedPropertyAttribute.html">ProtectedPropertyAttribute</a> attribute. It also
-validates the <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code> object after the binding and decryption 
-steps are performed. All of this means that after the call to 
-<a class="xref" href="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfiguration_">TryConfigureOptions&lt;TOptions&gt;(IServiceCollection, IConfiguration)</a>
-is over, the DI container will contain a singleton <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code>
-instance whose properties are decrypted and validated.
-</p>
-</div>
-  <h5 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfiguration__examples">Examples</h5>
-  <p>This example demostrates a typical use of the <a class="xref" href="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfiguration_">TryConfigureOptions&lt;TOptions&gt;(IServiceCollection, IConfiguration)</a>
-method:</p>
-<pre><code>public void ConfigureServices(IServiceCollection services)
-{
-    services.TryConfigureOptions{MyOptions}(Configuration);
-}</code></pre>
-
   <h5 class="exceptions">Exceptions</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
@@ -693,14 +615,14 @@ one or more of the required parameters is missing or invalid.</p>
     </tbody>
   </table>
   <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigureOptions_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigureOptions*"></a>
-  <h4 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfiguration___0__" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigureOptions``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration,``0@)">TryConfigureOptions&lt;TOptions&gt;(IServiceCollection, IConfiguration, out TOptions)</h4>
+  <h4 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_AspNetCore_DataProtection_IDataProtector_Microsoft_Extensions_Configuration_IConfiguration___0__" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigureOptions``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.AspNetCore.DataProtection.IDataProtector,Microsoft.Extensions.Configuration.IConfiguration,``0@)">TryConfigureOptions&lt;TOptions&gt;(IServiceCollection, IDataProtector, IConfiguration, out TOptions)</h4>
   <div class="markdown level1 summary"><p>This method attempts to configure the specified options as a
 singleton service.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static bool TryConfigureOptions&lt;TOptions&gt;(this IServiceCollection serviceCollection, IConfiguration configuration, out TOptions options)
+    <pre><code class="lang-csharp hljs">public static bool TryConfigureOptions&lt;TOptions&gt;(this IServiceCollection serviceCollection, IDataProtector dataProtector, IConfiguration configuration, out TOptions options)
     where TOptions : class, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -718,6 +640,12 @@ singleton service.</p>
         <td><span class="parametername">serviceCollection</span></td>
         <td><p>The service collection to use for the
 operation.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.DataProtection.IDataProtector</span></td>
+        <td><span class="parametername">dataProtector</span></td>
+        <td><p>The data protector to use for the operation.</p>
 </td>
       </tr>
       <tr>
@@ -766,27 +694,6 @@ operation.</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfiguration___0___remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>
-In addition to registering the <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code> object as 
-a service, this method also reads the option properties from the configuration,
-then decrypts any properties on the <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code> object that 
-are decorated with a <a class="xref" href="CG.Options.ProtectedPropertyAttribute.html">ProtectedPropertyAttribute</a> attribute. It 
-also validates the <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code> object after the binding and 
-decryption steps are performed. All of this means that after the call to 
-<a class="xref" href="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfiguration_">TryConfigureOptions&lt;TOptions&gt;(IServiceCollection, IConfiguration)</a>
-is over, the DI container will contain a singleton <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code>
-instance whose properties are decrypted and validated.
-</p>
-</div>
-  <h5 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfiguration___0___examples">Examples</h5>
-  <p>This example demostrates a typical use of the <a class="xref" href="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html#Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfiguration_">TryConfigureOptions&lt;TOptions&gt;(IServiceCollection, IConfiguration)</a>
-method:</p>
-<pre><code>public void ConfigureServices(IServiceCollection services)
-{
-    services.TryConfigureOptions{MyOptions}(Configuration, out var options);
-}</code></pre>
-
   <h5 class="exceptions">Exceptions</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>

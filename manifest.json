@@ -18,7 +18,7 @@
       "output": {
         ".html": {
           "relative_path": "api/CG.Options.OptionsBase.html",
-          "hash": "3Iz/cIMbMlvQoQOvDXi1cg=="
+          "hash": "ociEq9gydul5Z8CbpNqvgXIx/RVbhL6nKHqsl1zuLaI="
         }
       },
       "is_incremental": false,
@@ -30,7 +30,7 @@
       "output": {
         ".html": {
           "relative_path": "api/CG.Options.OptionsException.html",
-          "hash": "LdsPIOnMJvTxRh5rSaUO8Q=="
+          "hash": "L1+xynswSYrpgpgDWNXwKp7OcT0W+LxIELrkm/k013c="
         }
       },
       "is_incremental": false,
@@ -42,7 +42,7 @@
       "output": {
         ".html": {
           "relative_path": "api/CG.Options.ProtectedPropertyAttribute.html",
-          "hash": "bUZj5QQFPso5LeZturnoGQ=="
+          "hash": "A1KgExxDgyZLrZ+v3hjZ7Ue+FXhuPOBNzp2SN8keIGU="
         }
       },
       "is_incremental": false,
@@ -54,7 +54,7 @@
       "output": {
         ".html": {
           "relative_path": "api/CG.Options.html",
-          "hash": "2vIz8KDKDQJ2SjGRpW5q3A=="
+          "hash": "gWxIsbyaKh022mKMXeU6lOLULW9rS3lv2n3+5cfTwH0="
         }
       },
       "is_incremental": false,
@@ -62,11 +62,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Microsoft.Extensions.Configuration.ConfigurationExtensions.yml",
+      "source_relative_path": "api/Microsoft.Extensions.Configuration.DataProtectorExtensions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Microsoft.Extensions.Configuration.ConfigurationExtensions.html",
-          "hash": "YIEqWv+l2hx8FxYTBH7Fpw=="
+          "relative_path": "api/Microsoft.Extensions.Configuration.DataProtectorExtensions.html",
+          "hash": "ezZ1XEvTcu+FRAc3PRncpFX0KbQz5PdqK7CsBKnBPys="
         }
       },
       "is_incremental": false,
@@ -78,7 +78,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Microsoft.Extensions.Configuration.html",
-          "hash": "vk9xhj7cmUXrhvA2WjbCSQ=="
+          "hash": "f75nk3czJV1aS61MFvGs84hW0g+JRJyLggQ6rdBVpbQ="
         }
       },
       "is_incremental": false,
@@ -90,7 +90,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html",
-          "hash": "B3X5+WGD8tQo+BASuZSPog=="
+          "hash": "vQXIaSe9FMdvJuD7CfDw+t4Kl0fZCxbEOOBfZEZRslM="
         }
       },
       "is_incremental": false,
@@ -102,7 +102,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Microsoft.Extensions.DependencyInjection.html",
-          "hash": "N4MQGjszJndsedN+zAhIew=="
+          "hash": "dU0J77BqZMgHnDveMnsZ32EZHcIvRkKMLmptQ5fsi28="
         }
       },
       "is_incremental": false,
@@ -114,7 +114,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "B6LcRrQReyH/7hcBXTEa1w=="
+          "hash": "itXlUZEw52uo+DBGh7EpSi+rzY7X9f60jhwmiz11+L4="
         }
       },
       "is_incremental": false,
@@ -126,7 +126,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/intro.html",
-          "hash": "46rQidY2r/qcBTWAdxdIBw=="
+          "hash": "dajSEgtAs/v7CK5L21qL4vHgTdyUv0J7McsQOIiZpLA="
         }
       },
       "is_incremental": false,
@@ -138,7 +138,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/toc.html",
-          "hash": "gB8AESyvNru97tzIZofEEg=="
+          "hash": "BlPxk5mtl2kgfcZUgkEguqiSAR/EUyUTT4EdebwkQvs="
         }
       },
       "is_incremental": false,
@@ -194,7 +194,7 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "zQBQfDYCIh3Eb3igaExzTg=="
+          "hash": "e/L3VjwPNN4o7pfWwrq46v4Jl1OTixHrNvT+UvJmbKs="
         }
       },
       "is_incremental": false,
@@ -206,7 +206,7 @@
       "output": {
         ".html": {
           "relative_path": "toc.html",
-          "hash": "3wWXv+zH7L0HP6WMqEcu+g=="
+          "hash": "CQfkGeG7S/XkMR0KnXVO/2EkLq+EbEoHYYdBSUlEwwg="
         }
       },
       "is_incremental": false,
