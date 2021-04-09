@@ -1,18 +1,18 @@
 ﻿using CG.Options;
 using CG.Options.Properties;
 using CG.Validations;
+using Microsoft.AspNetCore.DataProtection;
 using System;
 using System.Linq;
-using System.Security.Cryptography;
 using System.Text;
 
 namespace Microsoft.Extensions.Configuration
 {
     /// <summary>
-    /// This class contains extension methods related to the <see cref="IConfiguration"/>
+    /// This class contains extension methods related to the <see cref="IDataProtector"/>
     /// type.
     /// </summary>
-    public static partial class ConfigurationExtensions
+    public static partial class DataProtectorExtensions
     {
         // *******************************************************************
         // Public methods.
@@ -25,51 +25,24 @@ namespace Microsoft.Extensions.Configuration
         /// properties object that are: (1) decorated with a <see cref="ProtectedPropertyAttribute"/> 
         /// attribute, (2) are of type: string, and (3) have a value in them. 
         /// </summary>
+        /// <param name="dataProtector">The data protector object to use for the 
+        /// operation.</param>
         /// <param name="configuration">The configuration object to use for the 
         /// operation.</param>
         /// <param name="options">The options object to use for the operation.</param>
-        /// <param name="dataProtectionScope">Optional data protection scope for the 
-        /// operation.</param>
-        /// <param name="entropy">Optional entropy bytes to use for the operation.</param>
         /// <returns>The value of the <paramref name="configuration"/></returns>
         /// <exception cref="ArgumentException">This exception is thrown whenever
         /// one or more of the required parameters is missing or invalid.</exception>
         /// <exception cref="InvalidOperationException">This exception is thrown whenever
         /// the underlying cryptography operation fails, for any reason.</exception>
-        /// <remarks>
-        /// <para>
-        /// This method only works with public properties of type string that are
-        /// decorated with the <see cref="ProtectedPropertyAttribute"/> attribute. 
-        /// </para>
-        /// <para>
-        /// The underlying configuration source(s) are not modified by this method. 
-        /// Only the data in the option instance is modified.
-        /// </para>
-        /// </remarks>
-        /// <example>
-        /// This example demostrates a typical use of the <see cref="EncryptProperties(IConfiguration, object, DataProtectionScope?, byte[])"/>
-        /// method:
-        /// <code>
-        /// public void ConfigureServices(IServiceCollection services)
-        /// {
-        ///     var options = new MyOptions();
-        ///     Configuration.Bind(options);
-        ///     
-        ///     Configuration.EncryptProperties(options);
-        ///     
-        ///     // Decorated properties on MyOptions are now encrypted.
-        /// }
-        /// </code>
-        /// </example>
         public static IConfiguration EncryptProperties(
-            this IConfiguration configuration,
-            object options,
-            DataProtectionScope? dataProtectionScope = null,
-            byte[] entropy = null
-            ) 
+            this IDataProtector dataProtector,
+            IConfiguration configuration,
+            object options
+            )
         {
             // Validate the parameters before attempting to use them.
-            Guard.Instance().ThrowIfNull(configuration, nameof(configuration))
+            Guard.Instance().ThrowIfNull(dataProtector, nameof(dataProtector))
                 .ThrowIfNull(options, nameof(options));
 
             // Get a list of all object type properties.
@@ -79,7 +52,7 @@ namespace Microsoft.Extensions.Configuration
                     ).ToList();
 
             // Loop and protect each property, recursively.
-            props.ForEach(prop => 
+            props.ForEach(prop =>
             {
                 object obj = null;
                 try
@@ -87,17 +60,16 @@ namespace Microsoft.Extensions.Configuration
                     // Get the object reference.
                     obj = prop.GetGetMethod().Invoke(
                         options,
-                        new object[0]
+                        Array.Empty<object>()
                         );
 
                     // Check for missing references first ...
                     if (null != obj)
                     {
                         // Protect any properties for the object.
-                        configuration.EncryptProperties(
-                            obj,
-                            dataProtectionScope,
-                            entropy
+                        dataProtector.EncryptProperties(
+                            configuration,
+                            obj
                             );
                     }
                 }
@@ -127,18 +99,16 @@ namespace Microsoft.Extensions.Configuration
                 try
                 {
                     // Look for a custom attribute on the property.
-                    var attr = prop.GetCustomAttributes(true)
+                    if (prop.GetCustomAttributes(true)
                         .FirstOrDefault(
                             x => x.GetType() == typeof(ProtectedPropertyAttribute)
-                            ) as ProtectedPropertyAttribute;
-
-                    // Did we find one?
-                    if (null != attr)
+                            ) is ProtectedPropertyAttribute attr)
                     {
                         // If we get here then we should try to protect the value
                         //   of the property.
                         var unprotectedPropertyValue = prop.GetGetMethod().Invoke(
-                            options, new object[0]
+                            options,
+                            Array.Empty<object>()
                             ) as string;
 
                         // Check for empty strings first ...
@@ -149,43 +119,9 @@ namespace Microsoft.Extensions.Configuration
                                 unprotectedPropertyValue
                                 );
 
-                            // Should we try to come up with entropy bytes?
-                            if (null == entropy || entropy.Length == 0)
-                            {
-                                // Look for entropy on the attribute.
-                                if (attr.Entropy != null)
-                                {
-                                    // Use the specified entropy.
-                                    entropy = attr.Entropy;
-                                }
-                                else
-                                {
-                                    // Use default entropy.
-                                    entropy = new byte[] { 4, 8, 15, 16, 23, 42 };  // Don't tell Hugo!!
-                                }
-                            }
-
-                            // Should we come up with default data protection scope?
-                            if (null == dataProtectionScope)
-                            {
-                                // Look for scope on the attribute.
-                                if (null != attr.Scope)
-                                {
-                                    // Use the specified scope.
-                                    dataProtectionScope = attr.Scope;
-                                }
-                                else
-                                {
-                                    // Use default scope.
-                                    dataProtectionScope = DataProtectionScope.LocalMachine;
-                                }
-                            }
-
                             // Protect the bytes.
-                            var protectedBytes = ProtectedData.Protect(
-                                unprotectedBytes,
-                                entropy,
-                                dataProtectionScope.Value
+                            var protectedBytes = dataProtector.Protect(
+                                unprotectedBytes
                                 );
 
                             // Convert the bytes back to a string.
@@ -215,6 +151,7 @@ namespace Microsoft.Extensions.Configuration
                 }
             });
 
+            // Return the configuration.
             return configuration;
         }
 
@@ -222,56 +159,28 @@ namespace Microsoft.Extensions.Configuration
 
         /// <summary>
         /// This method decrypts the value of any properties on the specified 
-        /// options object that: (1) are decorated with a see cref="ProtectedPropertyAttribute"/> 
+        /// options object that: (1) are decorated with a <see cref="ProtectedPropertyAttribute"/> 
         /// attribute, (2) are of type: string, and (3) have a value in them.
         /// </summary>
-        /// <typeparam name="T">The type of associated options object.</typeparam>
+        /// <param name="dataProtector">The data protector object to use for 
+        /// the operation.</param>
         /// <param name="configuration">The configuration object to use for 
         /// the operation.</param>
         /// <param name="options">The options object to use for the operation.</param>
-        /// <param name="dataProtectionScope">Optional data protection scope for the 
-        /// operation.</param>
-        /// <param name="entropy">Optional entropy bytes to use for the operation.</param>
-        /// <returns>A new instance of <typeparamref name="T"/> if successful; 
-        /// default(T) otherwise.</returns>
+        /// <returns>A new instance of <see cref="IConfiguration"/> if successful; null
+        /// otherwise.</returns>
         /// <exception cref="ArgumentException">This exception is thrown whenever
         /// one or more of the required parameters is missing or invalid.</exception>
         /// <exception cref="InvalidOperationException">This exception is thrown whenever
         /// the underlying cryptography operation fails, for any reason.</exception>
-        /// <remarks>
-        /// <para>
-        /// This method only works with public properties of type string that are
-        /// decorated with the <see cref="ProtectedPropertyAttribute"/> attribute. 
-        /// </para>
-        /// <para>
-        /// The underlying configuration source(s) are not modified by this method. 
-        /// Only the data in the options instance is modified.
-        /// </para>
-        /// </remarks>
-        /// <example>
-        /// This example demostrates a typical use of the <see cref="DecryptProperties(IConfiguration, object, DataProtectionScope?, byte[])"/>
-        /// method:
-        /// <code>
-        /// public void ConfigureServices(IServiceCollection services)
-        /// {
-        ///     var options = new MyOptions();
-        ///     Configuration.Bind(options);
-        ///     
-        ///     Configuration.DecryptProperties{MyOptions}(options);
-        ///     
-        ///     // Decorated properties on MyOptions are now decrypted.
-        /// }
-        /// </code>
-        /// </example>
         public static IConfiguration DecryptProperties(
-            this IConfiguration configuration,
-            object options,
-            DataProtectionScope? dataProtectionScope = null,
-            byte[] entropy = null
+            this IDataProtector dataProtector,
+            IConfiguration configuration,
+            object options
             )
         {
             // Validate the parameters before attempting to use them.
-            Guard.Instance().ThrowIfNull(configuration, nameof(configuration))
+            Guard.Instance().ThrowIfNull(dataProtector, nameof(dataProtector))
                 .ThrowIfNull(options, nameof(options));
 
             // Get a list of all object type properties.
@@ -288,17 +197,16 @@ namespace Microsoft.Extensions.Configuration
                     // Get the object reference.
                     obj = prop.GetGetMethod().Invoke(
                         options,
-                        new object[0]
+                        Array.Empty<object>()
                         );
 
                     // Check for missing references first ...
                     if (null != obj)
                     {
                         // Unprotect any properties for the object.
-                        configuration.DecryptProperties(
-                            obj,
-                            dataProtectionScope,
-                            entropy
+                        dataProtector.DecryptProperties(
+                            configuration,
+                            obj
                             );
                     }
                 }
@@ -338,7 +246,8 @@ namespace Microsoft.Extensions.Configuration
                         // If we get here then we should try to unprotect the value
                         //   of the property.
                         var encryptedPropertyValue = prop.GetGetMethod().Invoke(
-                            options, new object[0]
+                            options,
+                            Array.Empty<object>()
                             ) as string;
 
                         // Check for empty strings first ...
@@ -349,43 +258,9 @@ namespace Microsoft.Extensions.Configuration
                                 encryptedPropertyValue
                                 );
 
-                            // Should we try to come up with entropy bytes?
-                            if (null == entropy || 0 == entropy.Length)
-                            {
-                                // Look for entropy on the attribute.
-                                if (null != attr.Entropy)
-                                {
-                                    // Use the specified entropy.
-                                    entropy = attr.Entropy;
-                                }
-                                else
-                                {
-                                    // Use default entropy.
-                                    entropy = new byte[] { 4, 8, 15, 16, 23, 42 }; // Don't tell Hugo!
-                                }
-                            }
-
-                            // Should we come up with default data protection scope?
-                            if (null == dataProtectionScope)
-                            {
-                                // Look for scope on the attribute.
-                                if (null != attr.Scope)
-                                {
-                                    // Use the specified scope.
-                                    dataProtectionScope = attr.Scope;
-                                }
-                                else
-                                {
-                                    // Use default scope.
-                                    dataProtectionScope = DataProtectionScope.LocalMachine;
-                                }
-                            }
-
                             // Unprotect the bytes.
-                            var unprotectedBytes = ProtectedData.Unprotect(
-                                encryptedBytes,
-                                entropy,
-                                dataProtectionScope.Value
+                            var unprotectedBytes = dataProtector.Unprotect(
+                                encryptedBytes
                                 );
 
                             // Convert the bytes back to a (non-encoded) string.
