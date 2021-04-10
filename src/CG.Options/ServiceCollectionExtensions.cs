@@ -1,7 +1,6 @@
 ﻿using CG.DataAnnotations;
 using CG.Options;
 using CG.Validations;
-using Microsoft.AspNetCore.DataProtection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Options;
@@ -24,26 +23,23 @@ namespace Microsoft.Extensions.DependencyInjection
         #region Public methods
 
         /// <summary>
-        /// This method attempts to configure the specified options as a 
-        /// singleton service. 
+        /// This method attempts to configure the specified <typeparamref name="TOptions"/>
+        /// object as a singleton service. 
         /// </summary>
         /// <typeparam name="TOptions">The type of associated options.</typeparam>
         /// <param name="serviceCollection">The service collection to use for the 
         /// operation.</param>
-        /// <param name="dataProtector">The data protector to use for the operation.</param>
         /// <param name="configuration">The configuration to use for the operation.</param>
         /// <returns>True if the options were configured; false otherwise.</returns>
         /// <exception cref="ArgumentException">This exception is thrown whenever
         /// one or more of the required parameters is missing or invalid.</exception>
         public static bool TryConfigureOptions<TOptions>(
             this IServiceCollection serviceCollection,
-            IDataProtector dataProtector,
             IConfiguration configuration
             ) where TOptions : class, new()
         {
             // Validate the parameters before attempting to use them.
             Guard.Instance().ThrowIfNull(serviceCollection, nameof(serviceCollection))
-                .ThrowIfNull(dataProtector, nameof(dataProtector))
                 .ThrowIfNull(configuration, nameof(configuration));
 
             // Is the configuration missing or empty?
@@ -58,12 +54,6 @@ namespace Microsoft.Extensions.DependencyInjection
 
             // Bind the options to the configuration.
             configuration.Bind(options);
-
-            // Decrypt any protected properties.
-            dataProtector.DecryptProperties(
-                configuration,
-                options
-                );
 
             // Are the options verifiable?
             if (options is OptionsBase)
@@ -88,13 +78,12 @@ namespace Microsoft.Extensions.DependencyInjection
         // *******************************************************************
 
         /// <summary>
-        /// This method attempts to configure the specified options as a 
-        /// singleton service. 
+        /// This method attempts to configure the specified <typeparamref name="TOptions"/>
+        /// object as a singleton service. 
         /// </summary>
         /// <typeparam name="TOptions">The type of associated options.</typeparam>
         /// <param name="serviceCollection">The service collection to use for the 
         /// operation.</param>
-        /// <param name="dataProtector">The data protector to use for the operation.</param>
         /// <param name="configuration">The configuration to use for the operation.</param>
         /// <param name="options">The options that were created by the operation.</param>
         /// <returns>True if the options were configured; false otherwise.</returns>
@@ -102,14 +91,12 @@ namespace Microsoft.Extensions.DependencyInjection
         /// one or more of the required parameters is missing or invalid.</exception>
         public static bool TryConfigureOptions<TOptions>(
             this IServiceCollection serviceCollection,
-            IDataProtector dataProtector,
             IConfiguration configuration,
             out TOptions options
             ) where TOptions : class, new()
         {
             // Validate the parameters before attempting to use them.
             Guard.Instance().ThrowIfNull(serviceCollection, nameof(serviceCollection))
-                .ThrowIfNull(dataProtector, nameof(dataProtector))
                 .ThrowIfNull(configuration, nameof(configuration));
 
             // Make the compiler happy.
@@ -128,12 +115,6 @@ namespace Microsoft.Extensions.DependencyInjection
             // Bind the options to the configuration.
             configuration.Bind(options);
 
-            // Decrypt any protected properties.
-            dataProtector.DecryptProperties(
-                configuration,
-                options
-                );
-
             // Are the options verifiable?
             if (options is OptionsBase)
             {
@@ -157,8 +138,8 @@ namespace Microsoft.Extensions.DependencyInjection
         // *******************************************************************
 
         /// <summary>
-        /// This method attempts to configure the specified options as a 
-        /// singleton service. 
+        /// This method attempts to configure the specified <typeparamref name="TOptions"/>
+        /// object as a singleton service. 
         /// </summary>
         /// <typeparam name="TOptions">The type of associated options.</typeparam>
         /// <param name="serviceCollection">The service collection to use for the 
@@ -199,14 +180,12 @@ namespace Microsoft.Extensions.DependencyInjection
         // *******************************************************************
 
         /// <summary>
-        /// This method attempts to configure the specified options as a 
-        /// singleton service with the specified service collection. The options
-        /// are validated and if the results are not valid it throws an exception.
+        /// This method configures the specified <typeparamref name="TOptions"/>
+        /// object as a singleton service. 
         /// </summary>
         /// <typeparam name="TOptions">The type of associated options.</typeparam>
         /// <param name="serviceCollection">The service collection to use for the 
         /// operation.</param>
-        /// <param name="dataProtector">The data protector to use for the operation.</param>
         /// <param name="configuration">The configuration to use for the operation.</param>
         /// <returns>The value of the <paramref name="serviceCollection"/> parameter,
         /// for chaining calls together.</returns>
@@ -219,13 +198,11 @@ namespace Microsoft.Extensions.DependencyInjection
         /// encounters a configuration with no settings.</exception>
         public static IServiceCollection ConfigureOptions<TOptions>(
             this IServiceCollection serviceCollection,
-            IDataProtector dataProtector,
             IConfiguration configuration
             ) where TOptions : class, new()
         {
             // Validate the parameters before attempting to use them.
             Guard.Instance().ThrowIfNull(serviceCollection, nameof(serviceCollection))
-                .ThrowIfNull(dataProtector, nameof(dataProtector))
                 .ThrowIfNull(configuration, nameof(configuration));
 
             // Create the options.
@@ -233,12 +210,6 @@ namespace Microsoft.Extensions.DependencyInjection
 
             // Bind the options to the configuration.
             configuration.Bind(options);
-
-            // Decrypt any protected properties.
-            dataProtector.DecryptProperties(
-                configuration,
-                options
-                );
 
             // Verify the result - if possible.
             (options as OptionsBase)?.ThrowIfInvalid();
@@ -255,16 +226,13 @@ namespace Microsoft.Extensions.DependencyInjection
         // *******************************************************************
 
         /// <summary>
-        /// This method attempts to configure the specified options as a 
-        /// singleton service with the specified service collection. The options
-        /// are validated and if the results are not valid it throws an exception.
-        /// The validated options are returned in the <paramref name="options"/>
+        /// This method configures the specified <typeparamref name="TOptions"/>
+        /// object as a singleton service. 
         /// parameter.
         /// </summary>
         /// <typeparam name="TOptions">The type of associated options.</typeparam>
         /// <param name="serviceCollection">The service collection to use for the 
         /// operation.</param>
-        /// <param name="dataProtector">The data protector to use for the operation.</param>
         /// <param name="configuration">The configuration to use for the operation.</param>
         /// <param name="options">The bound and validated options instance.</param>
         /// <returns>The value of the <paramref name="serviceCollection"/> parameter,
@@ -278,14 +246,12 @@ namespace Microsoft.Extensions.DependencyInjection
         /// encounters a configuration with no settings.</exception>
         public static IServiceCollection ConfigureOptions<TOptions>(
             this IServiceCollection serviceCollection,
-            IDataProtector dataProtector,
             IConfiguration configuration,
             out TOptions options
             ) where TOptions : class, new()
         {
             // Validate the parameters before attempting to use them.
             Guard.Instance().ThrowIfNull(serviceCollection, nameof(serviceCollection))
-                .ThrowIfNull(dataProtector, nameof(dataProtector))
                 .ThrowIfNull(configuration, nameof(configuration));
 
             // Create the options.
@@ -293,12 +259,6 @@ namespace Microsoft.Extensions.DependencyInjection
 
             // Bind the options to the configuration.
             configuration.Bind(options);
-
-            // Decrypt any protected properties.
-            dataProtector.DecryptProperties(
-                configuration,
-                options
-                );
 
             // Verify the result - if possible.
             (options as OptionsBase)?.ThrowIfInvalid();
@@ -315,9 +275,8 @@ namespace Microsoft.Extensions.DependencyInjection
         // *******************************************************************
 
         /// <summary>
-        /// This method attempts to configure the specified options as a 
-        /// singleton service with the specified service collection. The options
-        /// are validated and if the results are not valid, an exception is thrown.
+        /// This method configures the specified <typeparamref name="TOptions"/>
+        /// object as a singleton service. 
         /// </summary>
         /// <typeparam name="TOptions">The type of associated options.</typeparam>
         /// <param name="serviceCollection">The service collection to use for the 

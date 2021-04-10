@@ -22,20 +22,22 @@ namespace Microsoft.Extensions.Configuration
 
         /// <summary>
         /// This method encrypts the value of any properties on the specified 
-        /// properties object that are: (1) decorated with a <see cref="ProtectedPropertyAttribute"/> 
-        /// attribute, (2) are of type: string, and (3) have a value in them. 
+        /// <paramref name="options"/> object that are: (1) decorated with a 
+        /// <see cref="ProtectedPropertyAttribute"/> attribute, (2) are of 
+        /// type: string, and (3) have a value in them. 
         /// </summary>
         /// <param name="dataProtector">The data protector object to use for the 
         /// operation.</param>
         /// <param name="configuration">The configuration object to use for the 
         /// operation.</param>
         /// <param name="options">The options object to use for the operation.</param>
-        /// <returns>The value of the <paramref name="configuration"/></returns>
+        /// <returns>The value of the <paramref name="dataProtector"/> parameter, for 
+        /// chaining calls together.</returns>
         /// <exception cref="ArgumentException">This exception is thrown whenever
         /// one or more of the required parameters is missing or invalid.</exception>
         /// <exception cref="InvalidOperationException">This exception is thrown whenever
         /// the underlying cryptography operation fails, for any reason.</exception>
-        public static IConfiguration EncryptProperties(
+        public static IDataProtector EncryptProperties(
             this IDataProtector dataProtector,
             IConfiguration configuration,
             object options
@@ -152,28 +154,29 @@ namespace Microsoft.Extensions.Configuration
             });
 
             // Return the configuration.
-            return configuration;
+            return dataProtector;
         }
 
         // *******************************************************************
 
         /// <summary>
         /// This method decrypts the value of any properties on the specified 
-        /// options object that: (1) are decorated with a <see cref="ProtectedPropertyAttribute"/> 
-        /// attribute, (2) are of type: string, and (3) have a value in them.
+        /// <paramref name="options"/> object that: (1) are decorated with a 
+        /// <see cref="ProtectedPropertyAttribute"/> attribute, (2) are of 
+        /// type: string, and (3) have a value in them.
         /// </summary>
         /// <param name="dataProtector">The data protector object to use for 
         /// the operation.</param>
         /// <param name="configuration">The configuration object to use for 
         /// the operation.</param>
         /// <param name="options">The options object to use for the operation.</param>
-        /// <returns>A new instance of <see cref="IConfiguration"/> if successful; null
-        /// otherwise.</returns>
+        /// <returns>The value of the <paramref name="dataProtector"/> parameter,
+        /// for chaining calls together.</returns>
         /// <exception cref="ArgumentException">This exception is thrown whenever
         /// one or more of the required parameters is missing or invalid.</exception>
         /// <exception cref="InvalidOperationException">This exception is thrown whenever
         /// the underlying cryptography operation fails, for any reason.</exception>
-        public static IConfiguration DecryptProperties(
+        public static IDataProtector DecryptProperties(
             this IDataProtector dataProtector,
             IConfiguration configuration,
             object options
@@ -291,7 +294,7 @@ namespace Microsoft.Extensions.Configuration
             });
 
             // Return the configuration.
-            return configuration;
+            return dataProtector;
         }
 
         #endregion
