@@ -50,50 +50,6 @@ references:
   isSpec: "True"
   fullName: CG.Options.OptionsException.OptionsException
   nameWithType: OptionsException.OptionsException
-- uid: CG.Options.ProtectedPropertyAttribute
-  name: ProtectedPropertyAttribute
-  href: api/CG.Options.ProtectedPropertyAttribute.html
-  commentId: T:CG.Options.ProtectedPropertyAttribute
-  fullName: CG.Options.ProtectedPropertyAttribute
-  nameWithType: ProtectedPropertyAttribute
-- uid: Microsoft.Extensions.Configuration
-  name: Microsoft.Extensions.Configuration
-  href: api/Microsoft.Extensions.Configuration.html
-  commentId: N:Microsoft.Extensions.Configuration
-  fullName: Microsoft.Extensions.Configuration
-  nameWithType: Microsoft.Extensions.Configuration
-- uid: Microsoft.Extensions.Configuration.DataProtectorExtensions
-  name: DataProtectorExtensions
-  href: api/Microsoft.Extensions.Configuration.DataProtectorExtensions.html
-  commentId: T:Microsoft.Extensions.Configuration.DataProtectorExtensions
-  fullName: Microsoft.Extensions.Configuration.DataProtectorExtensions
-  nameWithType: DataProtectorExtensions
-- uid: Microsoft.Extensions.Configuration.DataProtectorExtensions.DecryptProperties(Microsoft.AspNetCore.DataProtection.IDataProtector,Microsoft.Extensions.Configuration.IConfiguration,System.Object)
-  name: DecryptProperties(IDataProtector, IConfiguration, Object)
-  href: api/Microsoft.Extensions.Configuration.DataProtectorExtensions.html#Microsoft_Extensions_Configuration_DataProtectorExtensions_DecryptProperties_Microsoft_AspNetCore_DataProtection_IDataProtector_Microsoft_Extensions_Configuration_IConfiguration_System_Object_
-  commentId: M:Microsoft.Extensions.Configuration.DataProtectorExtensions.DecryptProperties(Microsoft.AspNetCore.DataProtection.IDataProtector,Microsoft.Extensions.Configuration.IConfiguration,System.Object)
-  fullName: Microsoft.Extensions.Configuration.DataProtectorExtensions.DecryptProperties(Microsoft.AspNetCore.DataProtection.IDataProtector, Microsoft.Extensions.Configuration.IConfiguration, System.Object)
-  nameWithType: DataProtectorExtensions.DecryptProperties(IDataProtector, IConfiguration, Object)
-- uid: Microsoft.Extensions.Configuration.DataProtectorExtensions.DecryptProperties*
-  name: DecryptProperties
-  href: api/Microsoft.Extensions.Configuration.DataProtectorExtensions.html#Microsoft_Extensions_Configuration_DataProtectorExtensions_DecryptProperties_
-  commentId: Overload:Microsoft.Extensions.Configuration.DataProtectorExtensions.DecryptProperties
-  isSpec: "True"
-  fullName: Microsoft.Extensions.Configuration.DataProtectorExtensions.DecryptProperties
-  nameWithType: DataProtectorExtensions.DecryptProperties
-- uid: Microsoft.Extensions.Configuration.DataProtectorExtensions.EncryptProperties(Microsoft.AspNetCore.DataProtection.IDataProtector,Microsoft.Extensions.Configuration.IConfiguration,System.Object)
-  name: EncryptProperties(IDataProtector, IConfiguration, Object)
-  href: api/Microsoft.Extensions.Configuration.DataProtectorExtensions.html#Microsoft_Extensions_Configuration_DataProtectorExtensions_EncryptProperties_Microsoft_AspNetCore_DataProtection_IDataProtector_Microsoft_Extensions_Configuration_IConfiguration_System_Object_
-  commentId: M:Microsoft.Extensions.Configuration.DataProtectorExtensions.EncryptProperties(Microsoft.AspNetCore.DataProtection.IDataProtector,Microsoft.Extensions.Configuration.IConfiguration,System.Object)
-  fullName: Microsoft.Extensions.Configuration.DataProtectorExtensions.EncryptProperties(Microsoft.AspNetCore.DataProtection.IDataProtector, Microsoft.Extensions.Configuration.IConfiguration, System.Object)
-  nameWithType: DataProtectorExtensions.EncryptProperties(IDataProtector, IConfiguration, Object)
-- uid: Microsoft.Extensions.Configuration.DataProtectorExtensions.EncryptProperties*
-  name: EncryptProperties
-  href: api/Microsoft.Extensions.Configuration.DataProtectorExtensions.html#Microsoft_Extensions_Configuration_DataProtectorExtensions_EncryptProperties_
-  commentId: Overload:Microsoft.Extensions.Configuration.DataProtectorExtensions.EncryptProperties
-  isSpec: "True"
-  fullName: Microsoft.Extensions.Configuration.DataProtectorExtensions.EncryptProperties
-  nameWithType: DataProtectorExtensions.EncryptProperties
 - uid: Microsoft.Extensions.DependencyInjection
   name: Microsoft.Extensions.DependencyInjection
   href: api/Microsoft.Extensions.DependencyInjection.html
