@@ -66,7 +66,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Microsoft.Extensions.Configuration.DataProtectorExtensions.html",
-          "hash": "ezZ1XEvTcu+FRAc3PRncpFX0KbQz5PdqK7CsBKnBPys="
+          "hash": "q415/ekCo6fEtgGYOB3642B8y6pbinavktt93oItZmQ="
         }
       },
       "is_incremental": false,
@@ -90,7 +90,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html",
-          "hash": "vQXIaSe9FMdvJuD7CfDw+t4Kl0fZCxbEOOBfZEZRslM="
+          "hash": "lbzuRApPLGKXYYXWNbgUxBRlF3g0zdLQDRfdFZFVLJM="
         }
       },
       "is_incremental": false,

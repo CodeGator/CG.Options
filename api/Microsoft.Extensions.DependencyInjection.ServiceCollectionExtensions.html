@@ -126,9 +126,8 @@ type.</p>
   </h3>
   <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_ConfigureOptions_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.ConfigureOptions*"></a>
   <h4 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_ConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection___0_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.ConfigureOptions``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,``0)">ConfigureOptions&lt;TOptions&gt;(IServiceCollection, TOptions)</h4>
-  <div class="markdown level1 summary"><p>This method attempts to configure the specified options as a
-singleton service with the specified service collection. The options
-are validated and if the results are not valid, an exception is thrown.</p>
+  <div class="markdown level1 summary"><p>This method configures the specified <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code>
+object as a singleton service.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -219,15 +218,14 @@ after the bind operation.</p>
     </tbody>
   </table>
   <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_ConfigureOptions_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.ConfigureOptions*"></a>
-  <h4 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_ConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_AspNetCore_DataProtection_IDataProtector_Microsoft_Extensions_Configuration_IConfiguration_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.ConfigureOptions``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.AspNetCore.DataProtection.IDataProtector,Microsoft.Extensions.Configuration.IConfiguration)">ConfigureOptions&lt;TOptions&gt;(IServiceCollection, IDataProtector, IConfiguration)</h4>
-  <div class="markdown level1 summary"><p>This method attempts to configure the specified options as a
-singleton service with the specified service collection. The options
-are validated and if the results are not valid it throws an exception.</p>
+  <h4 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_ConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfiguration_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.ConfigureOptions``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">ConfigureOptions&lt;TOptions&gt;(IServiceCollection, IConfiguration)</h4>
+  <div class="markdown level1 summary"><p>This method configures the specified <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code>
+object as a singleton service.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IServiceCollection ConfigureOptions&lt;TOptions&gt;(this IServiceCollection serviceCollection, IDataProtector dataProtector, IConfiguration configuration)
+    <pre><code class="lang-csharp hljs">public static IServiceCollection ConfigureOptions&lt;TOptions&gt;(this IServiceCollection serviceCollection, IConfiguration configuration)
     where TOptions : class, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -245,12 +243,6 @@ are validated and if the results are not valid it throws an exception.</p>
         <td><span class="parametername">serviceCollection</span></td>
         <td><p>The service collection to use for the
 operation.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">Microsoft.AspNetCore.DataProtection.IDataProtector</span></td>
-        <td><span class="parametername">dataProtector</span></td>
-        <td><p>The data protector to use for the operation.</p>
 </td>
       </tr>
       <tr>
@@ -325,17 +317,15 @@ encounters a configuration with no settings.</p>
     </tbody>
   </table>
   <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_ConfigureOptions_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.ConfigureOptions*"></a>
-  <h4 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_ConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_AspNetCore_DataProtection_IDataProtector_Microsoft_Extensions_Configuration_IConfiguration___0__" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.ConfigureOptions``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.AspNetCore.DataProtection.IDataProtector,Microsoft.Extensions.Configuration.IConfiguration,``0@)">ConfigureOptions&lt;TOptions&gt;(IServiceCollection, IDataProtector, IConfiguration, out TOptions)</h4>
-  <div class="markdown level1 summary"><p>This method attempts to configure the specified options as a
-singleton service with the specified service collection. The options
-are validated and if the results are not valid it throws an exception.
-The validated options are returned in the <code data-dev-comment-type="paramref" class="paramref">options</code>
+  <h4 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_ConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfiguration___0__" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.ConfigureOptions``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration,``0@)">ConfigureOptions&lt;TOptions&gt;(IServiceCollection, IConfiguration, out TOptions)</h4>
+  <div class="markdown level1 summary"><p>This method configures the specified <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code>
+object as a singleton service.
 parameter.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IServiceCollection ConfigureOptions&lt;TOptions&gt;(this IServiceCollection serviceCollection, IDataProtector dataProtector, IConfiguration configuration, out TOptions options)
+    <pre><code class="lang-csharp hljs">public static IServiceCollection ConfigureOptions&lt;TOptions&gt;(this IServiceCollection serviceCollection, IConfiguration configuration, out TOptions options)
     where TOptions : class, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -353,12 +343,6 @@ parameter.</p>
         <td><span class="parametername">serviceCollection</span></td>
         <td><p>The service collection to use for the
 operation.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">Microsoft.AspNetCore.DataProtection.IDataProtector</span></td>
-        <td><span class="parametername">dataProtector</span></td>
-        <td><p>The data protector to use for the operation.</p>
 </td>
       </tr>
       <tr>
@@ -440,8 +424,8 @@ encounters a configuration with no settings.</p>
   </table>
   <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigureOptions_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigureOptions*"></a>
   <h4 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection___0_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigureOptions``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,``0)">TryConfigureOptions&lt;TOptions&gt;(IServiceCollection, TOptions)</h4>
-  <div class="markdown level1 summary"><p>This method attempts to configure the specified options as a
-singleton service.</p>
+  <div class="markdown level1 summary"><p>This method attempts to configure the specified <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code>
+object as a singleton service.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -524,14 +508,14 @@ one or more of the required parameters is missing or invalid.</p>
     </tbody>
   </table>
   <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigureOptions_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigureOptions*"></a>
-  <h4 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_AspNetCore_DataProtection_IDataProtector_Microsoft_Extensions_Configuration_IConfiguration_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigureOptions``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.AspNetCore.DataProtection.IDataProtector,Microsoft.Extensions.Configuration.IConfiguration)">TryConfigureOptions&lt;TOptions&gt;(IServiceCollection, IDataProtector, IConfiguration)</h4>
-  <div class="markdown level1 summary"><p>This method attempts to configure the specified options as a
-singleton service.</p>
+  <h4 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfiguration_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigureOptions``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">TryConfigureOptions&lt;TOptions&gt;(IServiceCollection, IConfiguration)</h4>
+  <div class="markdown level1 summary"><p>This method attempts to configure the specified <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code>
+object as a singleton service.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static bool TryConfigureOptions&lt;TOptions&gt;(this IServiceCollection serviceCollection, IDataProtector dataProtector, IConfiguration configuration)
+    <pre><code class="lang-csharp hljs">public static bool TryConfigureOptions&lt;TOptions&gt;(this IServiceCollection serviceCollection, IConfiguration configuration)
     where TOptions : class, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -549,12 +533,6 @@ singleton service.</p>
         <td><span class="parametername">serviceCollection</span></td>
         <td><p>The service collection to use for the
 operation.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">Microsoft.AspNetCore.DataProtection.IDataProtector</span></td>
-        <td><span class="parametername">dataProtector</span></td>
-        <td><p>The data protector to use for the operation.</p>
 </td>
       </tr>
       <tr>
@@ -615,14 +593,14 @@ one or more of the required parameters is missing or invalid.</p>
     </tbody>
   </table>
   <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigureOptions_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigureOptions*"></a>
-  <h4 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_AspNetCore_DataProtection_IDataProtector_Microsoft_Extensions_Configuration_IConfiguration___0__" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigureOptions``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.AspNetCore.DataProtection.IDataProtector,Microsoft.Extensions.Configuration.IConfiguration,``0@)">TryConfigureOptions&lt;TOptions&gt;(IServiceCollection, IDataProtector, IConfiguration, out TOptions)</h4>
-  <div class="markdown level1 summary"><p>This method attempts to configure the specified options as a
-singleton service.</p>
+  <h4 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfiguration___0__" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigureOptions``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration,``0@)">TryConfigureOptions&lt;TOptions&gt;(IServiceCollection, IConfiguration, out TOptions)</h4>
+  <div class="markdown level1 summary"><p>This method attempts to configure the specified <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code>
+object as a singleton service.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static bool TryConfigureOptions&lt;TOptions&gt;(this IServiceCollection serviceCollection, IDataProtector dataProtector, IConfiguration configuration, out TOptions options)
+    <pre><code class="lang-csharp hljs">public static bool TryConfigureOptions&lt;TOptions&gt;(this IServiceCollection serviceCollection, IConfiguration configuration, out TOptions options)
     where TOptions : class, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -640,12 +618,6 @@ singleton service.</p>
         <td><span class="parametername">serviceCollection</span></td>
         <td><p>The service collection to use for the
 operation.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">Microsoft.AspNetCore.DataProtection.IDataProtector</span></td>
-        <td><span class="parametername">dataProtector</span></td>
-        <td><p>The data protector to use for the operation.</p>
 </td>
       </tr>
       <tr>
