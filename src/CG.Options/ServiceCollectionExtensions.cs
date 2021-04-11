@@ -6,7 +6,6 @@ using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Options;
 using System;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
 
 namespace Microsoft.Extensions.DependencyInjection
 {
@@ -41,13 +40,6 @@ namespace Microsoft.Extensions.DependencyInjection
             // Validate the parameters before attempting to use them.
             Guard.Instance().ThrowIfNull(serviceCollection, nameof(serviceCollection))
                 .ThrowIfNull(configuration, nameof(configuration));
-
-            // Is the configuration missing or empty?
-            if (false == configuration.GetChildren().Any())
-            {
-                // Return the results.
-                return false;
-            }
 
             // Create the options.
             var options = new TOptions();
@@ -98,16 +90,6 @@ namespace Microsoft.Extensions.DependencyInjection
             // Validate the parameters before attempting to use them.
             Guard.Instance().ThrowIfNull(serviceCollection, nameof(serviceCollection))
                 .ThrowIfNull(configuration, nameof(configuration));
-
-            // Make the compiler happy.
-            options = null;
-
-            // Is the configuration missing or empty?
-            if (false == configuration.GetChildren().Any())
-            {
-                // Return the results.
-                return false;
-            }
 
             // Create the options.
             options = new TOptions();
