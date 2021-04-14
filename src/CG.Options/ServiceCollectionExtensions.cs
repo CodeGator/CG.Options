@@ -26,6 +26,114 @@ namespace Microsoft.Extensions.DependencyInjection
         /// object as a singleton service. 
         /// </summary>
         /// <typeparam name="TOptions">The type of associated options.</typeparam>
+        /// <typeparam name="TImplementation">The type of associated options interface.</typeparam>
+        /// <param name="serviceCollection">The service collection to use for the 
+        /// operation.</param>
+        /// <param name="configuration">The configuration to use for the operation.</param>
+        /// <returns>True if the options were configured; false otherwise.</returns>
+        /// <exception cref="ArgumentException">This exception is thrown whenever
+        /// one or more of the required parameters is missing or invalid.</exception>
+        public static bool TryConfigureOptions<TOptions, TImplementation>(
+            this IServiceCollection serviceCollection,
+            IConfiguration configuration
+            ) where TOptions : class
+              where TImplementation : class, TOptions, new()
+        {
+            // Validate the parameters before attempting to use them.
+            Guard.Instance().ThrowIfNull(serviceCollection, nameof(serviceCollection))
+                .ThrowIfNull(configuration, nameof(configuration));
+
+            // Create the options.
+            var options = new TImplementation();
+
+            // Bind the options to the configuration.
+            configuration.Bind(options);
+
+            // Are the options verifiable?
+            if (options is OptionsBase)
+            {
+                // Are the options not valid?
+                if (false == (options as OptionsBase).IsValid())
+                {
+                    // Return the results.
+                    return false;
+                }
+            }
+
+            // Add the options to the DI container.
+            serviceCollection.TryAddSingleton<
+                IOptions<TOptions>, 
+                IOptions<TImplementation>
+                >(
+                    new OptionsWrapper<TImplementation>(options)
+                );
+
+            // Return the results.
+            return true;
+        }
+
+        // *******************************************************************
+
+        /// <summary>
+        /// This method attempts to configure the specified <typeparamref name="TOptions"/>
+        /// object as a singleton service. 
+        /// </summary>
+        /// <typeparam name="TOptions">The type of associated options.</typeparam>
+        /// <typeparam name="TImplementation">The type of associated options interface.</typeparam>
+        /// <param name="serviceCollection">The service collection to use for the 
+        /// operation.</param>
+        /// <param name="configuration">The configuration to use for the operation.</param>
+        /// <param name="options">The options that were created by the operation.</param>
+        /// <returns>True if the options were configured; false otherwise.</returns>
+        /// <exception cref="ArgumentException">This exception is thrown whenever
+        /// one or more of the required parameters is missing or invalid.</exception>
+        public static bool TryConfigureOptions<TOptions, TImplementation>(
+            this IServiceCollection serviceCollection,
+            IConfiguration configuration,
+            out TOptions options
+            ) where TOptions : class
+              where TImplementation : class, TOptions, new()
+        {
+            // Validate the parameters before attempting to use them.
+            Guard.Instance().ThrowIfNull(serviceCollection, nameof(serviceCollection))
+                .ThrowIfNull(configuration, nameof(configuration));
+
+            // Create the options.
+            options = new TImplementation();
+
+            // Bind the options to the configuration.
+            configuration.Bind(options);
+
+            // Are the options verifiable?
+            if (options is OptionsBase)
+            {
+                // Are the options not valid?
+                if (false == (options as OptionsBase).IsValid())
+                {
+                    // Return the results.
+                    return false;
+                }
+            }
+
+            // Add the options to the DI container.
+            serviceCollection.TryAddSingleton<
+                IOptions<TOptions>,
+                IOptions<TImplementation>
+                >(
+                    new OptionsWrapper<TImplementation>(options as TImplementation)
+                );
+
+            // Return the results.
+            return true;
+        }
+
+        // *******************************************************************
+
+        /// <summary>
+        /// This method attempts to configure the specified <typeparamref name="TOptions"/>
+        /// object as a singleton service. 
+        /// </summary>
+        /// <typeparam name="TOptions">The type of associated options.</typeparam>
         /// <param name="serviceCollection">The service collection to use for the 
         /// operation.</param>
         /// <param name="configuration">The configuration to use for the operation.</param>
