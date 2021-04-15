@@ -422,6 +422,220 @@ encounters a configuration with no settings.</p>
       </tr>
     </tbody>
   </table>
+  <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_ConfigureOptions_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.ConfigureOptions*"></a>
+  <h4 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_ConfigureOptions__2_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfiguration_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.ConfigureOptions``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">ConfigureOptions&lt;TOptions, TImplementation&gt;(IServiceCollection, IConfiguration)</h4>
+  <div class="markdown level1 summary"><p>This method configures the specified <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code>
+object as a singleton service.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IServiceCollection ConfigureOptions&lt;TOptions, TImplementation&gt;(this IServiceCollection serviceCollection, IConfiguration configuration)
+    where TOptions : class where TImplementation : class, TOptions, new()</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.Extensions.DependencyInjection.IServiceCollection</span></td>
+        <td><span class="parametername">serviceCollection</span></td>
+        <td><p>The service collection to use for the
+operation.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Microsoft.Extensions.Configuration.IConfiguration</span></td>
+        <td><span class="parametername">configuration</span></td>
+        <td><p>The configuration to use for the operation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.Extensions.DependencyInjection.IServiceCollection</span></td>
+        <td><p>The value of the <code data-dev-comment-type="paramref" class="paramref">serviceCollection</code> parameter,
+for chaining calls together.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TOptions</span></td>
+        <td><p>The type of associated options.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TImplementation</span></td>
+        <td><p>The type of associated options interface.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentException</span></td>
+        <td><p>This exception is thrown whenever
+one or more of the required parameters is missing or invalid.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.ComponentModel.DataAnnotations.ValidationException</span></td>
+        <td><p>This exception is thrown whenever
+the <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code> object fails to validate properly
+after the bind operation.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="CG.Options.OptionsException.html">OptionsException</a></td>
+        <td><p>This exception is thrown whenever the method
+encounters a configuration with no settings.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_ConfigureOptions_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.ConfigureOptions*"></a>
+  <h4 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_ConfigureOptions__2_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfiguration___0__" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.ConfigureOptions``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration,``0@)">ConfigureOptions&lt;TOptions, TImplementation&gt;(IServiceCollection, IConfiguration, out TOptions)</h4>
+  <div class="markdown level1 summary"><p>This method configures the specified <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code>
+object as a singleton service.
+parameter.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IServiceCollection ConfigureOptions&lt;TOptions, TImplementation&gt;(this IServiceCollection serviceCollection, IConfiguration configuration, out TOptions options)
+    where TOptions : class where TImplementation : class, TOptions, new()</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.Extensions.DependencyInjection.IServiceCollection</span></td>
+        <td><span class="parametername">serviceCollection</span></td>
+        <td><p>The service collection to use for the
+operation.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Microsoft.Extensions.Configuration.IConfiguration</span></td>
+        <td><span class="parametername">configuration</span></td>
+        <td><p>The configuration to use for the operation.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">TOptions</span></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>The bound and validated options instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.Extensions.DependencyInjection.IServiceCollection</span></td>
+        <td><p>The value of the <code data-dev-comment-type="paramref" class="paramref">serviceCollection</code> parameter,
+for chaining calls together.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TOptions</span></td>
+        <td><p>The type of associated options.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TImplementation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentException</span></td>
+        <td><p>This exception is thrown whenever
+one or more of the required parameters is missing or invalid.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.ComponentModel.DataAnnotations.ValidationException</span></td>
+        <td><p>This exception is thrown whenever
+the <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code> object fails to validate properly
+after the bind operation.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="CG.Options.OptionsException.html">OptionsException</a></td>
+        <td><p>This exception is thrown whenever the method
+encounters a configuration with no settings.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigureOptions_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigureOptions*"></a>
   <h4 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection___0_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigureOptions``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,``0)">TryConfigureOptions&lt;TOptions&gt;(IServiceCollection, TOptions)</h4>
   <div class="markdown level1 summary"><p>This method attempts to configure the specified <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code>
@@ -662,6 +876,96 @@ operation.</p>
       <tr>
         <td><span class="parametername">TOptions</span></td>
         <td><p>The type of associated options.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentException</span></td>
+        <td><p>This exception is thrown whenever
+one or more of the required parameters is missing or invalid.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigureOptions_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigureOptions*"></a>
+  <h4 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigureOptions__2_Microsoft_Extensions_DependencyInjection_IServiceCollection___1_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigureOptions``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,``1)">TryConfigureOptions&lt;TOptions, TImplementation&gt;(IServiceCollection, TImplementation)</h4>
+  <div class="markdown level1 summary"><p>This method attempts to configure the specified <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code>
+object as a singleton service.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool TryConfigureOptions&lt;TOptions, TImplementation&gt;(this IServiceCollection serviceCollection, TImplementation options)
+    where TOptions : class where TImplementation : class, TOptions, new()</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.Extensions.DependencyInjection.IServiceCollection</span></td>
+        <td><span class="parametername">serviceCollection</span></td>
+        <td><p>The service collection to use for the
+operation.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">TImplementation</span></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>The options to use for the operation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>True if the options were configured; false otherwise.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TOptions</span></td>
+        <td><p>The type of associated options.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TImplementation</span></td>
+        <td><p>The type of associated options interface.</p>
 </td>
       </tr>
     </tbody>
