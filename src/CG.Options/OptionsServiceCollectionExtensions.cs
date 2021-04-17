@@ -42,10 +42,6 @@ namespace Microsoft.Extensions.DependencyInjection
         /// singleton service, using <typeparamref name="TOptions"/> as the service
         /// type.
         /// </para>
-        /// <para>
-        /// This method is useful whenever the specific type of options are not known
-        /// at compile time, other than the super-type, of course.
-        /// </para>
         /// </remarks>
         public static bool TryConfigureOptions<TOptions, TImplementation>(
             this IServiceCollection serviceCollection,
@@ -111,10 +107,6 @@ namespace Microsoft.Extensions.DependencyInjection
         /// type. The unadorned option instance is returned using the <paramref name="options"/>
         /// parameter - for scenarios where options need to be configured and then immediately
         /// used for other configuration purposes.
-        /// </para>
-        /// <para>
-        /// This method is useful whenever the specific type of options are not known
-        /// at compile time, other than the super-type, of course.
         /// </para>
         /// </remarks>
         public static bool TryConfigureOptions<TOptions, TImplementation>(
@@ -459,10 +451,6 @@ namespace Microsoft.Extensions.DependencyInjection
         /// singleton service, using <typeparamref name="TOptions"/> as the service
         /// type.
         /// </para>
-        /// <para>
-        /// This method is useful whenever the specific type of options are not known
-        /// at compile time, other than the super-type, of course.
-        /// </para>
         /// </remarks>
         public static IServiceCollection ConfigureOptions<TOptions, TImplementation>(
             this IServiceCollection serviceCollection,
@@ -588,10 +576,6 @@ namespace Microsoft.Extensions.DependencyInjection
         /// type. The unadorned option instance is returned using the <paramref name="options"/>
         /// parameter - for scenarios where options need to be configured and then immediately
         /// used for other configuration purposes.
-        /// </para>
-        /// <para>
-        /// This method is useful whenever the specific type of options are not known
-        /// at compile time, other than the super-type, of course.
         /// </para>
         /// </remarks> 
         public static IServiceCollection ConfigureOptions<TOptions, TImplementation>(
