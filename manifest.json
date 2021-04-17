@@ -50,11 +50,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.yml",
+      "source_relative_path": "api/Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html",
-          "hash": "FT0/xOsoanZuAllf6LvJefsVKHHfK42iJcffPSIIwUA="
+          "relative_path": "api/Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions.html",
+          "hash": "SnexqHz4lfyWhFwHIZJP4ukSO7irHhfu+1uZjBSh4jA="
         }
       },
       "is_incremental": false,
@@ -66,7 +66,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Microsoft.Extensions.DependencyInjection.html",
-          "hash": "IgaXKEF9ASkCD8+TNpTqvf6qEszdalOBZkq9JnhQaLA="
+          "hash": "yEBGG35PTgzndXfYJCRLGbMaSLwDcQD5UptDQ49Dxtw="
         }
       },
       "is_incremental": false,
@@ -78,7 +78,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "4O659/Fij6/lTuQxOR8DflF80VvfKW/VJCG7gm983Gw="
+          "hash": "JokLQPbAcbNupHoFJxB3uXZPx5AX9zakPxlJtqinU6M="
         }
       },
       "is_incremental": false,
