@@ -11,9 +11,9 @@ namespace Microsoft.Extensions.DependencyInjection
 {
     /// <summary>
     /// This class contains extension methods related to the <see cref="IServiceCollection"/>
-    /// type.
+    /// type, for registering types from the <see cref="CG.Options"/> library.
     /// </summary>
-    public static partial class ServiceCollectionExtensions
+    public static partial class OptionsServiceCollectionExtensions
     {
         // *******************************************************************
         // Public methods.
@@ -33,6 +33,20 @@ namespace Microsoft.Extensions.DependencyInjection
         /// <returns>True if the options were configured; false otherwise.</returns>
         /// <exception cref="ArgumentException">This exception is thrown whenever
         /// one or more of the required parameters is missing or invalid.</exception>
+        /// <remarks>
+        /// <para>
+        /// In this method, the options are read from the configuration, bound to an 
+        /// instance of <typeparamref name="TImplementation"/>, verified (if the 
+        /// <typeparamref name="TImplementation"/> type derives from <see cref="OptionsBase"/>), 
+        /// and finally registered with <paramref name="serviceCollection"/> as a 
+        /// singleton service, using <typeparamref name="TOptions"/> as the service
+        /// type.
+        /// </para>
+        /// <para>
+        /// This method is useful whenever the specific type of options are not known
+        /// at compile time, other than the super-type, of course.
+        /// </para>
+        /// </remarks>
         public static bool TryConfigureOptions<TOptions, TImplementation>(
             this IServiceCollection serviceCollection,
             IConfiguration configuration
@@ -87,10 +101,26 @@ namespace Microsoft.Extensions.DependencyInjection
         /// <returns>True if the options were configured; false otherwise.</returns>
         /// <exception cref="ArgumentException">This exception is thrown whenever
         /// one or more of the required parameters is missing or invalid.</exception>
+        /// <remarks>
+        /// <para>
+        /// In this method, the options are read from the configuration, bound to an 
+        /// instance of <typeparamref name="TImplementation"/>, verified (if the 
+        /// <typeparamref name="TImplementation"/> type derives from <see cref="OptionsBase"/>), 
+        /// and finally registered with <paramref name="serviceCollection"/> as a 
+        /// singleton service, using <typeparamref name="TOptions"/> as the service
+        /// type. The unadorned option instance is returned using the <paramref name="options"/>
+        /// parameter - for scenarios where options need to be configured and then immediately
+        /// used for other configuration purposes.
+        /// </para>
+        /// <para>
+        /// This method is useful whenever the specific type of options are not known
+        /// at compile time, other than the super-type, of course.
+        /// </para>
+        /// </remarks>
         public static bool TryConfigureOptions<TOptions, TImplementation>(
             this IServiceCollection serviceCollection,
             IConfiguration configuration,
-            out TOptions options
+            out TImplementation options
             ) where TOptions : class
               where TImplementation : class, TOptions, new()
         {
@@ -140,6 +170,15 @@ namespace Microsoft.Extensions.DependencyInjection
         /// <returns>True if the options were configured; false otherwise.</returns>
         /// <exception cref="ArgumentException">This exception is thrown whenever
         /// one or more of the required parameters is missing or invalid.</exception>
+        /// <remarks>
+        /// <para>
+        /// In this method, the options are read from the configuration, bound to an 
+        /// instance of <typeparamref name="TOptions"/>, verified (if the 
+        /// <typeparamref name="TOptions"/> type derives from <see cref="OptionsBase"/>), 
+        /// and finally registered with <paramref name="serviceCollection"/> as a 
+        /// singleton service. 
+        /// </para>
+        /// </remarks>
         public static bool TryConfigureOptions<TOptions>(
             this IServiceCollection serviceCollection,
             IConfiguration configuration
@@ -189,6 +228,17 @@ namespace Microsoft.Extensions.DependencyInjection
         /// <returns>True if the options were configured; false otherwise.</returns>
         /// <exception cref="ArgumentException">This exception is thrown whenever
         /// one or more of the required parameters is missing or invalid.</exception>
+        /// <remarks>
+        /// <para>
+        /// In this method, the options are read from the configuration, bound to an 
+        /// instance of <typeparamref name="TOptions"/>, verified (if the 
+        /// <typeparamref name="TOptions"/> type derives from <see cref="OptionsBase"/>), 
+        /// and finally registered with <paramref name="serviceCollection"/> as a 
+        /// singleton service. The unadorned option instance is returned using the 
+        /// <paramref name="options"/> parameter - for scenarios where options need 
+        /// to be configured and then immediately used for other configuration purposes.
+        /// </para>
+        /// </remarks>
         public static bool TryConfigureOptions<TOptions>(
             this IServiceCollection serviceCollection,
             IConfiguration configuration,
@@ -238,6 +288,13 @@ namespace Microsoft.Extensions.DependencyInjection
         /// <returns>True if the options were configured; false otherwise.</returns>
         /// <exception cref="ArgumentException">This exception is thrown whenever
         /// one or more of the required parameters is missing or invalid.</exception>
+        /// <remarks>
+        /// <para>
+        /// In this method, the options are verified (if the <typeparamref name="TOptions"/> 
+        /// type derives from <see cref="OptionsBase"/>), and then registered with 
+        /// <paramref name="serviceCollection"/> as a singleton service.
+        /// </para>
+        /// </remarks>
         public static bool TryConfigureOptions<TOptions>(
             this IServiceCollection serviceCollection,
             TOptions options
@@ -281,6 +338,13 @@ namespace Microsoft.Extensions.DependencyInjection
         /// <returns>True if the options were configured; false otherwise.</returns>
         /// <exception cref="ArgumentException">This exception is thrown whenever
         /// one or more of the required parameters is missing or invalid.</exception>
+        /// <remarks>
+        /// <para>
+        /// In this method, the options are verified (if the <typeparamref name="TOptions"/> 
+        /// type derives from <see cref="OptionsBase"/>), and then registered with 
+        /// <paramref name="serviceCollection"/> as a singleton service.
+        /// </para>
+        /// </remarks>
         public static bool TryConfigureOptions<TOptions, TImplementation>(
             this IServiceCollection serviceCollection,
             TImplementation options
@@ -330,6 +394,15 @@ namespace Microsoft.Extensions.DependencyInjection
         /// after the bind operation.</exception>
         /// <exception cref="OptionsException">This exception is thrown whenever the method
         /// encounters a configuration with no settings.</exception>
+        /// <remarks>
+        /// <para>
+        /// In this method, the options are read from the configuration, bound to an 
+        /// instance of <typeparamref name="TOptions"/>, verified (if the 
+        /// <typeparamref name="TOptions"/> type derives from <see cref="OptionsBase"/>), 
+        /// and finally registered with <paramref name="serviceCollection"/> as a 
+        /// singleton service. 
+        /// </para>
+        /// </remarks>
         public static IServiceCollection ConfigureOptions<TOptions>(
             this IServiceCollection serviceCollection,
             IConfiguration configuration
@@ -377,6 +450,20 @@ namespace Microsoft.Extensions.DependencyInjection
         /// after the bind operation.</exception>
         /// <exception cref="OptionsException">This exception is thrown whenever the method
         /// encounters a configuration with no settings.</exception>
+        /// <remarks>
+        /// <para>
+        /// In this method, the options are read from the configuration, bound to an 
+        /// instance of <typeparamref name="TImplementation"/>, verified (if the 
+        /// <typeparamref name="TImplementation"/> type derives from <see cref="OptionsBase"/>), 
+        /// and finally registered with <paramref name="serviceCollection"/> as a 
+        /// singleton service, using <typeparamref name="TOptions"/> as the service
+        /// type.
+        /// </para>
+        /// <para>
+        /// This method is useful whenever the specific type of options are not known
+        /// at compile time, other than the super-type, of course.
+        /// </para>
+        /// </remarks>
         public static IServiceCollection ConfigureOptions<TOptions, TImplementation>(
             this IServiceCollection serviceCollection,
             IConfiguration configuration
@@ -429,6 +516,18 @@ namespace Microsoft.Extensions.DependencyInjection
         /// after the bind operation.</exception>
         /// <exception cref="OptionsException">This exception is thrown whenever the method
         /// encounters a configuration with no settings.</exception>
+        /// <remarks>
+        /// <para>
+        /// In this method, the options are read from the configuration, bound to an 
+        /// instance of <typeparamref name="TOptions"/>, verified (if the 
+        /// <typeparamref name="TOptions"/> type derives from <see cref="OptionsBase"/>), 
+        /// and finally registered with <paramref name="serviceCollection"/> as a 
+        /// singleton service, using <typeparamref name="TOptions"/> as the service
+        /// type. The unadorned option instance is returned using the <paramref name="options"/>
+        /// parameter - for scenarios where options need to be configured and then immediately
+        /// used for other configuration purposes.
+        /// </para>
+        /// </remarks> 
         public static IServiceCollection ConfigureOptions<TOptions>(
             this IServiceCollection serviceCollection,
             IConfiguration configuration,
@@ -465,6 +564,7 @@ namespace Microsoft.Extensions.DependencyInjection
         /// parameter.
         /// </summary>
         /// <typeparam name="TOptions">The type of associated options.</typeparam>
+        /// <typeparam name="TImplementation">The type of associated options interface.</typeparam>
         /// <param name="serviceCollection">The service collection to use for the 
         /// operation.</param>
         /// <param name="configuration">The configuration to use for the operation.</param>
@@ -478,6 +578,22 @@ namespace Microsoft.Extensions.DependencyInjection
         /// after the bind operation.</exception>
         /// <exception cref="OptionsException">This exception is thrown whenever the method
         /// encounters a configuration with no settings.</exception>
+        /// <remarks>
+        /// <para>
+        /// In this method, the options are read from the configuration, bound to an 
+        /// instance of <typeparamref name="TImplementation"/>, verified (if the 
+        /// <typeparamref name="TImplementation"/> type derives from <see cref="OptionsBase"/>), 
+        /// and finally registered with <paramref name="serviceCollection"/> as a 
+        /// singleton service, using <typeparamref name="TOptions"/> as the service
+        /// type. The unadorned option instance is returned using the <paramref name="options"/>
+        /// parameter - for scenarios where options need to be configured and then immediately
+        /// used for other configuration purposes.
+        /// </para>
+        /// <para>
+        /// This method is useful whenever the specific type of options are not known
+        /// at compile time, other than the super-type, of course.
+        /// </para>
+        /// </remarks> 
         public static IServiceCollection ConfigureOptions<TOptions, TImplementation>(
             this IServiceCollection serviceCollection,
             IConfiguration configuration,
@@ -527,6 +643,13 @@ namespace Microsoft.Extensions.DependencyInjection
         /// <exception cref="ValidationException">This exception is thrown whenever
         /// the <typeparamref name="TOptions"/> object fails to validate properly
         /// after the bind operation.</exception>
+        /// <remarks>
+        /// <para>
+        /// In this method, the options are verified (if the <typeparamref name="TOptions"/> 
+        /// type derives from <see cref="OptionsBase"/>), and then registered with 
+        /// <paramref name="serviceCollection"/> as a singleton service.
+        /// </para>
+        /// </remarks>
         public static IServiceCollection ConfigureOptions<TOptions>(
             this IServiceCollection serviceCollection,
             TOptions options
