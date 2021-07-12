@@ -1,7 +1,11 @@
 # CG.Options change log
 ---
 
-## 2021.2 
+## 2021.5
+
+* bug fixes
+
+## 2021.4
 
 * I switched to the .NET 5.x framework.
 * I moved the data protection stuff to CG.DataProtection

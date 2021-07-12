@@ -5,6 +5,7 @@
 [![NuGet downloads](https://img.shields.io/nuget/dt/CG.Options.svg?style=flat)](https://nuget.org/packages/CG.Options)
 ![Azure DevOps coverage](https://img.shields.io/azure-devops/coverage/codegator/CG.Options/21)
 [![Github discussion](https://img.shields.io/badge/Discussion-online-blue)](https://github.com/CodeGator/CG.Options/discussions)
+[![CG.Options on fuget.org](https://www.fuget.org/packages/CG.Options/badge.svg)](https://www.fuget.org/packages/CG.Options)
 
 #### What does it do?
 The package defines option extensions used by other CodeGator packages. 
@@ -14,7 +15,6 @@ The package defines option extensions used by other CodeGator packages.
 * Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions
 * Microsoft.Extensions.Configuration.ConfigurationExtensions
 * CG.Options.ProtectedPropertyAttribute
-
 
 #### What platform(s) does it support?
 * .NET 5.x or higher
@@ -26,6 +26,8 @@ PM> Install-Package CG.Options
 
 #### How do I contact you?
 If you've spotted a bug in the code please use the project Issues [HERE](https://github.com/CodeGator/CG.Options/issues)
+
+We have a discussion group [HERE](https://github.com/CodeGator/CG.Options/discussions)
 
 #### Is there any documentation?
 There is developer documentation [HERE](https://codegator.github.io/CG.Options/)
