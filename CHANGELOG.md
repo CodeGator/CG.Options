@@ -1,6 +1,10 @@
 # CG.Options change log
 ---
 
+## 2022.1
+
+* I switched the framework to .net 6.0
+
 ## 2021.5
 
 * bug fixes
