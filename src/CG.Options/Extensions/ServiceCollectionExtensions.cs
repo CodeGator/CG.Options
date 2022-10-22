@@ -2,12 +2,13 @@
 using CG.Options;
 using CG.Validations;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Options;
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace Microsoft.Extensions.DependencyInjection
+namespace CG.Options.Extensions
 {
     /// <summary>
     /// This class contains extension methods related to the <see cref="IServiceCollection"/>
@@ -72,7 +73,7 @@ namespace Microsoft.Extensions.DependencyInjection
 
             // Add the options to the DI container.
             serviceCollection.TryAddSingleton<
-                IOptions<TOptions>, 
+                IOptions<TOptions>,
                 IOptions<TImplementation>
                 >(
                     new OptionsWrapper<TImplementation>(options)
