@@ -1,6 +1,4 @@
-﻿using CG.DataAnnotations;
-using System;
-
+﻿
 namespace CG.Options
 {
     /// <summary>

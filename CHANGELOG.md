@@ -4,6 +4,7 @@
 ## 2022.1
 
 * I switched the framework to .net 6.0
+* I added more validation options
 
 ## 2021.5
 
