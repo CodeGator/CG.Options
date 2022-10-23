@@ -78,10 +78,10 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="CG.Options.Extensions.ServiceCollectionExtensions">
+            <article class="content wrap" id="_content" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions">
   
   
-  <h1 id="CG_Options_Extensions_ServiceCollectionExtensions" data-uid="CG.Options.Extensions.ServiceCollectionExtensions" class="text-break">Class ServiceCollectionExtensions
+  <h1 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions" class="text-break">Class ServiceCollectionExtensions
   </h1>
   <div class="markdown level0 summary"><p>This class contains extension methods related to the <span class="xref">Microsoft.Extensions.DependencyInjection.IServiceCollection</span>
 type.</p>
@@ -116,16 +116,16 @@ type.</p>
       <span class="xref">System.Object.ToString()</span>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="CG.Options.Extensions.html">CG.Options.Extensions</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Microsoft.Extensions.DependencyInjection.html">Microsoft.Extensions.DependencyInjection</a></h6>
   <h6><strong>Assembly</strong>: CG.Options.dll</h6>
-  <h5 id="CG_Options_Extensions_ServiceCollectionExtensions_syntax">Syntax</h5>
+  <h5 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static class ServiceCollectionExtensions</code></pre>
   </div>
   <h3 id="methods">Methods
   </h3>
-  <a id="CG_Options_Extensions_ServiceCollectionExtensions_ConfigureOptions_" data-uid="CG.Options.Extensions.ServiceCollectionExtensions.ConfigureOptions*"></a>
-  <h4 id="CG_Options_Extensions_ServiceCollectionExtensions_ConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection___0_" data-uid="CG.Options.Extensions.ServiceCollectionExtensions.ConfigureOptions``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,``0)">ConfigureOptions&lt;TOptions&gt;(IServiceCollection, TOptions)</h4>
+  <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_ConfigureOptions_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.ConfigureOptions*"></a>
+  <h4 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_ConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection___0_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.ConfigureOptions``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,``0)">ConfigureOptions&lt;TOptions&gt;(IServiceCollection, TOptions)</h4>
   <div class="markdown level1 summary"><p>This method configures the specified <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code>
 object as a singleton service.</p>
 </div>
@@ -193,39 +193,15 @@ for chaining calls together.</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="CG_Options_Extensions_ServiceCollectionExtensions_ConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection___0__remarks">Remarks</h5>
+  <h5 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_ConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection___0__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>
 In this method, the options are verified (if the <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code> 
-type derives from <a class="xref" href="CG.Options.OptionsBase.html">OptionsBase</a>), and then registered with 
+type derives from <see cref="!:OptionsBase"></see>), and then registered with 
 <code data-dev-comment-type="paramref" class="paramref">serviceCollection</code> as a singleton service.
 </p>
 </div>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.ArgumentException</span></td>
-        <td><p>This exception is thrown whenever
-one or more of the required parameters is missing or invalid.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.ComponentModel.DataAnnotations.ValidationException</span></td>
-        <td><p>This exception is thrown whenever
-the <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code> object fails to validate properly
-after the bind operation.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <a id="CG_Options_Extensions_ServiceCollectionExtensions_ConfigureOptions_" data-uid="CG.Options.Extensions.ServiceCollectionExtensions.ConfigureOptions*"></a>
-  <h4 id="CG_Options_Extensions_ServiceCollectionExtensions_ConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfiguration_" data-uid="CG.Options.Extensions.ServiceCollectionExtensions.ConfigureOptions``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">ConfigureOptions&lt;TOptions&gt;(IServiceCollection, IConfiguration)</h4>
+  <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_ConfigureOptions_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.ConfigureOptions*"></a>
+  <h4 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_ConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_IConfiguration_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.ConfigureOptions``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,IConfiguration)">ConfigureOptions&lt;TOptions&gt;(IServiceCollection, IConfiguration)</h4>
   <div class="markdown level1 summary"><p>This method configures the specified <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code>
 object as a singleton service.</p>
 </div>
@@ -253,7 +229,7 @@ operation.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Microsoft.Extensions.Configuration.IConfiguration</span></td>
+        <td><span class="xref">IConfiguration</span></td>
         <td><span class="parametername">configuration</span></td>
         <td><p>The configuration to use for the operation.</p>
 </td>
@@ -293,47 +269,17 @@ for chaining calls together.</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="CG_Options_Extensions_ServiceCollectionExtensions_ConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfiguration__remarks">Remarks</h5>
+  <h5 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_ConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_IConfiguration__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>
 In this method, the options are read from the configuration, bound to an 
 instance of <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code>, verified (if the 
-<code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code> type derives from <a class="xref" href="CG.Options.OptionsBase.html">OptionsBase</a>), 
+<code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code> type derives from <see cref="!:OptionsBase"></see>), 
 and finally registered with <code data-dev-comment-type="paramref" class="paramref">serviceCollection</code> as a 
 singleton service. 
 </p>
 </div>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.ArgumentException</span></td>
-        <td><p>This exception is thrown whenever
-one or more of the required parameters is missing or invalid.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.ComponentModel.DataAnnotations.ValidationException</span></td>
-        <td><p>This exception is thrown whenever
-the <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code> object fails to validate properly
-after the bind operation.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="CG.Options.OptionsException.html">OptionsException</a></td>
-        <td><p>This exception is thrown whenever the method
-encounters a configuration with no settings.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <a id="CG_Options_Extensions_ServiceCollectionExtensions_ConfigureOptions_" data-uid="CG.Options.Extensions.ServiceCollectionExtensions.ConfigureOptions*"></a>
-  <h4 id="CG_Options_Extensions_ServiceCollectionExtensions_ConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfiguration___0__" data-uid="CG.Options.Extensions.ServiceCollectionExtensions.ConfigureOptions``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration,``0@)">ConfigureOptions&lt;TOptions&gt;(IServiceCollection, IConfiguration, out TOptions)</h4>
+  <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_ConfigureOptions_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.ConfigureOptions*"></a>
+  <h4 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_ConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_IConfiguration___0__" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.ConfigureOptions``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,IConfiguration,``0@)">ConfigureOptions&lt;TOptions&gt;(IServiceCollection, IConfiguration, out TOptions)</h4>
   <div class="markdown level1 summary"><p>This method configures the specified <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code>
 object as a singleton service.
 parameter.</p>
@@ -362,7 +308,7 @@ operation.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Microsoft.Extensions.Configuration.IConfiguration</span></td>
+        <td><span class="xref">IConfiguration</span></td>
         <td><span class="parametername">configuration</span></td>
         <td><p>The configuration to use for the operation.</p>
 </td>
@@ -408,11 +354,11 @@ for chaining calls together.</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="CG_Options_Extensions_ServiceCollectionExtensions_ConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfiguration___0___remarks">Remarks</h5>
+  <h5 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_ConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_IConfiguration___0___remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>
 In this method, the options are read from the configuration, bound to an 
 instance of <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code>, verified (if the 
-<code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code> type derives from <a class="xref" href="CG.Options.OptionsBase.html">OptionsBase</a>), 
+<code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code> type derives from <see cref="!:OptionsBase"></see>), 
 and finally registered with <code data-dev-comment-type="paramref" class="paramref">serviceCollection</code> as a 
 singleton service, using <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code> as the service
 type. The unadorned option instance is returned using the <code data-dev-comment-type="paramref" class="paramref">options</code>
@@ -420,38 +366,21 @@ parameter - for scenarios where options need to be configured and then immediate
 used for other configuration purposes.
 </p>
 </div>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.ArgumentException</span></td>
-        <td><p>This exception is thrown whenever
-one or more of the required parameters is missing or invalid.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.ComponentModel.DataAnnotations.ValidationException</span></td>
-        <td><p>This exception is thrown whenever
-the <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code> object fails to validate properly
-after the bind operation.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="CG.Options.OptionsException.html">OptionsException</a></td>
-        <td><p>This exception is thrown whenever the method
-encounters a configuration with no settings.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <a id="CG_Options_Extensions_ServiceCollectionExtensions_ConfigureOptions_" data-uid="CG.Options.Extensions.ServiceCollectionExtensions.ConfigureOptions*"></a>
-  <h4 id="CG_Options_Extensions_ServiceCollectionExtensions_ConfigureOptions__2_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfiguration_" data-uid="CG.Options.Extensions.ServiceCollectionExtensions.ConfigureOptions``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">ConfigureOptions&lt;TOptions, TImplementation&gt;(IServiceCollection, IConfiguration)</h4>
+  <h5 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_ConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_IConfiguration___0___examples">Examples</h5>
+  <p>This example demonstrates configuring options when the values are needed before
+the host application is created:</p>
+<pre><code>public static WebApplicationBuilder AddFoo(this WebApplicationBuilder builder)
+{
+   builder.Services.ConfigureOptions{MyOptions}(
+      builder.Configuration,
+      out var myOptions
+      );
+
+   // TODO : use the bound and validated &apos;myOptions&apos; here.
+}</code></pre>
+
+  <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_ConfigureOptions_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.ConfigureOptions*"></a>
+  <h4 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_ConfigureOptions__2_Microsoft_Extensions_DependencyInjection_IServiceCollection_IConfiguration_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.ConfigureOptions``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,IConfiguration)">ConfigureOptions&lt;TOptions, TImplementation&gt;(IServiceCollection, IConfiguration)</h4>
   <div class="markdown level1 summary"><p>This method configures the specified <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code>
 object as a singleton service.</p>
 </div>
@@ -479,7 +408,7 @@ operation.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Microsoft.Extensions.Configuration.IConfiguration</span></td>
+        <td><span class="xref">IConfiguration</span></td>
         <td><span class="parametername">configuration</span></td>
         <td><p>The configuration to use for the operation.</p>
 </td>
@@ -524,48 +453,18 @@ for chaining calls together.</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="CG_Options_Extensions_ServiceCollectionExtensions_ConfigureOptions__2_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfiguration__remarks">Remarks</h5>
+  <h5 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_ConfigureOptions__2_Microsoft_Extensions_DependencyInjection_IServiceCollection_IConfiguration__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>
 In this method, the options are read from the configuration, bound to an 
 instance of <code data-dev-comment-type="typeparamref" class="typeparamref">TImplementation</code>, verified (if the 
-<code data-dev-comment-type="typeparamref" class="typeparamref">TImplementation</code> type derives from <a class="xref" href="CG.Options.OptionsBase.html">OptionsBase</a>), 
+<code data-dev-comment-type="typeparamref" class="typeparamref">TImplementation</code> type derives from <see cref="!:OptionsBase"></see>), 
 and finally registered with <code data-dev-comment-type="paramref" class="paramref">serviceCollection</code> as a 
 singleton service, using <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code> as the service
 type.
 </p>
 </div>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.ArgumentException</span></td>
-        <td><p>This exception is thrown whenever
-one or more of the required parameters is missing or invalid.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.ComponentModel.DataAnnotations.ValidationException</span></td>
-        <td><p>This exception is thrown whenever
-the <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code> object fails to validate properly
-after the bind operation.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="CG.Options.OptionsException.html">OptionsException</a></td>
-        <td><p>This exception is thrown whenever the method
-encounters a configuration with no settings.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <a id="CG_Options_Extensions_ServiceCollectionExtensions_ConfigureOptions_" data-uid="CG.Options.Extensions.ServiceCollectionExtensions.ConfigureOptions*"></a>
-  <h4 id="CG_Options_Extensions_ServiceCollectionExtensions_ConfigureOptions__2_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfiguration___0__" data-uid="CG.Options.Extensions.ServiceCollectionExtensions.ConfigureOptions``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration,``0@)">ConfigureOptions&lt;TOptions, TImplementation&gt;(IServiceCollection, IConfiguration, out TOptions)</h4>
+  <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_ConfigureOptions_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.ConfigureOptions*"></a>
+  <h4 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_ConfigureOptions__2_Microsoft_Extensions_DependencyInjection_IServiceCollection_IConfiguration___0__" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.ConfigureOptions``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,IConfiguration,``0@)">ConfigureOptions&lt;TOptions, TImplementation&gt;(IServiceCollection, IConfiguration, out TOptions)</h4>
   <div class="markdown level1 summary"><p>This method configures the specified <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code>
 object as a singleton service.
 parameter.</p>
@@ -594,7 +493,7 @@ operation.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Microsoft.Extensions.Configuration.IConfiguration</span></td>
+        <td><span class="xref">IConfiguration</span></td>
         <td><span class="parametername">configuration</span></td>
         <td><p>The configuration to use for the operation.</p>
 </td>
@@ -645,11 +544,11 @@ for chaining calls together.</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="CG_Options_Extensions_ServiceCollectionExtensions_ConfigureOptions__2_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfiguration___0___remarks">Remarks</h5>
+  <h5 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_ConfigureOptions__2_Microsoft_Extensions_DependencyInjection_IServiceCollection_IConfiguration___0___remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>
 In this method, the options are read from the configuration, bound to an 
 instance of <code data-dev-comment-type="typeparamref" class="typeparamref">TImplementation</code>, verified (if the 
-<code data-dev-comment-type="typeparamref" class="typeparamref">TImplementation</code> type derives from <a class="xref" href="CG.Options.OptionsBase.html">OptionsBase</a>), 
+<code data-dev-comment-type="typeparamref" class="typeparamref">TImplementation</code> type derives from <see cref="!:OptionsBase"></see>), 
 and finally registered with <code data-dev-comment-type="paramref" class="paramref">serviceCollection</code> as a 
 singleton service, using <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code> as the service
 type. The unadorned option instance is returned using the <code data-dev-comment-type="paramref" class="paramref">options</code>
@@ -657,38 +556,21 @@ parameter - for scenarios where options need to be configured and then immediate
 used for other configuration purposes.
 </p>
 </div>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.ArgumentException</span></td>
-        <td><p>This exception is thrown whenever
-one or more of the required parameters is missing or invalid.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.ComponentModel.DataAnnotations.ValidationException</span></td>
-        <td><p>This exception is thrown whenever
-the <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code> object fails to validate properly
-after the bind operation.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="CG.Options.OptionsException.html">OptionsException</a></td>
-        <td><p>This exception is thrown whenever the method
-encounters a configuration with no settings.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <a id="CG_Options_Extensions_ServiceCollectionExtensions_TryConfigureOptions_" data-uid="CG.Options.Extensions.ServiceCollectionExtensions.TryConfigureOptions*"></a>
-  <h4 id="CG_Options_Extensions_ServiceCollectionExtensions_TryConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection___0_" data-uid="CG.Options.Extensions.ServiceCollectionExtensions.TryConfigureOptions``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,``0)">TryConfigureOptions&lt;TOptions&gt;(IServiceCollection, TOptions)</h4>
+  <h5 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_ConfigureOptions__2_Microsoft_Extensions_DependencyInjection_IServiceCollection_IConfiguration___0___examples">Examples</h5>
+  <p>This example demonstrates configuring options when the values are needed before
+the host application is created:</p>
+<pre><code>public static WebApplicationBuilder AddFoo(this WebApplicationBuilder builder)
+{
+   builder.Services.ConfigureOptions{IMyOptions, MyOptions}(
+      builder.Configuration,
+      out var myOptions
+      );
+
+   // TODO : use the bound and validated &apos;myOptions&apos; here.
+}</code></pre>
+
+  <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigureOptions_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigureOptions*"></a>
+  <h4 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection___0_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigureOptions``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,``0)">TryConfigureOptions&lt;TOptions&gt;(IServiceCollection, TOptions)</h4>
   <div class="markdown level1 summary"><p>This method attempts to configure the specified <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code>
 object as a singleton service.</p>
 </div>
@@ -755,32 +637,15 @@ operation.</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="CG_Options_Extensions_ServiceCollectionExtensions_TryConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection___0__remarks">Remarks</h5>
+  <h5 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection___0__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>
 In this method, the options are verified (if the <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code> 
-type derives from <a class="xref" href="CG.Options.OptionsBase.html">OptionsBase</a>), and then registered with 
+type derives from <see cref="!:OptionsBase"></see>), and then registered with 
 <code data-dev-comment-type="paramref" class="paramref">serviceCollection</code> as a singleton service.
 </p>
 </div>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.ArgumentException</span></td>
-        <td><p>This exception is thrown whenever
-one or more of the required parameters is missing or invalid.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <a id="CG_Options_Extensions_ServiceCollectionExtensions_TryConfigureOptions_" data-uid="CG.Options.Extensions.ServiceCollectionExtensions.TryConfigureOptions*"></a>
-  <h4 id="CG_Options_Extensions_ServiceCollectionExtensions_TryConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfiguration_" data-uid="CG.Options.Extensions.ServiceCollectionExtensions.TryConfigureOptions``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">TryConfigureOptions&lt;TOptions&gt;(IServiceCollection, IConfiguration)</h4>
+  <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigureOptions_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigureOptions*"></a>
+  <h4 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_IConfiguration_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigureOptions``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,IConfiguration)">TryConfigureOptions&lt;TOptions&gt;(IServiceCollection, IConfiguration)</h4>
   <div class="markdown level1 summary"><p>This method attempts to configure the specified <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code>
 object as a singleton service.</p>
 </div>
@@ -808,7 +673,7 @@ operation.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Microsoft.Extensions.Configuration.IConfiguration</span></td>
+        <td><span class="xref">IConfiguration</span></td>
         <td><span class="parametername">configuration</span></td>
         <td><p>The configuration to use for the operation.</p>
 </td>
@@ -847,34 +712,17 @@ operation.</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="CG_Options_Extensions_ServiceCollectionExtensions_TryConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfiguration__remarks">Remarks</h5>
+  <h5 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_IConfiguration__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>
 In this method, the options are read from the configuration, bound to an 
 instance of <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code>, verified (if the 
-<code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code> type derives from <a class="xref" href="CG.Options.OptionsBase.html">OptionsBase</a>), 
+<code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code> type derives from <see cref="!:OptionsBase"></see>), 
 and finally registered with <code data-dev-comment-type="paramref" class="paramref">serviceCollection</code> as a 
 singleton service. 
 </p>
 </div>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.ArgumentException</span></td>
-        <td><p>This exception is thrown whenever
-one or more of the required parameters is missing or invalid.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <a id="CG_Options_Extensions_ServiceCollectionExtensions_TryConfigureOptions_" data-uid="CG.Options.Extensions.ServiceCollectionExtensions.TryConfigureOptions*"></a>
-  <h4 id="CG_Options_Extensions_ServiceCollectionExtensions_TryConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfiguration___0__" data-uid="CG.Options.Extensions.ServiceCollectionExtensions.TryConfigureOptions``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration,``0@)">TryConfigureOptions&lt;TOptions&gt;(IServiceCollection, IConfiguration, out TOptions)</h4>
+  <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigureOptions_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigureOptions*"></a>
+  <h4 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_IConfiguration___0__" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigureOptions``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,IConfiguration,``0@)">TryConfigureOptions&lt;TOptions&gt;(IServiceCollection, IConfiguration, out TOptions)</h4>
   <div class="markdown level1 summary"><p>This method attempts to configure the specified <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code>
 object as a singleton service.</p>
 </div>
@@ -902,7 +750,7 @@ operation.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Microsoft.Extensions.Configuration.IConfiguration</span></td>
+        <td><span class="xref">IConfiguration</span></td>
         <td><span class="parametername">configuration</span></td>
         <td><p>The configuration to use for the operation.</p>
 </td>
@@ -947,36 +795,19 @@ operation.</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="CG_Options_Extensions_ServiceCollectionExtensions_TryConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfiguration___0___remarks">Remarks</h5>
+  <h5 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_IConfiguration___0___remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>
 In this method, the options are read from the configuration, bound to an 
 instance of <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code>, verified (if the 
-<code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code> type derives from <a class="xref" href="CG.Options.OptionsBase.html">OptionsBase</a>), 
+<code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code> type derives from <see cref="!:OptionsBase"></see>), 
 and finally registered with <code data-dev-comment-type="paramref" class="paramref">serviceCollection</code> as a 
 singleton service. The unadorned option instance is returned using the 
 <code data-dev-comment-type="paramref" class="paramref">options</code> parameter - for scenarios where options need 
 to be configured and then immediately used for other configuration purposes.
 </p>
 </div>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.ArgumentException</span></td>
-        <td><p>This exception is thrown whenever
-one or more of the required parameters is missing or invalid.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <a id="CG_Options_Extensions_ServiceCollectionExtensions_TryConfigureOptions_" data-uid="CG.Options.Extensions.ServiceCollectionExtensions.TryConfigureOptions*"></a>
-  <h4 id="CG_Options_Extensions_ServiceCollectionExtensions_TryConfigureOptions__2_Microsoft_Extensions_DependencyInjection_IServiceCollection___1_" data-uid="CG.Options.Extensions.ServiceCollectionExtensions.TryConfigureOptions``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,``1)">TryConfigureOptions&lt;TOptions, TImplementation&gt;(IServiceCollection, TImplementation)</h4>
+  <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigureOptions_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigureOptions*"></a>
+  <h4 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigureOptions__2_Microsoft_Extensions_DependencyInjection_IServiceCollection___1_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigureOptions``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,``1)">TryConfigureOptions&lt;TOptions, TImplementation&gt;(IServiceCollection, TImplementation)</h4>
   <div class="markdown level1 summary"><p>This method attempts to configure the specified <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code>
 object as a singleton service.</p>
 </div>
@@ -1048,32 +879,15 @@ operation.</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="CG_Options_Extensions_ServiceCollectionExtensions_TryConfigureOptions__2_Microsoft_Extensions_DependencyInjection_IServiceCollection___1__remarks">Remarks</h5>
+  <h5 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigureOptions__2_Microsoft_Extensions_DependencyInjection_IServiceCollection___1__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>
 In this method, the options are verified (if the <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code> 
-type derives from <a class="xref" href="CG.Options.OptionsBase.html">OptionsBase</a>), and then registered with 
+type derives from <see cref="!:OptionsBase"></see>), and then registered with 
 <code data-dev-comment-type="paramref" class="paramref">serviceCollection</code> as a singleton service.
 </p>
 </div>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.ArgumentException</span></td>
-        <td><p>This exception is thrown whenever
-one or more of the required parameters is missing or invalid.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <a id="CG_Options_Extensions_ServiceCollectionExtensions_TryConfigureOptions_" data-uid="CG.Options.Extensions.ServiceCollectionExtensions.TryConfigureOptions*"></a>
-  <h4 id="CG_Options_Extensions_ServiceCollectionExtensions_TryConfigureOptions__2_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfiguration_" data-uid="CG.Options.Extensions.ServiceCollectionExtensions.TryConfigureOptions``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">TryConfigureOptions&lt;TOptions, TImplementation&gt;(IServiceCollection, IConfiguration)</h4>
+  <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigureOptions_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigureOptions*"></a>
+  <h4 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigureOptions__2_Microsoft_Extensions_DependencyInjection_IServiceCollection_IConfiguration_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigureOptions``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,IConfiguration)">TryConfigureOptions&lt;TOptions, TImplementation&gt;(IServiceCollection, IConfiguration)</h4>
   <div class="markdown level1 summary"><p>This method attempts to configure the specified <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code>
 object as a singleton service.</p>
 </div>
@@ -1101,7 +915,7 @@ operation.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Microsoft.Extensions.Configuration.IConfiguration</span></td>
+        <td><span class="xref">IConfiguration</span></td>
         <td><span class="parametername">configuration</span></td>
         <td><p>The configuration to use for the operation.</p>
 </td>
@@ -1145,35 +959,18 @@ operation.</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="CG_Options_Extensions_ServiceCollectionExtensions_TryConfigureOptions__2_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfiguration__remarks">Remarks</h5>
+  <h5 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigureOptions__2_Microsoft_Extensions_DependencyInjection_IServiceCollection_IConfiguration__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>
 In this method, the options are read from the configuration, bound to an 
 instance of <code data-dev-comment-type="typeparamref" class="typeparamref">TImplementation</code>, verified (if the 
-<code data-dev-comment-type="typeparamref" class="typeparamref">TImplementation</code> type derives from <a class="xref" href="CG.Options.OptionsBase.html">OptionsBase</a>), 
+<code data-dev-comment-type="typeparamref" class="typeparamref">TImplementation</code> type derives from <see cref="!:OptionsBase"></see>), 
 and finally registered with <code data-dev-comment-type="paramref" class="paramref">serviceCollection</code> as a 
 singleton service, using <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code> as the service
 type.
 </p>
 </div>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.ArgumentException</span></td>
-        <td><p>This exception is thrown whenever
-one or more of the required parameters is missing or invalid.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <a id="CG_Options_Extensions_ServiceCollectionExtensions_TryConfigureOptions_" data-uid="CG.Options.Extensions.ServiceCollectionExtensions.TryConfigureOptions*"></a>
-  <h4 id="CG_Options_Extensions_ServiceCollectionExtensions_TryConfigureOptions__2_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfiguration___1__" data-uid="CG.Options.Extensions.ServiceCollectionExtensions.TryConfigureOptions``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration,``1@)">TryConfigureOptions&lt;TOptions, TImplementation&gt;(IServiceCollection, IConfiguration, out TImplementation)</h4>
+  <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigureOptions_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigureOptions*"></a>
+  <h4 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigureOptions__2_Microsoft_Extensions_DependencyInjection_IServiceCollection_IConfiguration___1__" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigureOptions``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,IConfiguration,``1@)">TryConfigureOptions&lt;TOptions, TImplementation&gt;(IServiceCollection, IConfiguration, out TImplementation)</h4>
   <div class="markdown level1 summary"><p>This method attempts to configure the specified <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code>
 object as a singleton service.</p>
 </div>
@@ -1201,7 +998,7 @@ operation.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Microsoft.Extensions.Configuration.IConfiguration</span></td>
+        <td><span class="xref">IConfiguration</span></td>
         <td><span class="parametername">configuration</span></td>
         <td><p>The configuration to use for the operation.</p>
 </td>
@@ -1251,11 +1048,11 @@ operation.</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="CG_Options_Extensions_ServiceCollectionExtensions_TryConfigureOptions__2_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfiguration___1___remarks">Remarks</h5>
+  <h5 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigureOptions__2_Microsoft_Extensions_DependencyInjection_IServiceCollection_IConfiguration___1___remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>
 In this method, the options are read from the configuration, bound to an 
 instance of <code data-dev-comment-type="typeparamref" class="typeparamref">TImplementation</code>, verified (if the 
-<code data-dev-comment-type="typeparamref" class="typeparamref">TImplementation</code> type derives from <a class="xref" href="CG.Options.OptionsBase.html">OptionsBase</a>), 
+<code data-dev-comment-type="typeparamref" class="typeparamref">TImplementation</code> type derives from <see cref="!:OptionsBase"></see>), 
 and finally registered with <code data-dev-comment-type="paramref" class="paramref">serviceCollection</code> as a 
 singleton service, using <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code> as the service
 type. The unadorned option instance is returned using the <code data-dev-comment-type="paramref" class="paramref">options</code>
@@ -1263,23 +1060,6 @@ parameter - for scenarios where options need to be configured and then immediate
 used for other configuration purposes.
 </p>
 </div>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.ArgumentException</span></td>
-        <td><p>This exception is thrown whenever
-one or more of the required parameters is missing or invalid.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
 </article>
           </div>
           
