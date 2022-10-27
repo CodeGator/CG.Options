@@ -5,6 +5,7 @@
 
 * I switched the framework to .net 6.0
 * I added more validation options
+* Removed ValidatorEx to CG.DataAnnotations
 
 ## 2021.5
 
