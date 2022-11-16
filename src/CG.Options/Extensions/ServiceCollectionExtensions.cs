@@ -25,16 +25,6 @@ public static partial class ServiceCollectionExtensions
     /// <returns>True if the options were configured; false otherwise.</returns>
     /// <exception cref="ArgumentException">This exception is thrown whenever
     /// one or more of the required parameters is missing or invalid.</exception>
-    /// <remarks>
-    /// <para>
-    /// In this method, the options are read from the configuration, bound to an 
-    /// instance of <typeparamref name="TImplementation"/>, verified (if the 
-    /// <typeparamref name="TImplementation"/> type derives from <see cref="OptionsBase"/>), 
-    /// and finally registered with <paramref name="serviceCollection"/> as a 
-    /// singleton service, using <typeparamref name="TOptions"/> as the service
-    /// type.
-    /// </para>
-    /// </remarks>
     public static bool TryConfigureOptions<TOptions, TImplementation>(
         this IServiceCollection serviceCollection,
         IConfiguration configuration
@@ -51,31 +41,18 @@ public static partial class ServiceCollectionExtensions
         // Bind the options to the configuration.
         configuration.Bind(options);
 
-        // Are the options verifiable?
-        if (options is OptionsBase)
+        // Attempt to validate the options.
+        var validationResults = new List<ValidationResult>();
+        if (!ValidatorEx.TryValidateObject(
+            options,
+            new ValidationContext(options),
+            validationResults,
+            true,
+            true
+            ))
         {
-            // Are the options not valid?
-            if (false == (options as OptionsBase).IsValid())
-            {
-                // Return the results.
-                return false;
-            }
-        }
-        else
-        {
-            // Attempt to validate the options.
-            var validationResults = new List<ValidationResult>();
-            if (!ValidatorEx.TryValidateObject(
-                options,
-                new ValidationContext(options),
-                validationResults,
-                true,
-                true
-                ))
-            {
-                // Return the results.
-                return false;
-            }
+            // Return the results.
+            return false;
         }
 
         // Add the options to the DI container.
@@ -105,18 +82,6 @@ public static partial class ServiceCollectionExtensions
     /// <returns>True if the options were configured; false otherwise.</returns>
     /// <exception cref="ArgumentException">This exception is thrown whenever
     /// one or more of the required parameters is missing or invalid.</exception>
-    /// <remarks>
-    /// <para>
-    /// In this method, the options are read from the configuration, bound to an 
-    /// instance of <typeparamref name="TImplementation"/>, verified (if the 
-    /// <typeparamref name="TImplementation"/> type derives from <see cref="OptionsBase"/>), 
-    /// and finally registered with <paramref name="serviceCollection"/> as a 
-    /// singleton service, using <typeparamref name="TOptions"/> as the service
-    /// type. The unadorned option instance is returned using the <paramref name="options"/>
-    /// parameter - for scenarios where options need to be configured and then immediately
-    /// used for other configuration purposes.
-    /// </para>
-    /// </remarks>
     public static bool TryConfigureOptions<TOptions, TImplementation>(
         this IServiceCollection serviceCollection,
         IConfiguration configuration,
@@ -134,31 +99,18 @@ public static partial class ServiceCollectionExtensions
         // Bind the options to the configuration.
         configuration.Bind(options);
 
-        // Are the options verifiable?
-        if (options is OptionsBase)
+        // Attempt to validate the options.
+        var validationResults = new List<ValidationResult>();
+        if (!ValidatorEx.TryValidateObject(
+            options,
+            new ValidationContext(options),
+            validationResults,
+            true,
+            true
+            ))
         {
-            // Are the options not valid?
-            if (false == (options as OptionsBase).IsValid())
-            {
-                // Return the results.
-                return false;
-            }
-        }
-        else
-        {
-            // Attempt to validate the options.
-            var validationResults = new List<ValidationResult>();
-            if (!ValidatorEx.TryValidateObject(
-                options,
-                new ValidationContext(options),
-                validationResults,
-                true,
-                true
-                ))
-            {
-                // Return the results.
-                return false;
-            }
+            // Return the results.
+            return false;
         }
 
         // Add the options to the DI container.
@@ -186,15 +138,6 @@ public static partial class ServiceCollectionExtensions
     /// <returns>True if the options were configured; false otherwise.</returns>
     /// <exception cref="ArgumentException">This exception is thrown whenever
     /// one or more of the required parameters is missing or invalid.</exception>
-    /// <remarks>
-    /// <para>
-    /// In this method, the options are read from the configuration, bound to an 
-    /// instance of <typeparamref name="TOptions"/>, verified (if the 
-    /// <typeparamref name="TOptions"/> type derives from <see cref="OptionsBase"/>), 
-    /// and finally registered with <paramref name="serviceCollection"/> as a 
-    /// singleton service. 
-    /// </para>
-    /// </remarks>
     public static bool TryConfigureOptions<TOptions>(
         this IServiceCollection serviceCollection,
         IConfiguration configuration
@@ -210,31 +153,18 @@ public static partial class ServiceCollectionExtensions
         // Bind the options to the configuration.
         configuration.Bind(options);
 
-        // Are the options verifiable?
-        if (options is OptionsBase)
+        // Attempt to validate the options.
+        var validationResults = new List<ValidationResult>();
+        if (!ValidatorEx.TryValidateObject(
+            options,
+            new ValidationContext(options),
+            validationResults,
+            true,
+            true
+            ))
         {
-            // Are the options not valid?
-            if (false == (options as OptionsBase).IsValid())
-            {
-                // Return the results.
-                return false;
-            }
-        }
-        else
-        {
-            // Attempt to validate the options.
-            var validationResults = new List<ValidationResult>();
-            if (!ValidatorEx.TryValidateObject(
-                options,
-                new ValidationContext(options),
-                validationResults,
-                true,
-                true
-                ))
-            {
-                // Return the results.
-                return false;
-            }
+            // Return the results.
+            return false;
         }
 
         // Add the options to the DI container.
@@ -260,17 +190,6 @@ public static partial class ServiceCollectionExtensions
     /// <returns>True if the options were configured; false otherwise.</returns>
     /// <exception cref="ArgumentException">This exception is thrown whenever
     /// one or more of the required parameters is missing or invalid.</exception>
-    /// <remarks>
-    /// <para>
-    /// In this method, the options are read from the configuration, bound to an 
-    /// instance of <typeparamref name="TOptions"/>, verified (if the 
-    /// <typeparamref name="TOptions"/> type derives from <see cref="OptionsBase"/>), 
-    /// and finally registered with <paramref name="serviceCollection"/> as a 
-    /// singleton service. The unadorned option instance is returned using the 
-    /// <paramref name="options"/> parameter - for scenarios where options need 
-    /// to be configured and then immediately used for other configuration purposes.
-    /// </para>
-    /// </remarks>
     public static bool TryConfigureOptions<TOptions>(
         this IServiceCollection serviceCollection,
         IConfiguration configuration,
@@ -287,31 +206,18 @@ public static partial class ServiceCollectionExtensions
         // Bind the options to the configuration.
         configuration.Bind(options);
 
-        // Are the options verifiable?
-        if (options is OptionsBase)
+        // Attempt to validate the options.
+        var validationResults = new List<ValidationResult>();
+        if (!ValidatorEx.TryValidateObject(
+            options,
+            new ValidationContext(options),
+            validationResults,
+            true,
+            true
+            ))
         {
-            // Are the options not valid?
-            if (false == (options as OptionsBase).IsValid())
-            {
-                // Return the results.
-                return false;
-            }
-        }
-        else
-        {
-            // Attempt to validate the options.
-            var validationResults = new List<ValidationResult>();
-            if (!ValidatorEx.TryValidateObject(
-                options,
-                new ValidationContext(options),
-                validationResults,
-                true,
-                true
-                ))
-            {
-                // Return the results.
-                return false;
-            }
+            // Return the results.
+            return false;
         }
 
         // Add the options to the DI container.
@@ -336,13 +242,6 @@ public static partial class ServiceCollectionExtensions
     /// <returns>True if the options were configured; false otherwise.</returns>
     /// <exception cref="ArgumentException">This exception is thrown whenever
     /// one or more of the required parameters is missing or invalid.</exception>
-    /// <remarks>
-    /// <para>
-    /// In this method, the options are verified (if the <typeparamref name="TOptions"/> 
-    /// type derives from <see cref="OptionsBase"/>), and then registered with 
-    /// <paramref name="serviceCollection"/> as a singleton service.
-    /// </para>
-    /// </remarks>
     public static bool TryConfigureOptions<TOptions>(
         this IServiceCollection serviceCollection,
         TOptions options
@@ -352,31 +251,18 @@ public static partial class ServiceCollectionExtensions
         Guard.Instance().ThrowIfNull(serviceCollection, nameof(serviceCollection))
             .ThrowIfNull(options, nameof(options));
 
-        // Are the options verifiable?
-        if (options is OptionsBase)
+        // Attempt to validate the options.
+        var validationResults = new List<ValidationResult>();
+        if (!ValidatorEx.TryValidateObject(
+            options,
+            new ValidationContext(options),
+            validationResults,
+            true,
+            true
+            ))
         {
-            // Are the options not valid?
-            if (false == (options as OptionsBase).IsValid())
-            {
-                // Return the results.
-                return false;
-            }
-        }
-        else
-        {
-            // Attempt to validate the options.
-            var validationResults = new List<ValidationResult>();
-            if (!ValidatorEx.TryValidateObject(
-                options,
-                new ValidationContext(options),
-                validationResults,
-                true,
-                true
-                ))
-            {
-                // Return the results.
-                return false;
-            }
+            // Return the results.
+            return false;
         }
 
         // Add the options to the DI container.
@@ -402,13 +288,6 @@ public static partial class ServiceCollectionExtensions
     /// <returns>True if the options were configured; false otherwise.</returns>
     /// <exception cref="ArgumentException">This exception is thrown whenever
     /// one or more of the required parameters is missing or invalid.</exception>
-    /// <remarks>
-    /// <para>
-    /// In this method, the options are verified (if the <typeparamref name="TOptions"/> 
-    /// type derives from <see cref="OptionsBase"/>), and then registered with 
-    /// <paramref name="serviceCollection"/> as a singleton service.
-    /// </para>
-    /// </remarks>
     public static bool TryConfigureOptions<TOptions, TImplementation>(
         this IServiceCollection serviceCollection,
         TImplementation options
@@ -419,31 +298,18 @@ public static partial class ServiceCollectionExtensions
         Guard.Instance().ThrowIfNull(serviceCollection, nameof(serviceCollection))
             .ThrowIfNull(options, nameof(options));
 
-        // Are the options verifiable?
-        if (options is OptionsBase)
+        // Attempt to validate the options.
+        var validationResults = new List<ValidationResult>();
+        if (!ValidatorEx.TryValidateObject(
+            options,
+            new ValidationContext(options),
+            validationResults,
+            true,
+            true
+            ))
         {
-            // Are the options not valid?
-            if (false == (options as OptionsBase).IsValid())
-            {
-                // Return the results.
-                return false;
-            }
-        }
-        else
-        {
-            // Attempt to validate the options.
-            var validationResults = new List<ValidationResult>();
-            if (!ValidatorEx.TryValidateObject(
-                options,
-                new ValidationContext(options),
-                validationResults,
-                true,
-                true
-                ))
-            {
-                // Return the results.
-                return false;
-            }
+            // Return the results.
+            return false;
         }
 
         // Add the options to the DI container.
@@ -474,15 +340,6 @@ public static partial class ServiceCollectionExtensions
     /// after the bind operation.</exception>
     /// <exception cref="OptionsException">This exception is thrown whenever the method
     /// encounters a configuration with no settings.</exception>
-    /// <remarks>
-    /// <para>
-    /// In this method, the options are read from the configuration, bound to an 
-    /// instance of <typeparamref name="TOptions"/>, verified (if the 
-    /// <typeparamref name="TOptions"/> type derives from <see cref="OptionsBase"/>), 
-    /// and finally registered with <paramref name="serviceCollection"/> as a 
-    /// singleton service. 
-    /// </para>
-    /// </remarks>
     public static IServiceCollection ConfigureOptions<TOptions>(
         this IServiceCollection serviceCollection,
         IConfiguration configuration
@@ -498,31 +355,8 @@ public static partial class ServiceCollectionExtensions
         // Bind the options to the configuration.
         configuration.Bind(options);
 
-        // Verify the result - if possible.
-        if (options is OptionsBase)
-        {
-            // Verify the result - if possible.
-            (options as OptionsBase)?.ThrowIfInvalid();
-        }
-        else
-        {
-            // Attempt to validate the options.
-            var validationResults = new List<ValidationResult>();
-            if (!ValidatorEx.TryValidateObject(
-                options,
-                new ValidationContext(options),
-                validationResults,
-                true,
-                true
-                ))
-            {
-                // Panic!!
-                throw new ValidationException(
-                    message: $"Options {typeof(TOptions).Name} failed to " +
-                    $"validate! Errors: {string.Join(",", validationResults.Select(x => x.ErrorMessage))}"
-                    );
-            }
-        }
+        // Validate the options.
+        Guard.Instance().ThrowIfInvalidObject(options, nameof(options));
 
         // Add the options to the DI container.
         serviceCollection.TryAddSingleton<IOptions<TOptions>>(
@@ -553,16 +387,6 @@ public static partial class ServiceCollectionExtensions
     /// after the bind operation.</exception>
     /// <exception cref="OptionsException">This exception is thrown whenever the method
     /// encounters a configuration with no settings.</exception>
-    /// <remarks>
-    /// <para>
-    /// In this method, the options are read from the configuration, bound to an 
-    /// instance of <typeparamref name="TImplementation"/>, verified (if the 
-    /// <typeparamref name="TImplementation"/> type derives from <see cref="OptionsBase"/>), 
-    /// and finally registered with <paramref name="serviceCollection"/> as a 
-    /// singleton service, using <typeparamref name="TOptions"/> as the service
-    /// type.
-    /// </para>
-    /// </remarks>
     public static IServiceCollection ConfigureOptions<TOptions, TImplementation>(
         this IServiceCollection serviceCollection,
         IConfiguration configuration
@@ -579,31 +403,8 @@ public static partial class ServiceCollectionExtensions
         // Bind the options to the configuration.
         configuration.Bind(options);
 
-        // Verify the result - if possible.
-        if (options is OptionsBase)
-        {
-            // Verify the result - if possible.
-            (options as OptionsBase)?.ThrowIfInvalid();
-        }
-        else
-        {
-            // Attempt to validate the options.
-            var validationResults = new List<ValidationResult>();
-            if (!ValidatorEx.TryValidateObject(
-                options,
-                new ValidationContext(options),
-                validationResults,
-                true,
-                true
-                ))
-            {
-                // Panic!!
-                throw new ValidationException(
-                    message: $"Options {typeof(TOptions).Name} failed to " +
-                    $"validate! Errors: {string.Join(",", validationResults.Select(x => x.ErrorMessage))}"
-                    );
-            }
-        }
+        // Validate the options.
+        Guard.Instance().ThrowIfInvalidObject(options, nameof(options));
 
         // Add the options to the DI container.
         serviceCollection.TryAddSingleton<
@@ -638,33 +439,6 @@ public static partial class ServiceCollectionExtensions
     /// after the bind operation.</exception>
     /// <exception cref="OptionsException">This exception is thrown whenever the method
     /// encounters a configuration with no settings.</exception>
-    /// <remarks>
-    /// <para>
-    /// In this method, the options are read from the configuration, bound to an 
-    /// instance of <typeparamref name="TOptions"/>, verified (if the 
-    /// <typeparamref name="TOptions"/> type derives from <see cref="OptionsBase"/>), 
-    /// and finally registered with <paramref name="serviceCollection"/> as a 
-    /// singleton service, using <typeparamref name="TOptions"/> as the service
-    /// type. The unadorned option instance is returned using the <paramref name="options"/>
-    /// parameter - for scenarios where options need to be configured and then immediately
-    /// used for other configuration purposes.
-    /// </para>
-    /// </remarks> 
-    /// <example>
-    /// This example demonstrates configuring options when the values are needed before
-    /// the host application is created:
-    /// <code>
-    /// public static WebApplicationBuilder AddFoo(this WebApplicationBuilder builder)
-    /// {
-    ///    builder.Services.ConfigureOptions{MyOptions}(
-    ///       builder.Configuration,
-    ///       out var myOptions
-    ///       );
-    /// 
-    ///    // TODO : use the bound and validated 'myOptions' here.
-    /// }
-    /// </code>
-    /// </example>
     public static IServiceCollection ConfigureOptions<TOptions>(
         this IServiceCollection serviceCollection,
         IConfiguration configuration,
@@ -681,31 +455,8 @@ public static partial class ServiceCollectionExtensions
         // Bind the options to the configuration.
         configuration.Bind(options);
 
-        // Verify the result - if possible.
-        if (options is OptionsBase)
-        {
-            // Verify the result - if possible.
-            (options as OptionsBase)?.ThrowIfInvalid();
-        }
-        else
-        {
-            // Attempt to validate the options.
-            var validationResults = new List<ValidationResult>();
-            if (!ValidatorEx.TryValidateObject(
-                options,
-                new ValidationContext(options),
-                validationResults,
-                true,
-                true
-                ))
-            {
-                // Panic!!
-                throw new ValidationException(
-                    message: $"Options {typeof(TOptions).Name} failed to " +
-                    $"validate! Errors: {string.Join(",", validationResults.Select(x => x.ErrorMessage))}"
-                    );
-            }
-        }
+        // Validate the options.
+        Guard.Instance().ThrowIfInvalidObject(options, nameof(options));
 
         // Add the options to the DI container.
         serviceCollection.TryAddSingleton<IOptions<TOptions>>(
@@ -738,33 +489,6 @@ public static partial class ServiceCollectionExtensions
     /// after the bind operation.</exception>
     /// <exception cref="OptionsException">This exception is thrown whenever the method
     /// encounters a configuration with no settings.</exception>
-    /// <remarks>
-    /// <para>
-    /// In this method, the options are read from the configuration, bound to an 
-    /// instance of <typeparamref name="TImplementation"/>, verified (if the 
-    /// <typeparamref name="TImplementation"/> type derives from <see cref="OptionsBase"/>), 
-    /// and finally registered with <paramref name="serviceCollection"/> as a 
-    /// singleton service, using <typeparamref name="TOptions"/> as the service
-    /// type. The unadorned option instance is returned using the <paramref name="options"/>
-    /// parameter - for scenarios where options need to be configured and then immediately
-    /// used for other configuration purposes.
-    /// </para>
-    /// </remarks> 
-    /// <example>
-    /// This example demonstrates configuring options when the values are needed before
-    /// the host application is created:
-    /// <code>
-    /// public static WebApplicationBuilder AddFoo(this WebApplicationBuilder builder)
-    /// {
-    ///    builder.Services.ConfigureOptions{IMyOptions, MyOptions}(
-    ///       builder.Configuration,
-    ///       out var myOptions
-    ///       );
-    /// 
-    ///    // TODO : use the bound and validated 'myOptions' here.
-    /// }
-    /// </code>
-    /// </example>
     public static IServiceCollection ConfigureOptions<TOptions, TImplementation>(
         this IServiceCollection serviceCollection,
         IConfiguration configuration,
@@ -782,31 +506,8 @@ public static partial class ServiceCollectionExtensions
         // Bind the options to the configuration.
         configuration.Bind(options);
 
-        // Verify the result - if possible.
-        if (options is OptionsBase)
-        {
-            // Verify the result - if possible.
-            (options as OptionsBase)?.ThrowIfInvalid();
-        }
-        else
-        {
-            // Attempt to validate the options.
-            var validationResults = new List<ValidationResult>();
-            if (!ValidatorEx.TryValidateObject(
-                options,
-                new ValidationContext(options),
-                validationResults,
-                true,
-                true
-                ))
-            {
-                // Panic!!
-                throw new ValidationException(
-                    message: $"Options {typeof(TOptions).Name} failed to " +
-                    $"validate! Errors: {string.Join(",", validationResults.Select(x => x.ErrorMessage))}"
-                    );
-            }
-        }
+        // Validate the options.
+        Guard.Instance().ThrowIfInvalidObject(options, nameof(options));
 
         // Add the options to the DI container.
         serviceCollection.TryAddSingleton<
@@ -837,13 +538,6 @@ public static partial class ServiceCollectionExtensions
     /// <exception cref="ValidationException">This exception is thrown whenever
     /// the <typeparamref name="TOptions"/> object fails to validate properly
     /// after the bind operation.</exception>
-    /// <remarks>
-    /// <para>
-    /// In this method, the options are verified (if the <typeparamref name="TOptions"/> 
-    /// type derives from <see cref="OptionsBase"/>), and then registered with 
-    /// <paramref name="serviceCollection"/> as a singleton service.
-    /// </para>
-    /// </remarks>
     public static IServiceCollection ConfigureOptions<TOptions>(
         this IServiceCollection serviceCollection,
         TOptions options
@@ -853,31 +547,8 @@ public static partial class ServiceCollectionExtensions
         Guard.Instance().ThrowIfNull(serviceCollection, nameof(serviceCollection))
             .ThrowIfNull(options, nameof(options));
 
-        // Verify the result - if possible.
-        if (options is OptionsBase)
-        {
-            // Verify the result - if possible.
-            (options as OptionsBase)?.ThrowIfInvalid();
-        }
-        else
-        {
-            // Attempt to validate the options.
-            var validationResults = new List<ValidationResult>();
-            if (!ValidatorEx.TryValidateObject(
-                options,
-                new ValidationContext(options),
-                validationResults,
-                true,
-                true
-                ))
-            {
-                // Panic!!
-                throw new ValidationException(
-                    message: $"Options {typeof(TOptions).Name} failed to " +
-                    $"validate! Errors: {string.Join(",", validationResults.Select(x => x.ErrorMessage))}"
-                    );
-            }
-        }
+        // Validate the options.
+        Guard.Instance().ThrowIfInvalidObject(options, nameof(options));
 
         // Add the options to the DI container.
         serviceCollection.TryAddSingleton<IOptions<TOptions>>(
