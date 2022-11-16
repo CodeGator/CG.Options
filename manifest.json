@@ -14,18 +14,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/CG.Options.OptionsBase.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/CG.Options.OptionsBase.html",
-          "hash": "YnPATfMB0CODOneY5qOCh8qNaz58Jk4FIusly1adulw="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/CG.Options.OptionsException.yml",
       "output": {
         ".html": {
@@ -42,31 +30,7 @@
       "output": {
         ".html": {
           "relative_path": "api/CG.Options.html",
-          "hash": "e0inI1vRL1Qx59xX5T/bfILUxk1La7ST255FQAsKfg0="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/CG.Validations.GuardExtensions.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/CG.Validations.GuardExtensions.html",
-          "hash": "tkSGb8J5Upn4PmKOcelOyoKjUv7vHqLxdiDf5GWBaN4="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/CG.Validations.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/CG.Validations.html",
-          "hash": "jhIHwkKe4p/PWFAYx6bchlzkZhKiF6I88MWhCtEpgoE="
+          "hash": "9QbulYMcKjuJ3spFK9vtVHdgokmBiootLOU8iRDlq3A="
         }
       },
       "is_incremental": false,
@@ -78,7 +42,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.html",
-          "hash": "dGsIUwjRjMBOOSAOGjAil0XDSetzO+x2OQOVPzf9oc8="
+          "hash": "wnwMy/DKE0x0RnoTGWmbRoyU+5D5fC6vGOPXPhOlx70="
         }
       },
       "is_incremental": false,
@@ -102,7 +66,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "hWNpWtFHVF03bIwvaPBpv/UasEZ7ftHzY4LTs81EU4s="
+          "hash": "cQCqmdXafbmXRefuTmRIcPRP0WdQ8xuob5E1/MiKFms="
         }
       },
       "is_incremental": false,
@@ -221,7 +185,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 7,
+          "total_file_count": 4,
           "skipped_file_count": 0
         },
         "ResourceDocumentProcessor": {

@@ -193,13 +193,6 @@ for chaining calls together.</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_ConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection___0__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>
-In this method, the options are verified (if the <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code> 
-type derives from <see cref="!:OptionsBase"></see>), and then registered with 
-<code data-dev-comment-type="paramref" class="paramref">serviceCollection</code> as a singleton service.
-</p>
-</div>
   <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_ConfigureOptions_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.ConfigureOptions*"></a>
   <h4 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_ConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_IConfiguration_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.ConfigureOptions``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,IConfiguration)">ConfigureOptions&lt;TOptions&gt;(IServiceCollection, IConfiguration)</h4>
   <div class="markdown level1 summary"><p>This method configures the specified <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code>
@@ -269,15 +262,6 @@ for chaining calls together.</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_ConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_IConfiguration__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>
-In this method, the options are read from the configuration, bound to an 
-instance of <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code>, verified (if the 
-<code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code> type derives from <see cref="!:OptionsBase"></see>), 
-and finally registered with <code data-dev-comment-type="paramref" class="paramref">serviceCollection</code> as a 
-singleton service. 
-</p>
-</div>
   <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_ConfigureOptions_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.ConfigureOptions*"></a>
   <h4 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_ConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_IConfiguration___0__" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.ConfigureOptions``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,IConfiguration,``0@)">ConfigureOptions&lt;TOptions&gt;(IServiceCollection, IConfiguration, out TOptions)</h4>
   <div class="markdown level1 summary"><p>This method configures the specified <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code>
@@ -354,31 +338,6 @@ for chaining calls together.</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_ConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_IConfiguration___0___remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>
-In this method, the options are read from the configuration, bound to an 
-instance of <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code>, verified (if the 
-<code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code> type derives from <see cref="!:OptionsBase"></see>), 
-and finally registered with <code data-dev-comment-type="paramref" class="paramref">serviceCollection</code> as a 
-singleton service, using <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code> as the service
-type. The unadorned option instance is returned using the <code data-dev-comment-type="paramref" class="paramref">options</code>
-parameter - for scenarios where options need to be configured and then immediately
-used for other configuration purposes.
-</p>
-</div>
-  <h5 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_ConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_IConfiguration___0___examples">Examples</h5>
-  <p>This example demonstrates configuring options when the values are needed before
-the host application is created:</p>
-<pre><code>public static WebApplicationBuilder AddFoo(this WebApplicationBuilder builder)
-{
-   builder.Services.ConfigureOptions{MyOptions}(
-      builder.Configuration,
-      out var myOptions
-      );
-
-   // TODO : use the bound and validated &apos;myOptions&apos; here.
-}</code></pre>
-
   <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_ConfigureOptions_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.ConfigureOptions*"></a>
   <h4 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_ConfigureOptions__2_Microsoft_Extensions_DependencyInjection_IServiceCollection_IConfiguration_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.ConfigureOptions``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,IConfiguration)">ConfigureOptions&lt;TOptions, TImplementation&gt;(IServiceCollection, IConfiguration)</h4>
   <div class="markdown level1 summary"><p>This method configures the specified <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code>
@@ -453,16 +412,6 @@ for chaining calls together.</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_ConfigureOptions__2_Microsoft_Extensions_DependencyInjection_IServiceCollection_IConfiguration__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>
-In this method, the options are read from the configuration, bound to an 
-instance of <code data-dev-comment-type="typeparamref" class="typeparamref">TImplementation</code>, verified (if the 
-<code data-dev-comment-type="typeparamref" class="typeparamref">TImplementation</code> type derives from <see cref="!:OptionsBase"></see>), 
-and finally registered with <code data-dev-comment-type="paramref" class="paramref">serviceCollection</code> as a 
-singleton service, using <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code> as the service
-type.
-</p>
-</div>
   <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_ConfigureOptions_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.ConfigureOptions*"></a>
   <h4 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_ConfigureOptions__2_Microsoft_Extensions_DependencyInjection_IServiceCollection_IConfiguration___0__" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.ConfigureOptions``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,IConfiguration,``0@)">ConfigureOptions&lt;TOptions, TImplementation&gt;(IServiceCollection, IConfiguration, out TOptions)</h4>
   <div class="markdown level1 summary"><p>This method configures the specified <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code>
@@ -544,31 +493,6 @@ for chaining calls together.</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_ConfigureOptions__2_Microsoft_Extensions_DependencyInjection_IServiceCollection_IConfiguration___0___remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>
-In this method, the options are read from the configuration, bound to an 
-instance of <code data-dev-comment-type="typeparamref" class="typeparamref">TImplementation</code>, verified (if the 
-<code data-dev-comment-type="typeparamref" class="typeparamref">TImplementation</code> type derives from <see cref="!:OptionsBase"></see>), 
-and finally registered with <code data-dev-comment-type="paramref" class="paramref">serviceCollection</code> as a 
-singleton service, using <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code> as the service
-type. The unadorned option instance is returned using the <code data-dev-comment-type="paramref" class="paramref">options</code>
-parameter - for scenarios where options need to be configured and then immediately
-used for other configuration purposes.
-</p>
-</div>
-  <h5 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_ConfigureOptions__2_Microsoft_Extensions_DependencyInjection_IServiceCollection_IConfiguration___0___examples">Examples</h5>
-  <p>This example demonstrates configuring options when the values are needed before
-the host application is created:</p>
-<pre><code>public static WebApplicationBuilder AddFoo(this WebApplicationBuilder builder)
-{
-   builder.Services.ConfigureOptions{IMyOptions, MyOptions}(
-      builder.Configuration,
-      out var myOptions
-      );
-
-   // TODO : use the bound and validated &apos;myOptions&apos; here.
-}</code></pre>
-
   <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigureOptions_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigureOptions*"></a>
   <h4 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection___0_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigureOptions``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,``0)">TryConfigureOptions&lt;TOptions&gt;(IServiceCollection, TOptions)</h4>
   <div class="markdown level1 summary"><p>This method attempts to configure the specified <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code>
@@ -637,13 +561,6 @@ operation.</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection___0__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>
-In this method, the options are verified (if the <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code> 
-type derives from <see cref="!:OptionsBase"></see>), and then registered with 
-<code data-dev-comment-type="paramref" class="paramref">serviceCollection</code> as a singleton service.
-</p>
-</div>
   <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigureOptions_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigureOptions*"></a>
   <h4 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_IConfiguration_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigureOptions``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,IConfiguration)">TryConfigureOptions&lt;TOptions&gt;(IServiceCollection, IConfiguration)</h4>
   <div class="markdown level1 summary"><p>This method attempts to configure the specified <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code>
@@ -712,15 +629,6 @@ operation.</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_IConfiguration__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>
-In this method, the options are read from the configuration, bound to an 
-instance of <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code>, verified (if the 
-<code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code> type derives from <see cref="!:OptionsBase"></see>), 
-and finally registered with <code data-dev-comment-type="paramref" class="paramref">serviceCollection</code> as a 
-singleton service. 
-</p>
-</div>
   <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigureOptions_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigureOptions*"></a>
   <h4 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_IConfiguration___0__" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigureOptions``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,IConfiguration,``0@)">TryConfigureOptions&lt;TOptions&gt;(IServiceCollection, IConfiguration, out TOptions)</h4>
   <div class="markdown level1 summary"><p>This method attempts to configure the specified <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code>
@@ -795,17 +703,6 @@ operation.</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigureOptions__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_IConfiguration___0___remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>
-In this method, the options are read from the configuration, bound to an 
-instance of <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code>, verified (if the 
-<code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code> type derives from <see cref="!:OptionsBase"></see>), 
-and finally registered with <code data-dev-comment-type="paramref" class="paramref">serviceCollection</code> as a 
-singleton service. The unadorned option instance is returned using the 
-<code data-dev-comment-type="paramref" class="paramref">options</code> parameter - for scenarios where options need 
-to be configured and then immediately used for other configuration purposes.
-</p>
-</div>
   <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigureOptions_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigureOptions*"></a>
   <h4 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigureOptions__2_Microsoft_Extensions_DependencyInjection_IServiceCollection___1_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigureOptions``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,``1)">TryConfigureOptions&lt;TOptions, TImplementation&gt;(IServiceCollection, TImplementation)</h4>
   <div class="markdown level1 summary"><p>This method attempts to configure the specified <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code>
@@ -879,13 +776,6 @@ operation.</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigureOptions__2_Microsoft_Extensions_DependencyInjection_IServiceCollection___1__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>
-In this method, the options are verified (if the <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code> 
-type derives from <see cref="!:OptionsBase"></see>), and then registered with 
-<code data-dev-comment-type="paramref" class="paramref">serviceCollection</code> as a singleton service.
-</p>
-</div>
   <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigureOptions_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigureOptions*"></a>
   <h4 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigureOptions__2_Microsoft_Extensions_DependencyInjection_IServiceCollection_IConfiguration_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigureOptions``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,IConfiguration)">TryConfigureOptions&lt;TOptions, TImplementation&gt;(IServiceCollection, IConfiguration)</h4>
   <div class="markdown level1 summary"><p>This method attempts to configure the specified <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code>
@@ -959,16 +849,6 @@ operation.</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigureOptions__2_Microsoft_Extensions_DependencyInjection_IServiceCollection_IConfiguration__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>
-In this method, the options are read from the configuration, bound to an 
-instance of <code data-dev-comment-type="typeparamref" class="typeparamref">TImplementation</code>, verified (if the 
-<code data-dev-comment-type="typeparamref" class="typeparamref">TImplementation</code> type derives from <see cref="!:OptionsBase"></see>), 
-and finally registered with <code data-dev-comment-type="paramref" class="paramref">serviceCollection</code> as a 
-singleton service, using <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code> as the service
-type.
-</p>
-</div>
   <a id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigureOptions_" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigureOptions*"></a>
   <h4 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigureOptions__2_Microsoft_Extensions_DependencyInjection_IServiceCollection_IConfiguration___1__" data-uid="Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.TryConfigureOptions``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,IConfiguration,``1@)">TryConfigureOptions&lt;TOptions, TImplementation&gt;(IServiceCollection, IConfiguration, out TImplementation)</h4>
   <div class="markdown level1 summary"><p>This method attempts to configure the specified <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code>
@@ -1048,18 +928,6 @@ operation.</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="Microsoft_Extensions_DependencyInjection_ServiceCollectionExtensions_TryConfigureOptions__2_Microsoft_Extensions_DependencyInjection_IServiceCollection_IConfiguration___1___remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>
-In this method, the options are read from the configuration, bound to an 
-instance of <code data-dev-comment-type="typeparamref" class="typeparamref">TImplementation</code>, verified (if the 
-<code data-dev-comment-type="typeparamref" class="typeparamref">TImplementation</code> type derives from <see cref="!:OptionsBase"></see>), 
-and finally registered with <code data-dev-comment-type="paramref" class="paramref">serviceCollection</code> as a 
-singleton service, using <code data-dev-comment-type="typeparamref" class="typeparamref">TOptions</code> as the service
-type. The unadorned option instance is returned using the <code data-dev-comment-type="paramref" class="paramref">options</code>
-parameter - for scenarios where options need to be configured and then immediately
-used for other configuration purposes.
-</p>
-</div>
 </article>
           </div>
           
